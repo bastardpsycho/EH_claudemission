@@ -1,36 +1,65 @@
 {
-  "generated_at": "2026-10-26T15:20:28+00:00",
+  "generated_at": "2026-10-26T16:46:02+00:00",
   "trials": {
-    "error": 128,
-    "traced": 991,
-    "no_doi": 6
+    "traced": 1920,
+    "no_doi": 60,
+    "error": 140,
+    "not_in_openalex": 2
   },
-  "citing_edges": 13740,
-  "synthesis_edges": 2185,
+  "trial_errors": {
+    "HTTPError: HTTP Error 429: Too Many Requests": 120,
+    "HTTPError: HTTP Error 401: Unauthorized": 20
+  },
+  "trials_by_retraction_year": {
+    "2013": 39,
+    "2014": 91,
+    "2015": 129,
+    "2016": 109,
+    "2017": 86,
+    "2018": 90,
+    "2019": 86,
+    "2020": 115,
+    "2021": 124,
+    "2022": 107,
+    "2023": 812,
+    "2024": 178,
+    "2025": 99,
+    "2026": 57
+  },
+  "citing_edges": 35196,
+  "synthesis_edges": 4636,
   "synthesis_edges_by_class": {
-    "meta_analysis": 1497,
-    "systematic_review": 540,
-    "guideline": 148
+    "meta_analysis": 3061,
+    "systematic_review": 1200,
+    "guideline": 375
   },
   "synthesis_edges_by_confidence": {
-    "high": 1623,
-    "medium": 562
+    "high": 3545,
+    "medium": 1091
   },
-  "synthesis_edges_after_retraction": 421,
+  "synthesis_edges_after_retraction": 1455,
   "synthesis_edges_after_retraction_by_class": {
-    "meta_analysis": 281,
-    "systematic_review": 120,
-    "guideline": 20
+    "meta_analysis": 924,
+    "systematic_review": 438,
+    "guideline": 93
   },
-  "synthesis_edges_more_than_180d_after": 251,
-  "distinct_syntheses_citing_after_retraction": 398,
-  "distinct_syntheses_citing_more_than_180d_after": 239,
-  "trials_cited_by_a_synthesis": 435,
-  "trials_cited_by_a_synthesis_after_retraction": 266,
+  "synthesis_edges_more_than_180d_after": 1111,
+  "distinct_syntheses_citing_after_retraction": 1319,
+  "distinct_syntheses_citing_more_than_180d_after": 1013,
+  "trials_cited_by_a_synthesis": 906,
+  "trials_cited_by_a_synthesis_after_retraction": 618,
   "after_retraction_by_publication_year": {
-    "2023": 38,
-    "2024": 155,
-    "2025": 145,
-    "2026": 83
+    "2015": 3,
+    "2016": 37,
+    "2017": 58,
+    "2018": 48,
+    "2019": 84,
+    "2020": 100,
+    "2021": 164,
+    "2022": 183,
+    "2023": 162,
+    "2024": 282,
+    "2025": 212,
+    "2026": 122
   }
 }
