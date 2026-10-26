@@ -24,6 +24,8 @@
     "checkable": 628,
     "citation_recall": 0.9522,
     "synthesis_recall": 0.914,
+    "citation_recall_any_cochrane_version": 0.9522,
+    "synthesis_recall_any_cochrane_version": 0.914,
     "found_by_class": {
       "meta_analysis": 538,
       "systematic_review": 35,
@@ -36,21 +38,29 @@
     "synthesis_citations_of_vitality_trials": 3289,
     "in_vitality_reviews": 884,
     "share": 0.2688,
+    "in_vitality_reviews_any_cochrane_version": 1061,
+    "share_any_cochrane_version": 0.3226,
     "by_class": {
       "guideline": {
         "citations": 295,
         "in_vitality": 1,
-        "share": 0.0034
+        "share": 0.0034,
+        "in_vitality_any_cochrane_version": 1,
+        "share_any_cochrane_version": 0.0034
       },
       "meta_analysis": {
         "citations": 2258,
         "in_vitality": 835,
-        "share": 0.3698
+        "share": 0.3698,
+        "in_vitality_any_cochrane_version": 972,
+        "share_any_cochrane_version": 0.4305
       },
       "systematic_review": {
         "citations": 736,
         "in_vitality": 48,
-        "share": 0.0652
+        "share": 0.0652,
+        "in_vitality_any_cochrane_version": 88,
+        "share_any_cochrane_version": 0.1196
       }
     }
   }
