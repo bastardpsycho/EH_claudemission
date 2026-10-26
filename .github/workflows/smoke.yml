@@ -1,0 +1,46 @@
+name: live-smoke
+# Traces a few real retracted trials against the live OpenAlex API, so changes
+# to the client are checked against real responses and not only fixtures.
+on:
+  pull_request:
+    paths: ["src/**", ".github/workflows/smoke.yml"]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: pip install -e .
+      - run: curl -fsSL -o retraction_watch.csv https://gitlab.com/crossref/retraction-watch-data/-/raw/main/retraction_watch.csv
+      - name: Trace 3 trials
+        env:
+          OPENALEX_MAILTO: ${{ vars.OPENALEX_MAILTO }}
+        run: fallout trace --csv retraction_watch.csv --ledger ledger.json --limit 3 --max-citing 400 | tee trace-summary.json
+      - name: Check the ledger has resolved trials
+        run: |
+          python - <<'PY'
+          import json
+          led = json.load(open("ledger.json"))
+          trials = led["trials"]
+          for key, t in trials.items():
+              print(key, t.get("status"), t.get("error", ""))
+          print("edges:", len(led["edges"]))
+          statuses = [t.get("status") for t in trials.values()]
+          assert statuses, "no trials traced"
+          assert any(s == "traced" for s in statuses), "no trial resolved in OpenAlex"
+          PY
+      - run: fallout report --ledger ledger.json --out-dir site
+      - uses: actions/upload-artifact@v4
+        with:
+          name: smoke-ledger
+          path: |
+            ledger.json
+            trace-summary.json
+            site/
+          retention-days: 7
