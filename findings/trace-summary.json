@@ -1,0 +1,17 @@
+{
+  "traced_this_run": 747,
+  "requests": 1297,
+  "trials_traced": 2613,
+  "trials_no_doi": 113,
+  "trials_not_in_openalex": 3,
+  "trials_error": 0,
+  "citing_edges": 72151,
+  "synthesis_edges": 4856,
+  "synthesis_edges_by_class": {
+    "meta_analysis": 2947,
+    "systematic_review": 1460,
+    "guideline": 449
+  },
+  "synthesis_edges_after_retraction": 1959,
+  "trials_cited_by_a_synthesis": 1156
+}
