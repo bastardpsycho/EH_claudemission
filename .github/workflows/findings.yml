@@ -49,6 +49,8 @@ jobs:
           NCBI_EMAIL: ${{ vars.OPENALEX_MAILTO }}
         run: fallout enrich --ledger ledger.json | tee enrich-summary.json
       - run: python scripts/summarize_findings.py ledger.json findings retraction_watch.csv
+      - name: Validate against VITALITY Study I
+        run: fallout validate --csv retraction_watch.csv --ledger ledger.json --vitality-dir validation --out-dir findings/validation
       - name: Commit findings
         run: |
           cp trace-summary.json enrich-summary.json findings/ || true
