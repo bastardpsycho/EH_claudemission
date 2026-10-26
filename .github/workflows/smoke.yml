@@ -22,6 +22,7 @@ jobs:
         env:
           OPENALEX_MAILTO: ${{ vars.OPENALEX_MAILTO }}
         run: fallout trace --csv retraction_watch.csv --ledger ledger.json --limit 3 --max-citing 400 | tee trace-summary.json
+      - run: fallout enrich --ledger ledger.json
       - name: Check the ledger has resolved trials
         run: |
           python - <<'PY'

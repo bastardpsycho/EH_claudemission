@@ -43,6 +43,11 @@ jobs:
           OPENALEX_MAILTO: ${{ vars.OPENALEX_MAILTO }}
           OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
         run: fallout trace --csv retraction_watch.csv --ledger ledger.json --limit "${{ inputs.limit || '200' }}"
+      - name: Add PubMed publication types
+        env:
+          NCBI_EMAIL: ${{ vars.OPENALEX_MAILTO }}
+          NCBI_API_KEY: ${{ secrets.NCBI_API_KEY }}
+        run: fallout enrich --ledger ledger.json
       - name: Render
         run: fallout report --ledger ledger.json --out-dir site
       - uses: actions/upload-artifact@v4
