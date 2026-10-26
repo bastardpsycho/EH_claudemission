@@ -39,9 +39,25 @@ Fallout records that a work **cites** a retracted trial, according to OpenAlex. 
 | ...with a DOI (traceable via OpenAlex) | 2,616 |
 | ...with a PubMed ID | 2,590 |
 
-812 of the 2,729 were retracted in 2023, and 644 of those were Hindawi papers, consistent with Hindawi's mass paper-mill retractions that year. Note that VITALITY found 1,330 retracted RCTs *included in reviews* by its own screening, a different quantity from these counts.
+812 of the 2,729 were retracted in 2023, and 644 of those were Hindawi papers, consistent with Hindawi's mass paper-mill retractions that year. VITALITY's cohort of 1,330 retracted RCTs comes from its own full-text screening of Retraction Watch records, a different quantity from these counts; not all 1,330 were pooled in reviews.
 
 The "Clinical Study" label is Retraction Watch's, and it is an imperfect proxy for an RCT: it includes non-randomised studies and misses RCTs labelled "Research Article". Use `--type` or `--all-types` to change the filter.
+
+## Validation against VITALITY
+
+`fallout validate` compares the ledger with VITALITY Study I's verified inclusions (see `validation/README.md`). On the full trace of 2026-10-26 (findings run 40405439120):
+
+| Check | Result |
+|---|---|
+| VITALITY's 1,330 retracted RCTs selected by Fallout's filter | 842 (63.3%) |
+| VITALITY index trials (those with a verified review) selected | 243 of 323 |
+| Verified (trial, review) pairs Fallout could check | 628 of 850 (179 trial outside the population, 43 review without DOI) |
+| ...where the ledger holds the citation | 598 (**95.2%**) |
+| ...where it also labels the review a synthesis | 574 (**91.4%**); 24 were labelled "other" |
+| Synthesis citations of VITALITY trials up to 21 Nov 2024 that VITALITY lists as a review pooling a retracted trial | 884 of 3,289 (26.9%); 1,061 (32.3%) ignoring Cochrane review versions |
+| ...for citations labelled "meta-analysis" | 835 of 2,258 (37.0%); 972 (43.1%) ignoring versions |
+
+Read the last two rows with care. If VITALITY's search was complete, they are an upper bound on how often a synthesis citation means the review pooled that trial in a pairwise meta-analysis. They are not the precision of Fallout's own claims, which are "cites". VITALITY also excludes systematic reviews without a pairwise meta-analysis and guidelines, so low shares for those classes are expected. In a random sample of 25 non-matching "meta-analysis" citations, 24 were syntheses by title and one was a commentary.
 
 ## How it works
 
@@ -72,7 +88,7 @@ The `trace` GitHub Actions workflow runs weekly (and on demand), traces up to 20
 - **Cites is not included.** The biggest gap. Many citing reviews mention a trial without pooling it.
 - **The population filter misses trials.** Fallout keeps Retraction Watch records labelled "Clinical Study". Of VITALITY's 1,330 retracted RCTs, 842 (63%) pass that filter; 417 are labelled only "Research Article" and 45 have DOIs not found in Retraction Watch. Conversely, "Clinical Study" also includes non-randomised studies.
 - **OpenAlex coverage.** Reference lists are incomplete for some publishers, and many guidelines have no DOI or indexed reference list, so guideline linkage is weak.
-- **Classification is approximate.** Title patterns miss syntheses with unusual titles and can mislabel some works.
+- **Classification is approximate.** Title patterns miss syntheses with unusual titles and can mislabel some works. Of 598 VITALITY-verified reviews found in the ledger, 24 were labelled "other". 10 of those are Cochrane reviews, whose titles often omit "systematic review" (for example "Colloid solutions for fluid resuscitation"), and 3 have "protocol" titles.
 - **Dates.** Publication dates are sometimes only year-precise; "after retraction" near zero days is unreliable.
 - **No general recomputation.** Per-trial effect data for most published meta-analyses is not openly available. `fallout impact` works on data you supply.
 - **Licence of the source data.** Crossref's documentation does not state a licence for the Retraction Watch CSV, so this repository never commits or redistributes it.
