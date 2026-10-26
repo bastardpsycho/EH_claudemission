@@ -1,0 +1,13 @@
+__pycache__/
+*.egg-info/
+.pytest_cache/
+.venv/
+build/
+dist/
+.cache/
+# Retraction Watch data is downloaded at run time, never committed (licence not stated by Crossref).
+*.csv
+!tests/fixtures/*.csv
+!examples/*.csv
+site/
+ledger.json

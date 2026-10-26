@@ -1,0 +1,55 @@
+name: trace
+# Weekly, bounded run: download the Retraction Watch data, trace a batch of
+# retracted trials through OpenAlex, and publish the ledger as a build artifact.
+# The ledger and HTTP cache carry over between runs through the Actions cache,
+# so each run continues where the last stopped.
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Retracted trials to trace this run"
+        default: "200"
+  schedule:
+    - cron: "17 4 * * 1"
+permissions:
+  contents: read
+concurrency:
+  group: trace
+  cancel-in-progress: false
+jobs:
+  trace:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: pip install -e .
+      - name: Restore ledger and cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ledger.json
+            .cache/openalex
+          key: fallout-ledger-${{ github.run_id }}
+          restore-keys: fallout-ledger-
+      - name: Download Retraction Watch data
+        run: curl -fsSL -o retraction_watch.csv https://gitlab.com/crossref/retraction-watch-data/-/raw/main/retraction_watch.csv
+      - name: Summarise
+        run: fallout retractions --csv retraction_watch.csv | tee retractions-summary.json
+      - name: Trace
+        env:
+          OPENALEX_MAILTO: ${{ vars.OPENALEX_MAILTO }}
+          OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
+        run: fallout trace --csv retraction_watch.csv --ledger ledger.json --limit "${{ inputs.limit || '200' }}"
+      - name: Render
+        run: fallout report --ledger ledger.json --out-dir site
+      - uses: actions/upload-artifact@v4
+        with:
+          name: fallout-ledger
+          path: |
+            ledger.json
+            retractions-summary.json
+            site/
+          retention-days: 30
