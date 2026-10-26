@@ -10,6 +10,7 @@ import sys
 from . import ledger as ledger_mod
 from .metaanalysis import effect_from_2x2, impact_without
 from .openalex import OpenAlexClient
+from .pubmed import PubMedClient
 from .report import render_all
 from .retractions import DEFAULT_ARTICLE_TYPES, RW_CSV_URL, read_records, select_retracted_trials, summarize
 
@@ -50,6 +51,15 @@ def cmd_trace(args) -> int:
     )
     ledger_mod.save(led, args.ledger)
     print(json.dumps({"traced_this_run": n, "requests": client.requests_made, **ledger_mod.stats(led)}, indent=2))
+    return 0
+
+
+def cmd_enrich(args) -> int:
+    led = ledger_mod.load(args.ledger)
+    client = PubMedClient(email=args.email)
+    result = ledger_mod.enrich_pubmed(led, client)
+    ledger_mod.save(led, args.ledger)
+    print(json.dumps({**result, "requests": client.requests_made, **ledger_mod.stats(led)}, indent=2))
     return 0
 
 
@@ -97,6 +107,11 @@ def build_parser() -> argparse.ArgumentParser:
     t.add_argument("--cache-dir", default=".cache/openalex")
     t.add_argument("--retrace", action="store_true", help="re-trace trials already in the ledger")
     t.set_defaults(func=cmd_trace)
+
+    en = sub.add_parser("enrich", help="add PubMed publication types and re-classify citing works")
+    en.add_argument("--ledger", default="ledger.json")
+    en.add_argument("--email", help="contact email sent to NCBI (or NCBI_EMAIL)")
+    en.set_defaults(func=cmd_enrich)
 
     rep = sub.add_parser("report", help="render ledger as HTML, Atom and CSV")
     rep.add_argument("--ledger", default="ledger.json")

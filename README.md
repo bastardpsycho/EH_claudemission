@@ -47,7 +47,7 @@ The "Clinical Study" label is Retraction Watch's, and it is an imperfect proxy f
 
 1. **Retractions** (`fallout.retractions`): downloads the [Retraction Watch database](https://gitlab.com/crossref/retraction-watch-data) that Crossref publishes, keeps full retractions of the chosen article types, drops papers later reinstated, and normalises DOIs, PubMed IDs and dates.
 2. **Tracing** (`fallout.openalex`, `fallout.ledger`): resolves each trial's DOI in [OpenAlex](https://openalex.org) and pages through works whose reference lists include it (`filter=cites:`), with rate limiting, retries and an on-disk cache. Runs are resumable.
-3. **Classification** (`fallout.classify`): labels citing works as systematic review, meta-analysis, guideline or other, using conservative title patterns (and indexer publication types when supplied). Narrative reviews are deliberately not counted.
+3. **Classification** (`fallout.classify`): labels citing works as systematic review, meta-analysis, guideline or other, using conservative title patterns. `fallout enrich` then adds PubMed publication types (via NCBI E-utilities) for citing works with a PMID and re-labels them with those indexer-assigned types, which take precedence over titles. Narrative reviews are deliberately not counted.
 4. **Outputs** (`fallout.report`): `ledger.json` ([schema](docs/ledger-schema.md)), `edges.csv`, an Atom feed of syntheses published after the retraction, and a static HTML page with no scripts or external assets.
 5. **Impact re-analysis** (`fallout.metaanalysis`): fixed-effect and DerSimonian–Laird random-effects pooling, effect sizes from 2×2 tables (log RR/OR, 0.5 continuity correction only when a cell is zero) or means (MD, Hedges' g), and a leave-studies-out diff that reports direction and significance changes using VITALITY's definitions. The implementation reproduces metafor's DL results for the BCG vaccine dataset (estimate −0.7141, SE 0.1787, τ² 0.3088) in the tests.
 
@@ -57,6 +57,7 @@ The "Clinical Study" label is Retraction Watch's, and it is an imperfect proxy f
 pip install -e .
 fallout retractions                       # summary of the current Retraction Watch data
 fallout trace --limit 50 --mailto you@example.org   # trace 50 trials, most recently retracted first
+fallout enrich                            # add PubMed publication types, re-classify
 fallout report --out-dir site             # site/index.html, site/feed.xml, site/edges.csv
 fallout impact examples/bcg.csv --remove "TPT Madras 1980"
 ```
@@ -73,16 +74,15 @@ The `trace` GitHub Actions workflow runs weekly (and on demand), traces up to 20
 - **Dates.** Publication dates are sometimes only year-precise; "after retraction" near zero days is unreliable.
 - **No general recomputation.** Per-trial effect data for most published meta-analyses is not openly available. `fallout impact` works on data you supply.
 - **Licence of the source data.** Crossref's documentation does not state a licence for the Retraction Watch CSV, so this repository never commits or redistributes it.
-- The test fixtures for OpenAlex are hand-built from its documented response schema, not recorded from the live API. The live API could not be reached from the environment where this was written.
+- The test fixtures for OpenAlex and PubMed are hand-built from their documented response schemas, not recorded. The `live-smoke` workflow traces three real trials against live OpenAlex on every PR that touches `src/`.
 
 ## Roadmap
 
 1. **Inclusion verification.** Compare each citing synthesis's included-studies list (from open full text, e.g. PubMed Central) against the trial, and record a separate `inclusion` field with provenance.
 2. **Validation.** Score Fallout's recall and precision against the VITALITY datasets ([OSF](https://osf.io/ukg3j)).
-3. **Better classification.** Add PubMed publication types for works with a PMID.
-4. **Guideline linkage.** Import reference lists from guideline publishers that publish them (e.g. NICE, WHO, MAGICapp).
-5. **Open-data recomputation.** Leave-one-out re-analysis where data is open (Cochrane data packages under open licences, VITALITY reconstructions), with a data-provenance badge.
-6. **Public site.** Publish the ledger, feed and per-trial pages on GitHub Pages.
+3. **Guideline linkage.** Import reference lists from guideline publishers that publish them (e.g. NICE, WHO, MAGICapp).
+4. **Open-data recomputation.** Leave-one-out re-analysis where data is open (Cochrane data packages under open licences, VITALITY reconstructions), with a data-provenance badge.
+5. **Public site.** Publish the ledger, feed and per-trial pages on GitHub Pages.
 
 ## Ethics
 

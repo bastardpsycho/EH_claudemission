@@ -152,6 +152,23 @@ def trace(
     return done
 
 
+def enrich_pubmed(ledger: dict, client) -> dict:
+    """Add PubMed publication types to citing works that have a PMID, and re-classify those edges."""
+    pmids = {e["citing"].get("pmid") for e in ledger["edges"] if e["citing"].get("pmid")}
+    types = client.publication_types(pmids)
+    changed = 0
+    for e in ledger["edges"]:
+        pmid = e["citing"].get("pmid")
+        if pmid not in types:
+            continue
+        e["citing"]["pubmed_types"] = types[pmid]
+        cls = classify(e["citing"].get("title"), e["citing"].get("type"), types[pmid])
+        if cls.label != e["class"]:
+            changed += 1
+        e["class"], e["class_confidence"], e["class_reasons"] = cls.label, cls.confidence, cls.reasons
+    return {"pmids_requested": len(pmids), "pmids_found": len(types), "edges_reclassified": changed}
+
+
 def synthesis_edges(ledger: dict, after_retraction_only: bool = False) -> list[dict]:
     out = [e for e in ledger["edges"] if e["class"] in SYNTHESIS_CLASSES]
     if after_retraction_only:
