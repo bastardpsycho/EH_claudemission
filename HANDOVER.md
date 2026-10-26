@@ -42,9 +42,9 @@ Full decision report, with sources and the first findings: https://claude.ai/art
 ## 3. The problem Fallout addresses
 
 From VITALITY (Xu et al., BMJ 2025;389:e082068, https://ueaeprints.uea.ac.uk/99702/1/bmj-2024-082068.pdf):
-- 1,330 retracted RCTs were pooled in 847 systematic reviews.
+- The searches identified a cohort of 1,330 retracted RCTs, and 847 systematic reviews that quantitatively synthesised some of them. (Earlier versions of this file said "1,330 retracted RCTs were pooled in 847 systematic reviews"; the paper does not say all 1,330 were pooled. VITALITY's data lists 323 index trials, see `validation/README.md`.)
 - Of 3,902 meta-analyses re-run without them, 20.6% changed direction or significance: direction alone 8.4%, significance alone 16.0%, both 3.9%.
-- 157 guidelines were fed by distorted meta-analyses.
+- Evidence from 68 systematic reviews whose conclusions were distorted by retracted trials was used in 157 guideline documents.
 - 38.3% of the contaminated reviews (324 of 847) were published after the retraction.
 
 Existing fixes each cover one slice:
