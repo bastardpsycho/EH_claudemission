@@ -83,12 +83,13 @@ Existing fixes each cover one slice:
 
 **Merged:** PR #1, the Fallout MVP. https://github.com/bastardpsycho/EH_claudemission/pull/1, merge commit `0766d06`. Foot approved the merge.
 
-**Open:** PR #2, "Retry trials that errored on a previous trace run". https://github.com/bastardpsycho/EH_claudemission/pull/2, branch `claude/retry-errors`, CI green.
+**Merged:** PR #2, "Retry trials that errored on a previous trace run". https://github.com/bastardpsycho/EH_claudemission/pull/2, merge commit `e7db6f2`.
 - `trace` now retries trials whose last status was `error`. Before this, they were skipped forever.
 - The README and `openalex.py` docstring now document OpenAlex's key rules, checked against its docs.
-- Merging needs Foot's go-ahead or a clear standing instruction.
 
-**Side branch `claude/findings-run`** (not for merging). It is `main` plus PR #2 plus:
+**Merged:** PR #3, which adds this file. Foot asked for all three PRs to be merged, and no PRs are open.
+
+**Side branch `claude/findings-run`** (not for merging). It is `main` (as of PR #2) plus:
 - `.github/workflows/findings.yml` runs on push to this branch when the workflow or `scripts/summarize_findings.py` changes. It restores the partial ledger from the Actions cache (`findings-ledger-*`) and traces with `--limit 5000` under a 75-minute step timeout with `continue-on-error`. It then saves the cache, runs `fallout enrich`, runs the summary script, and commits `findings/` back to the branch.
 - `scripts/summarize_findings.py` writes `findings/summary.json` and `findings/syntheses_citing_after_retraction.csv`.
 - `findings/`: results of the latest run (run 40349479205, 16:46 UTC).
@@ -149,11 +150,10 @@ Steps for Foot:
 
 1. **Get the key in place** (section 8). Until then, live tracing is limited to $0.10 a day.
 2. **Finish the trace.** Make a real change on `claude/findings-run` that touches `findings.yml` or `scripts/summarize_findings.py`, with no `[skip ci]`, and push it. One useful change: add a `"trials_untraced"` count to the summary. Expect 1–2 runs for the remaining 607 trials plus the 140 retries. Then update section 7 of this file and the report's findings section.
-3. **Merge PR #2** once Foot agrees. It carries the retry fix and the key documentation.
-4. **Validate against VITALITY.** Their datasets are on OSF (https://osf.io/ukg3j), which is reachable only from Actions. Measure Fallout's recall and precision on known contaminated reviews before any public claim.
-5. **Verify inclusion.** For open-access syntheses in PubMed Central, parse the included-studies list and record a separate `inclusion` field with its provenance. This answers the main critique.
-6. **Link guidelines.** Import reference lists from NICE, WHO and MAGICapp, since many guidelines lack DOIs.
-7. **Recompute where the data is open.** Use leave-one-out on Cochrane open data packages and VITALITY reconstructions, with a provenance badge.
-8. **Publish the ledger** on GitHub Pages (needs Foot to enable Pages) and offer the feed to Cochrane, GIN and the VITALITY team.
+3. **Validate against VITALITY.** Their datasets are on OSF (https://osf.io/ukg3j), which is reachable only from Actions. Measure Fallout's recall and precision on known contaminated reviews before any public claim.
+4. **Verify inclusion.** For open-access syntheses in PubMed Central, parse the included-studies list and record a separate `inclusion` field with its provenance. This answers the main critique.
+5. **Link guidelines.** Import reference lists from NICE, WHO and MAGICapp, since many guidelines lack DOIs.
+6. **Recompute where the data is open.** Use leave-one-out on Cochrane open data packages and VITALITY reconstructions, with a provenance badge.
+7. **Publish the ledger** on GitHub Pages (needs Foot to enable Pages) and offer the feed to Cochrane, GIN and the VITALITY team.
 
-Biggest open risk: no one has shown that guideline developers act on alerts. Validation (step 4) should come before outreach (step 8).
+Biggest open risk: no one has shown that guideline developers act on alerts. Validation (step 3) should come before outreach (step 7).
