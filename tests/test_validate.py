@@ -2,7 +2,7 @@ import csv
 from datetime import date
 
 from fallout.retractions import Retraction
-from fallout.validate import load_vitality, validate
+from fallout.validate import load_vitality, review_id, validate
 
 
 def rec(rid, doi, types=("Clinical Study",), nature="Retraction"):
@@ -32,6 +32,7 @@ def write_vitality(tmp_path):
         w.writerow(["1", "1_2", "10.9/r2", "1", "1", "1", "found but classed other"])
         w.writerow(["2", "2_1", "10.9/r3", "1", "1", "2", "cites trial 1 only"])
         w.writerow(["2", "2_2", "10.9/r4", "1", "1", "1", "absent"])
+        w.writerow(["2", "2_3", "10.1002/14651858.cd000001.pub2", "1", "1", "1", "Cochrane, other version in ledger"])
         w.writerow(["3", "3_1", "10.9/r5", "1", "1", "1", "trial outside population"])
         w.writerow(["6", "6_1", "10.9/r6", "1", "1", "1", "trial not traced"])
         w.writerow(["1", "1_3", "", "1", "0", "1", "no DOI"])
@@ -50,6 +51,7 @@ def test_validate_against_vitality(tmp_path):
             edge("rw:a", "10.9/r2", "other"),
             edge("rw:a", "10.9/r3", "systematic_review"),
             edge("rw:b", "10.9/x", "systematic_review"),                     # not a VITALITY review
+            edge("rw:b", "10.1002/14651858.cd000001.pub3", "meta_analysis", pub="2023-01-01"),
             edge("rw:b", "10.9/late", "meta_analysis", pub="2025-06-01"),     # after VITALITY's last search
         ],
     }
@@ -63,14 +65,26 @@ def test_validate_against_vitality(tmp_path):
 
     pr = summary["pairs"]
     assert pr["by_outcome"] == {"checkable: citation found": 2, "checkable: citation not found": 2,
+                                "checkable: other Cochrane version found": 1,
                                 "review has no DOI": 1, "trial not in Fallout population": 1, "trial not traced": 1}
-    assert pr["citation_recall"] == 0.5 and pr["synthesis_recall"] == 0.25
+    assert pr["checkable"] == 5
+    assert pr["citation_recall"] == 0.4 and pr["citation_recall_any_cochrane_version"] == 0.6
+    assert pr["synthesis_recall"] == 0.2 and pr["synthesis_recall_any_cochrane_version"] == 0.4
     reasons = {m["review_doi"]: m["reason"] for m in missed}
     assert reasons == {"10.9/r2": "found but classed as other", "10.9/r3": "review cites other trials in ledger",
                        "10.9/r4": "review not in ledger"}
 
     agree = summary["review_level_agreement"]
-    # r1 and r3 are VITALITY reviews, x is not, the late one is out of window, r2 is not a synthesis.
-    assert agree["synthesis_citations_of_vitality_trials"] == 3
+    # r1 and r3 are VITALITY reviews, x is not, .pub3 matches only ignoring the version,
+    # the late one is out of window and r2 is not a synthesis.
+    assert agree["synthesis_citations_of_vitality_trials"] == 4
     assert agree["in_vitality_reviews"] == 2
-    assert agree["by_class"]["meta_analysis"] == {"citations": 1, "in_vitality": 1, "share": 1.0}
+    assert agree["in_vitality_reviews_any_cochrane_version"] == 3
+    assert agree["by_class"]["meta_analysis"] == {"citations": 2, "in_vitality": 1, "share": 0.5,
+                                                  "in_vitality_any_cochrane_version": 2, "share_any_cochrane_version": 1.0}
+
+
+def test_review_id_strips_only_cochrane_versions():
+    assert review_id("10.1002/14651858.cd000567.pub7") == "10.1002/14651858.cd000567"
+    assert review_id("10.1002/14651858.cd000567") == "10.1002/14651858.cd000567"
+    assert review_id("10.1000/x.pub2") == "10.1000/x.pub2"
