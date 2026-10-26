@@ -1,0 +1,19 @@
+{
+  "pmids_requested": 9539,
+  "pmids_found": 9526,
+  "edges_reclassified": 583,
+  "requests": 48,
+  "trials_traced": 991,
+  "trials_no_doi": 6,
+  "trials_not_in_openalex": 0,
+  "trials_error": 128,
+  "citing_edges": 13740,
+  "synthesis_edges": 2185,
+  "synthesis_edges_by_class": {
+    "meta_analysis": 1497,
+    "systematic_review": 540,
+    "guideline": 148
+  },
+  "synthesis_edges_after_retraction": 421,
+  "trials_cited_by_a_synthesis": 435
+}

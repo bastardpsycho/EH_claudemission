@@ -1,0 +1,36 @@
+{
+  "generated_at": "2026-10-26T15:20:28+00:00",
+  "trials": {
+    "error": 128,
+    "traced": 991,
+    "no_doi": 6
+  },
+  "citing_edges": 13740,
+  "synthesis_edges": 2185,
+  "synthesis_edges_by_class": {
+    "meta_analysis": 1497,
+    "systematic_review": 540,
+    "guideline": 148
+  },
+  "synthesis_edges_by_confidence": {
+    "high": 1623,
+    "medium": 562
+  },
+  "synthesis_edges_after_retraction": 421,
+  "synthesis_edges_after_retraction_by_class": {
+    "meta_analysis": 281,
+    "systematic_review": 120,
+    "guideline": 20
+  },
+  "synthesis_edges_more_than_180d_after": 251,
+  "distinct_syntheses_citing_after_retraction": 398,
+  "distinct_syntheses_citing_more_than_180d_after": 239,
+  "trials_cited_by_a_synthesis": 435,
+  "trials_cited_by_a_synthesis_after_retraction": 266,
+  "after_retraction_by_publication_year": {
+    "2023": 38,
+    "2024": 155,
+    "2025": 145,
+    "2026": 83
+  }
+}
