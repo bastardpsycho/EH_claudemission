@@ -1,11 +1,12 @@
 {
-  "generated_at": "2026-10-26T18:15:07+00:00",
+  "generated_at": "2026-10-26T18:23:52+00:00",
   "trials": {
     "traced": 2613,
     "no_doi": 113,
     "not_in_openalex": 3
   },
   "trial_errors": {},
+  "trials_citing_may_be_truncated": 2,
   "trials_by_retraction_year": {
     "1980": 10,
     "1981": 1,

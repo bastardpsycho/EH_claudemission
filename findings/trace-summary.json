@@ -1,6 +1,6 @@
 {
-  "traced_this_run": 747,
-  "requests": 1297,
+  "traced_this_run": 0,
+  "requests": 0,
   "trials_traced": 2613,
   "trials_no_doi": 113,
   "trials_not_in_openalex": 3,
