@@ -62,7 +62,7 @@ fallout report --out-dir site             # site/index.html, site/feed.xml, site
 fallout impact examples/bcg.csv --remove "TPT Madras 1980"
 ```
 
-`trace` writes `ledger.json` and checkpoints every 25 trials; rerun it to continue. `OPENALEX_MAILTO` and `OPENALEX_API_KEY` are read from the environment if set. OpenAlex's key and rate-limit policy has changed over time, so check [its docs](https://docs.openalex.org) for current rules; we have not verified them from here.
+`trace` writes `ledger.json` and checkpoints every 25 trials; rerun it to continue. `OPENALEX_MAILTO` and `OPENALEX_API_KEY` are read from the environment if set. As of October 2026, [OpenAlex's authentication docs](https://developers.openalex.org/api-reference/authentication) allow $0.10 of usage per day without a key and $1 per day with a free key (sent as the `api_key` query parameter), resetting at midnight UTC. A keyless run covered about 1,000 trials before hitting HTTP 429, so set a key (as the `OPENALEX_API_KEY` repository secret for the workflows) for full traces. Trials that fail are retried on the next run.
 
 The `trace` GitHub Actions workflow runs weekly (and on demand), traces up to 200 trials per run, carries the ledger forward in the Actions cache, and uploads the ledger and HTML as a build artifact.
 

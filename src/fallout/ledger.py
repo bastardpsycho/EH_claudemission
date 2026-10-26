@@ -136,7 +136,9 @@ def trace(
     for trial in trials:
         if limit is not None and done >= limit:
             break
-        if not retrace and trial.key in ledger["trials"]:
+        # Trials that failed last time (timeouts, rate limits) are retried on the next run.
+        previous = ledger["trials"].get(trial.key)
+        if not retrace and previous is not None and previous.get("status") != "error":
             continue
         try:
             entry = trace_trial(ledger, trial, client, max_citing=max_citing)
