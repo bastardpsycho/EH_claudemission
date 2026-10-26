@@ -9,5 +9,7 @@ dist/
 *.csv
 !tests/fixtures/*.csv
 !examples/*.csv
+# Derived VITALITY reference data (CC BY 4.0, see validation/README.md).
+!validation/*.csv
 site/
 ledger.json

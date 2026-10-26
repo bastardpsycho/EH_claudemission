@@ -1,4 +1,4 @@
-"""Command-line interface: ``fallout retractions | trace | report | impact``."""
+"""Command-line interface: ``fallout retractions | trace | enrich | report | impact | validate``."""
 
 from __future__ import annotations
 
@@ -6,6 +6,7 @@ import argparse
 import csv
 import json
 import sys
+from pathlib import Path
 
 from . import ledger as ledger_mod
 from .metaanalysis import effect_from_2x2, impact_without
@@ -13,6 +14,7 @@ from .openalex import OpenAlexClient
 from .pubmed import PubMedClient
 from .report import render_all
 from .retractions import DEFAULT_ARTICLE_TYPES, RW_CSV_URL, read_records, select_retracted_trials, summarize
+from .validate import load_vitality, validate
 
 
 def _types(args) -> list[str] | None:
@@ -66,6 +68,23 @@ def cmd_enrich(args) -> int:
 def cmd_report(args) -> int:
     led = ledger_mod.load(args.ledger)
     print(json.dumps(render_all(led, args.out_dir), indent=2))
+    return 0
+
+
+def cmd_validate(args) -> int:
+    records = list(read_records(args.csv))
+    population = select_retracted_trials(records, _types(args))
+    trials, pairs = load_vitality(args.vitality_dir)
+    summary, missed = validate(ledger_mod.load(args.ledger), records, population, trials, pairs)
+    out = Path(args.out_dir)
+    out.mkdir(parents=True, exist_ok=True)
+    (out / "vitality_summary.json").write_text(json.dumps(summary, indent=2))
+    fields = ["rct_id", "fallout_trial", "review_doi", "reason", "class", "review_title"]
+    with open(out / "vitality_missed_pairs.csv", "w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=fields, extrasaction="ignore")
+        w.writeheader()
+        w.writerows(missed)
+    print(json.dumps(summary, indent=2))
     return 0
 
 
@@ -124,6 +143,13 @@ def build_parser() -> argparse.ArgumentParser:
     im.add_argument("--model", choices=["random", "fixed"], default="random")
     im.add_argument("--measure", choices=["RR", "OR"], default="RR", help="for 2x2 input")
     im.set_defaults(func=cmd_impact)
+
+    v = sub.add_parser("validate", help="measure the ledger against VITALITY Study I's verified inclusions")
+    _add_source(v)
+    v.add_argument("--ledger", default="ledger.json")
+    v.add_argument("--vitality-dir", default="validation", help="folder with vitality_trials.csv and vitality_inclusions.csv")
+    v.add_argument("--out-dir", default="validation-results")
+    v.set_defaults(func=cmd_validate)
     return p
 
 
