@@ -1,0 +1,7 @@
+﻿Record ID,Title,Subject,Institution,Journal,Publisher,Country,Author,URLS,ArticleType,RetractionDate,RetractionDOI,RetractionPubMedID,OriginalPaperDate,OriginalPaperDOI,OriginalPaperPubMedID,RetractionNature,Reason,Paywalled,Notes
+1,Trial of drug A versus placebo,(HSC) Medicine;,Inst,J Med,Pub,Italy,A Author,,Clinical Study;,3/15/2020 0:00,10.1000/ret.1,0,6/1/2015 0:00,https://doi.org/10.1000/TRIAL.1,12345678,Retraction,+Fabrication of Data;+Investigation by Journal/Publisher;,No,
+2,Cell study,(BLS) Biology;,Inst,J Bio,Pub,China,B Author,,Research Article;,1/2/2021 0:00,10.1000/ret.2,00000000,1/1/2019 0:00,10.1000/bio.2,00000000,Retraction,+Duplication of Image;,No,
+3,Trial of drug B,(HSC) Medicine;,Inst,J Med,Pub,Japan,C Author,,Clinical Study;,5/5/2019 0:00,,0,1/1/2014 0:00,10.1000/trial.3,0,Expression of concern,+Concerns about Data;,No,
+4,Trial of drug C,(HSC) Medicine;,Inst,J Med,Pub,USA,D Author,,Clinical Study;Research Article;,7/7/2018 0:00,10.1000/ret.4,0,1/1/2016 0:00,10.1000/trial.4,0,Retraction,+Error in Data;,No,
+5,Trial of drug C,(HSC) Medicine;,Inst,J Med,Pub,USA,D Author,,Clinical Study;,9/9/2019 0:00,10.1000/rein.4,0,1/1/2016 0:00,10.1000/trial.4,0,Reinstatement,+Upgrade/Update of Prior Notice;,No,
+6,Trial without DOI,(HSC) Medicine;,Inst,J Med,Pub,UK,E Author,,Clinical Study;,2/2/2022 0:00,,0,1/1/2010 0:00,,0,Retraction,+Plagiarism of Text;,No,
