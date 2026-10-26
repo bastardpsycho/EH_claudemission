@@ -21,10 +21,28 @@ jobs:
           python-version: "3.13"
       - run: pip install -e .
       - run: curl -fsSL -o retraction_watch.csv https://gitlab.com/crossref/retraction-watch-data/-/raw/main/retraction_watch.csv
+      - name: Restore partial ledger
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            ledger.json
+            .cache/openalex
+          key: findings-ledger-${{ github.run_id }}
+          restore-keys: findings-ledger-
       - name: Trace every retracted clinical study
+        timeout-minutes: 75
+        continue-on-error: true
         env:
           OPENALEX_MAILTO: ${{ vars.OPENALEX_MAILTO }}
         run: fallout trace --csv retraction_watch.csv --ledger ledger.json --limit 5000 --max-citing 2000 2> trace.log | tee trace-summary.json; tail -5 trace.log
+      - name: Save partial ledger
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            ledger.json
+            .cache/openalex
+          key: findings-ledger-${{ github.run_id }}
       - name: Add PubMed publication types
         env:
           NCBI_EMAIL: ${{ vars.OPENALEX_MAILTO }}
@@ -32,7 +50,7 @@ jobs:
       - run: python scripts/summarize_findings.py ledger.json findings
       - name: Commit findings
         run: |
-          cp trace-summary.json enrich-summary.json findings/
+          cp trace-summary.json enrich-summary.json findings/ || true
           git config user.name "fallout-bot"
           git config user.email "fallout-bot@users.noreply.github.com"
           git add findings
