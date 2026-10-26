@@ -28,6 +28,8 @@ summary = {
     "generated_at": ledger.get("generated_at"),
     "trials": dict(Counter(t.get("status") for t in ledger["trials"].values())),
     "trial_errors": dict(Counter((t.get("error") or "")[:80] for t in ledger["trials"].values() if t.get("status") == "error").most_common(10)),
+    # Trials that hit trace --max-citing: OpenAlex may hold more citing works than the ledger.
+    "trials_citing_may_be_truncated": sum(1 for t in ledger["trials"].values() if t.get("citing_may_be_truncated")),
     "trials_by_retraction_year": dict(sorted(Counter((t.get("retraction_date") or "")[:4] for t in ledger["trials"].values()).items())),
     "citing_edges": len(ledger["edges"]),
     "synthesis_edges": len(syn),
