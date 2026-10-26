@@ -34,6 +34,7 @@ jobs:
         continue-on-error: true
         env:
           OPENALEX_MAILTO: ${{ vars.OPENALEX_MAILTO }}
+          OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
         run: fallout trace --csv retraction_watch.csv --ledger ledger.json --limit 5000 --max-citing 2000 2> trace.log | tee trace-summary.json; tail -5 trace.log
       - name: Save partial ledger
         if: always()
