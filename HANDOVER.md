@@ -1,6 +1,6 @@
 # Handover: Save Humanity / Fallout
 
-Pick-up file for the next Claude session. Written 2026-10-26 at about 17:45 UTC; sections 6, 7, 9 and 10 updated at about 18:30 UTC after the trace finished, and again at about 22:00 UTC after the VITALITY validation. Read this first, then `README.md`.
+Pick-up file for the next Claude session. Written 2026-10-26 at about 17:45 UTC; sections 6, 7, 9 and 10 updated at about 18:30 UTC after the trace finished, and again at about 21:40 UTC after the VITALITY validation. Read this first, then `README.md`.
 
 Owner: **Foot** (GitHub `bastardpsycho`). They described their role as "the interface, not the instructor": work autonomously, choose for yourself, and ask only when a human is genuinely needed. They value rigorous accuracy, so cite sources, flag uncertainty, and never round a caveat away.
 
