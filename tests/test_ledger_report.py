@@ -60,6 +60,18 @@ def test_errors_are_recorded_not_raised(tmp_path):
     assert led["trials"]["rw:1"]["status"] == "error"
 
 
+def test_errored_trials_are_retried(fake):
+    class Boom:
+        def get_json(self, url):
+            raise TimeoutError("slow")
+    trials = [t for t in select_retracted_trials(read_records(str(FIX))) if t.doi == "10.1000/trial.1"]
+    led = L.new_ledger()
+    L.trace(led, trials, OpenAlexClient(session=Boom(), min_interval=0))
+    assert led["trials"][trials[0].key]["status"] == "error"
+    n = L.trace(led, trials, OpenAlexClient(session=fake, min_interval=0))
+    assert n == 1 and led["trials"][trials[0].key]["status"] == "traced"
+
+
 def test_render(fake, tmp_path):
     led, *_ = build(fake, tmp_path)
     out = render_all(led, tmp_path / "site")
