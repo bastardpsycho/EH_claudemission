@@ -1,6 +1,6 @@
 # Handover: Save Humanity / Fallout
 
-Pick-up file for the next Claude session. Written 2026-10-26 at about 17:45 UTC; sections 6, 7, 9 and 10 updated at about 18:30 UTC after the trace finished. Read this first, then `README.md`.
+Pick-up file for the next Claude session. Written 2026-10-26 at about 17:45 UTC; sections 6, 7, 9 and 10 updated at about 18:30 UTC after the trace finished, and again at about 22:00 UTC after the VITALITY validation. Read this first, then `README.md`.
 
 Owner: **Foot** (GitHub `bastardpsycho`). They described their role as "the interface, not the instructor": work autonomously, choose for yourself, and ask only when a human is genuinely needed. They value rigorous accuracy, so cite sources, flag uncertainty, and never round a caveat away.
 
@@ -87,14 +87,22 @@ Existing fixes each cover one slice:
 - `trace` now retries trials whose last status was `error`. Before this, they were skipped forever.
 - The README and `openalex.py` docstring now document OpenAlex's key rules, checked against its docs.
 
-**Merged:** PR #3, which adds this file. Foot asked for all three PRs to be merged, and no PRs are open.
+**Merged:** PR #3, which adds this file. Foot asked for all three PRs to be merged.
+
+**Open:** PR #4 (this update to the file), https://github.com/bastardpsycho/EH_claudemission/pull/4.
+
+**Open:** PR #5, `fallout validate`, https://github.com/bastardpsycho/EH_claudemission/pull/5 (branch `claude/vitality-validation`).
+- `scripts/build_vitality_gold.py` builds `validation/vitality_trials.csv` and `validation/vitality_inclusions.csv` from VITALITY's OSF data (CC BY 4.0; provenance and hashes are in `validation/README.md`).
+- `src/fallout/validate.py` reports population recall, citation and synthesis recall over verified pairs, and review-level agreement.
+- It also corrects three README statements about VITALITY (see section 3).
 
 **Side branch `claude/findings-run`** (not for merging). It is `main` (as of PR #2) plus:
 - `.github/workflows/findings.yml` runs on push to this branch when the workflow or `scripts/summarize_findings.py` changes. It restores the partial ledger from the Actions cache (`findings-ledger-*`) and traces with `--limit 5000` under a 75-minute step timeout with `continue-on-error`. It then saves the cache, runs `fallout enrich`, runs the summary script, and commits `findings/` back to the branch.
 - `scripts/summarize_findings.py` writes `findings/summary.json` and `findings/syntheses_citing_after_retraction.csv`.
 - `scripts/summarize_findings.py` takes the RW CSV as an optional third argument and then also reports `trials_in_population`, `trials_untraced` and `trials_pending_retry` (commit `9445829`). It also counts `trials_citing_may_be_truncated` (commit `c03fcf1`).
 - Commit `3bd3609` passes `OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}` to the trace step.
-- `findings/`: results of run 40374400563 (18:15 UTC, commit `4a21c17`), the first run with the key. **The trace is complete**: 747 trials in 5.5 minutes (the 607 untraced plus the 140 retries), zero errors. Run 40376496151 (18:23 UTC, commit `71e0571`) only re-summarised with the truncation count and changed no other number.
+- Branch `claude/vitality-validation` is merged in, and `findings.yml` runs `fallout validate` into `findings/validation/`. The workflow also re-runs when `src/fallout/validate.py` or `validation/**` changes.
+- `findings/`: results of run 40374400563 (18:15 UTC, commit `4a21c17`), the first run with the key. **The trace is complete**: 747 trials in 5.5 minutes (the 607 untraced plus the 140 retries), zero errors. Run 40376496151 (18:23 UTC, commit `71e0571`) only re-summarised with the truncation count and changed no other number. Run 40405439120 (commit `660ce1c`) holds the latest validation output.
 
 ## 7. Results so far, with caveats
 
@@ -125,6 +133,23 @@ Caveats (always state these):
 7. 2 traced studies hit the `--max-citing 2000` cap, so their citing works may be undercounted.
 8. The counts come from one OpenAlex snapshot and are bounded by OpenAlex's citation coverage, which has not been measured here.
 
+### Validation against VITALITY (run 40405439120)
+
+| Check | Result |
+|---|---|
+| VITALITY's 1,330 retracted RCTs in Fallout's population | 842 (63.3%). 417 are labelled only "Research Article" in RW, 45 have DOIs not in RW, 24 have no DOI, 2 were excluded by nature or reinstatement |
+| VITALITY index trials in the population | 243 of 323 |
+| Verified (trial, review) pairs checkable | 628 of 850 (179 trial outside the population, 43 review without DOI) |
+| Citation recall | 598 / 628 (95.2%). Of the 30 misses, 25 reviews are absent from the ledger and 5 cite other trials in it |
+| Synthesis recall | 574 / 628 (91.4%). 24 found reviews were labelled "other": 10 Cochrane reviews, 3 "protocol" titles |
+| Synthesis citations of VITALITY trials up to 2024-11-21 that VITALITY lists as pooling reviews | 884 / 3,289 (26.9%); 32.3% ignoring Cochrane versions. Meta-analysis label: 835 / 2,258 (37.0%; 43.1%). SR: 6.5%. Guideline: 0.3% |
+
+How to read it:
+- VITALITY files each review under one index trial, so the pairs are true but incomplete.
+- If VITALITY's search was complete, the agreement row is an **upper bound** on "a synthesis citation means the review pooled that trial in a pairwise meta-analysis". It is not the precision of Fallout's "cites" claims. Low shares for SRs and guidelines are expected, because VITALITY counted only reviews with a pairwise meta-analysis.
+- Spot check: of 25 random non-matching "meta-analysis" citations (after retraction, before the cut-off), 24 were syntheses by title and 1 was a commentary.
+- Takeaway: Fallout finds the citations (about 95%), but most synthesis citations of a retracted trial are not verified pooling. That supports keeping "cites" and makes step 4 (inclusion verification) the priority. The population filter is the biggest recall loss.
+
 ## 8. The OpenAlex API key (needs Foot)
 
 OpenAlex's authentication docs (https://developers.openalex.org/api-reference/authentication, read 2026-10-26):
@@ -145,9 +170,9 @@ Steps for Foot:
 
 - **2-hour job limit.** One GitHub Actions job cannot trace all 2,729 trials; the first attempt timed out at 120 minutes. Keyless runs are slow because of 429 back-off. That is why `findings.yml` caps the trace at 75 minutes and resumes from the cache.
 - **Logs.** `gh api .../actions/jobs/<id>/logs` redirects to a blob host that the session proxy blocks. Read logs with the GitHub MCP tool `get_job_logs` (`return_content: true`). Artifacts can't be downloaded either, so the findings run commits its outputs to the branch instead.
-- **Network from the cloud container.** OpenAlex, Crossref, PubMed and OSF return 403 through the proxy. gitlab.com (the RW CSV), GitHub and PyPI work. Live tracing can only run in GitHub Actions. Unit tests use hand-built fixtures; `smoke.yml` is the live check.
+- **Network from the cloud container.** OpenAlex, Crossref, PubMed and OSF return 403 through the proxy. The WebFetch tool can still download OSF files: follow `https://osf.io/download/<guid>/` through its two redirects quickly, because the final signed URL expires in 60 seconds, and check the SHA-256 against the OSF API. gitlab.com (the RW CSV), GitHub and PyPI work. Live tracing can only run in GitHub Actions. Unit tests use hand-built fixtures; `smoke.yml` is the live check.
 - **Shallow clone.** Fetch branches explicitly, e.g. `git fetch origin claude/findings-run && git checkout -B claude/findings-run FETCH_HEAD`.
-- **Triggering the findings run.** A push to `claude/findings-run` starts it only if it touches `.github/workflows/findings.yml` or `scripts/summarize_findings.py` and the commit message has no `[skip ci]`. `workflow_dispatch` won't work, because the workflow is not on the default branch.
+- **Triggering the findings run.** A push to `claude/findings-run` starts it only if it touches `.github/workflows/findings.yml`, `scripts/summarize_findings.py`, `src/fallout/validate.py` or `validation/**`, and the commit message has no `[skip ci]`. `workflow_dispatch` won't work, because the workflow is not on the default branch.
 - **The run commits back to its own branch.** Pull before pushing to `claude/findings-run`.
 - **Cache keys.** `actions/cache/save` writes `findings-ledger-<run_id>`, and the next run restores the newest one by prefix. If the cache is evicted (after 7 days unused), the trace restarts from zero, which is fine with a key.
 - **Remote-tracking refs.** The shallow clone tracks only `main`, so `git status` (and the stop hook) reports a pushed side branch as unpushed. Fix with `git config --add remote.origin.fetch '+refs/heads/<branch>:refs/remotes/origin/<branch>'` and a fetch.
@@ -155,8 +180,11 @@ Steps for Foot:
 ## 10. Next steps, in order
 
 1. ~~Get the key in place~~ (done, section 8).
-2. ~~Finish the trace~~ (done, run 40374400563; section 7 updated). The decision report's findings section still shows the partial-run numbers.
-3. **Validate against VITALITY.** Their datasets are on OSF (https://osf.io/ukg3j), which is reachable only from Actions. Measure Fallout's recall and precision on known contaminated reviews before any public claim.
+2. ~~Finish the trace~~ (done, run 40374400563; section 7 updated; decision report updated).
+3. ~~Validate against VITALITY~~ (done, PR #5; results in section 7). Follow-ups, in order of measured impact:
+   - **Widen the population.** Add RW "Research Article" records in Health Sciences and keep the RCTs, e.g. by PubMed publication type "Randomized Controlled Trial". That label alone costs 417 of VITALITY's 1,330 trials. Re-run `fallout validate` to measure the gain.
+   - **Classify Cochrane reviews.** The DOI prefix `10.1002/14651858.` marks the Cochrane Database of Systematic Reviews, but protocols share it, so check before labelling.
+   - **Check precision by hand.** Sample synthesis labels systematically, not by title alone.
 4. **Verify inclusion.** For open-access syntheses in PubMed Central, parse the included-studies list and record a separate `inclusion` field with its provenance. This answers the main critique.
 5. **Link guidelines.** Import reference lists from NICE, WHO and MAGICapp, since many guidelines lack DOIs.
 6. **Recompute where the data is open.** Use leave-one-out on Cochrane open data packages and VITALITY reconstructions, with a provenance badge.
