@@ -1,0 +1,57 @@
+{
+  "reference": "VITALITY Study I, Xu et al. BMJ 2025;389:e082068; data https://osf.io/7eazq/ (CC BY 4.0)",
+  "population": {
+    "vitality_trials": 1330,
+    "in_fallout_population": 842,
+    "recall": 0.6331,
+    "not_in_population_by_reason": {
+      "RW article type is not Clinical Study": 417,
+      "DOI not in Retraction Watch": 45,
+      "no DOI in VITALITY": 24,
+      "excluded by nature or reinstatement": 2
+    },
+    "index_trials": 323,
+    "index_trials_in_fallout_population": 243
+  },
+  "pairs": {
+    "verified_pairs": 850,
+    "by_outcome": {
+      "checkable: citation found": 598,
+      "trial not in Fallout population": 179,
+      "review has no DOI": 43,
+      "checkable: citation not found": 30
+    },
+    "checkable": 628,
+    "citation_recall": 0.9522,
+    "synthesis_recall": 0.914,
+    "found_by_class": {
+      "meta_analysis": 538,
+      "systematic_review": 35,
+      "other": 24,
+      "guideline": 1
+    }
+  },
+  "review_level_agreement": {
+    "last_search": "2024-11-21",
+    "synthesis_citations_of_vitality_trials": 3289,
+    "in_vitality_reviews": 884,
+    "share": 0.2688,
+    "by_class": {
+      "guideline": {
+        "citations": 295,
+        "in_vitality": 1,
+        "share": 0.0034
+      },
+      "meta_analysis": {
+        "citations": 2258,
+        "in_vitality": 835,
+        "share": 0.3698
+      },
+      "systematic_review": {
+        "citations": 736,
+        "in_vitality": 48,
+        "share": 0.0652
+      }
+    }
+  }
+}
