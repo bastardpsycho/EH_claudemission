@@ -1,6 +1,6 @@
 # Handover: Save Humanity / Fallout
 
-Pick-up file for the next Claude session. Written 2026-10-26 at about 17:45 UTC. Read this first, then `README.md`.
+Pick-up file for the next Claude session. Written 2026-10-26 at about 17:45 UTC; sections 6, 7, 9 and 10 updated at about 18:30 UTC after the trace finished. Read this first, then `README.md`.
 
 Owner: **Foot** (GitHub `bastardpsycho`). They described their role as "the interface, not the instructor": work autonomously, choose for yourself, and ask only when a human is genuinely needed. They value rigorous accuracy, so cite sources, flag uncertainty, and never round a caveat away.
 
@@ -92,8 +92,9 @@ Existing fixes each cover one slice:
 **Side branch `claude/findings-run`** (not for merging). It is `main` (as of PR #2) plus:
 - `.github/workflows/findings.yml` runs on push to this branch when the workflow or `scripts/summarize_findings.py` changes. It restores the partial ledger from the Actions cache (`findings-ledger-*`) and traces with `--limit 5000` under a 75-minute step timeout with `continue-on-error`. It then saves the cache, runs `fallout enrich`, runs the summary script, and commits `findings/` back to the branch.
 - `scripts/summarize_findings.py` writes `findings/summary.json` and `findings/syntheses_citing_after_retraction.csv`.
-- `findings/`: results of the latest run (run 40349479205, 16:46 UTC).
-- The last commit, `3bd3609`, "Pass the OpenAlex API key to the findings run [skip ci]", is **pushed**. It adds one line to the trace step's `env`: `OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}`. `[skip ci]` kept it from starting a keyless run.
+- `scripts/summarize_findings.py` takes the RW CSV as an optional third argument and then also reports `trials_in_population`, `trials_untraced` and `trials_pending_retry` (commit `9445829`). It also counts `trials_citing_may_be_truncated` (commit `c03fcf1`).
+- Commit `3bd3609` passes `OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}` to the trace step.
+- `findings/`: results of run 40374400563 (18:15 UTC, commit `4a21c17`), the first run with the key. **The trace is complete**: 747 trials in 5.5 minutes (the 607 untraced plus the 140 retries), zero errors. Run 40376496151 (18:23 UTC, commit `71e0571`) only re-summarised with the truncation count and changed no other number.
 
 ## 7. Results so far, with caveats
 
@@ -102,25 +103,27 @@ Retraction Watch data was pulled 2026-10-26; the latest retraction in the file i
 - 2,729 are retractions labelled "Clinical Study", once reinstated items are dropped.
 - Median time from publication to retraction for those: 639 days.
 
-The trace runs from the most recent retraction backwards and has reached 2013. Of the 2,729 studies:
-- 2,122 processed: 1,920 resolved in OpenAlex, 60 had no DOI, 2 were not found, 140 errored (120 HTTP 429, 20 HTTP 401).
-- **607 oldest not yet traced.**
+The trace covers all 2,729 studies (run 40374400563):
+- 2,613 resolved in OpenAlex, 113 had no DOI, 3 were not found, 0 errored.
+- The 113 without a DOI cannot be traced through OpenAlex. They are spread across years: 35 were retracted before 2011 and 78 since.
 
-Findings so far:
-- 35,196 citing works.
-- 4,636 citation links from syntheses: 3,061 meta-analyses, 1,200 systematic reviews, 375 guidelines. 3,545 are "high" confidence and 1,091 "medium".
-- **906** retracted studies are cited by at least one synthesis.
-- **1,319 distinct syntheses cite a study after its retraction**; 1,013 of them more than 180 days after. These come from 1,455 links: 924 meta-analysis, 438 systematic review, 93 guideline.
-- 618 retracted studies are cited by a synthesis after their retraction.
-- Post-retraction synthesis citations by publication year: 2016: 37 · 2019: 84 · 2021: 164 · 2022: 183 · 2023: 162 · 2024: 282 · 2025: 212 · 2026 (to October): 122.
+Findings:
+- 72,151 citing works.
+- 6,519 citation links from syntheses: 4,226 meta-analyses, 1,679 systematic reviews, 614 guidelines. 5,052 are "high" confidence and 1,467 "medium".
+- **1,264** retracted studies are cited by at least one synthesis.
+- **2,226 distinct syntheses cite a study after its retraction**; 1,854 of them more than 180 days after. These come from 2,566 links: 1,614 meta-analysis, 737 systematic review, 215 guideline.
+- 944 retracted studies are cited by a synthesis after their retraction.
+- Post-retraction synthesis citations by publication year: 2010: 37 · 2013: 93 · 2016: 116 · 2019: 139 · 2021: 214 · 2022: 233 · 2023: 195 · 2024: 312 · 2025: 232 · 2026 (to October): 144. Full series in `findings/summary.json`.
 
 Caveats (always state these):
 1. A citation is not inclusion.
-2. Publication dates can be year-only or lag acceptance. Only 62 of the 1,455 after-retraction links have a 1 January date. That is why the 180-day count is shown.
+2. Publication dates can be year-only or lag acceptance. 144 of the 2,566 after-retraction links have a 1 January date. That is why the 180-day count is shown.
 3. RW's "Clinical Study" label includes non-randomised studies.
-4. 812 of the traced studies were retracted in 2023, 644 of them from Hindawi, during the paper-mill wave.
-5. Coverage is incomplete (see the numbers above).
-6. A random spot-check of 12 rows looked plausible, but there has been no systematic precision check.
+4. 812 of the 2,729 studies were retracted in 2023, 644 of them from Hindawi, during the paper-mill wave.
+5. 113 studies (4.1%) have no DOI and are not traced.
+6. A random spot-check of 12 rows (on the earlier, partial run) looked plausible, but there has been no systematic precision check.
+7. 2 traced studies hit the `--max-citing 2000` cap, so their citing works may be undercounted.
+8. The counts come from one OpenAlex snapshot and are bounded by OpenAlex's citation coverage, which has not been measured here.
 
 ## 8. The OpenAlex API key (needs Foot)
 
@@ -136,6 +139,8 @@ Steps for Foot:
 3. Name it `OPENALEX_API_KEY` and paste the key as the value. Optionally, add a repository variable `OPENALEX_MAILTO` with a contact email.
 4. Tell the Claude session the key has been added. Never paste the key into chat or commit it.
 
+**Done** (Foot added the secret on 2026-10-26). The session proxy blocks listing secrets, so this was not checked directly; run 40374400563's zero errors and speed are the evidence that the key works.
+
 ## 9. Gotchas
 
 - **2-hour job limit.** One GitHub Actions job cannot trace all 2,729 trials; the first attempt timed out at 120 minutes. Keyless runs are slow because of 429 back-off. That is why `findings.yml` caps the trace at 75 minutes and resumes from the cache.
@@ -145,11 +150,12 @@ Steps for Foot:
 - **Triggering the findings run.** A push to `claude/findings-run` starts it only if it touches `.github/workflows/findings.yml` or `scripts/summarize_findings.py` and the commit message has no `[skip ci]`. `workflow_dispatch` won't work, because the workflow is not on the default branch.
 - **The run commits back to its own branch.** Pull before pushing to `claude/findings-run`.
 - **Cache keys.** `actions/cache/save` writes `findings-ledger-<run_id>`, and the next run restores the newest one by prefix. If the cache is evicted (after 7 days unused), the trace restarts from zero, which is fine with a key.
+- **Remote-tracking refs.** The shallow clone tracks only `main`, so `git status` (and the stop hook) reports a pushed side branch as unpushed. Fix with `git config --add remote.origin.fetch '+refs/heads/<branch>:refs/remotes/origin/<branch>'` and a fetch.
 
 ## 10. Next steps, in order
 
-1. **Get the key in place** (section 8). Until then, live tracing is limited to $0.10 a day.
-2. **Finish the trace.** Make a real change on `claude/findings-run` that touches `findings.yml` or `scripts/summarize_findings.py`, with no `[skip ci]`, and push it. One useful change: add a `"trials_untraced"` count to the summary. Expect 1–2 runs for the remaining 607 trials plus the 140 retries. Then update section 7 of this file and the report's findings section.
+1. ~~Get the key in place~~ (done, section 8).
+2. ~~Finish the trace~~ (done, run 40374400563; section 7 updated). The decision report's findings section still shows the partial-run numbers.
 3. **Validate against VITALITY.** Their datasets are on OSF (https://osf.io/ukg3j), which is reachable only from Actions. Measure Fallout's recall and precision on known contaminated reviews before any public claim.
 4. **Verify inclusion.** For open-access syntheses in PubMed Central, parse the included-studies list and record a separate `inclusion` field with its provenance. This answers the main critique.
 5. **Link guidelines.** Import reference lists from NICE, WHO and MAGICapp, since many guidelines lack DOIs.
