@@ -25,10 +25,14 @@ jobs:
         env:
           OPENALEX_MAILTO: ${{ vars.OPENALEX_MAILTO }}
         run: fallout trace --csv retraction_watch.csv --ledger ledger.json --limit 5000 --max-citing 2000 2> trace.log | tee trace-summary.json; tail -5 trace.log
+      - name: Add PubMed publication types
+        env:
+          NCBI_EMAIL: ${{ vars.OPENALEX_MAILTO }}
+        run: fallout enrich --ledger ledger.json | tee enrich-summary.json
       - run: python scripts/summarize_findings.py ledger.json findings
       - name: Commit findings
         run: |
-          cp trace-summary.json findings/
+          cp trace-summary.json enrich-summary.json findings/
           git config user.name "fallout-bot"
           git config user.email "fallout-bot@users.noreply.github.com"
           git add findings
