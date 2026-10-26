@@ -2,9 +2,8 @@
 
 Uses only the standard library. Requests carry a ``mailto`` for OpenAlex's
 "polite pool". If ``OPENALEX_API_KEY`` is set it is sent as the ``api_key``
-query parameter; check OpenAlex's current documentation, because its key and
-rate-limit policy has changed over time and we have not verified the present
-rules from this repository.
+query parameter, as OpenAlex's authentication docs specify. Without a key the
+daily usage budget is small (see README).
 """
 
 from __future__ import annotations
