@@ -1,10 +1,16 @@
-"""Summarise a full trace into findings/ for review. Run after `fallout trace`."""
+"""Summarise a full trace into findings/ for review. Run after `fallout trace`.
+
+Usage: summarize_findings.py LEDGER OUT_DIR [RW_CSV]. With the Retraction Watch CSV,
+the summary also counts trials in the population that the ledger has not reached.
+"""
 
 import csv
 import json
 import sys
 from collections import Counter
 from pathlib import Path
+
+from fallout.retractions import read_records, select_retracted_trials
 
 ledger = json.loads(Path(sys.argv[1]).read_text())
 out = Path(sys.argv[2])
@@ -36,6 +42,12 @@ summary = {
     "trials_cited_by_a_synthesis_after_retraction": len({e["trial"] for e in after}),
     "after_retraction_by_publication_year": dict(sorted(Counter((e["citing"]["publication_date"] or "")[:4] for e in after).items())),
 }
+if len(sys.argv) > 3:
+    population = {t.key for t in select_retracted_trials(read_records(sys.argv[3]))}
+    summary["trials_in_population"] = len(population)
+    summary["trials_untraced"] = len(population - ledger["trials"].keys())
+    # Errored trials are retried on the next run, so they are not finished either.
+    summary["trials_pending_retry"] = sum(1 for t in ledger["trials"].values() if t.get("status") == "error")
 (out / "summary.json").write_text(json.dumps(summary, indent=2))
 
 fields = ["trial", "class", "class_confidence", "days_after_retraction", "citing_doi", "citing_openalex_id", "citing_publication_date", "citing_title"]
