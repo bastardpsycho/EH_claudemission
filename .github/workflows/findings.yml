@@ -4,7 +4,7 @@ name: findings
 on:
   push:
     branches: [claude/findings-run]
-    paths: [".github/workflows/findings.yml", "scripts/summarize_findings.py", "src/fallout/validate.py", "validation/**"]
+    paths: [".github/workflows/findings.yml", "scripts/summarize_findings.py", "src/fallout/**", "validation/**"]
 permissions:
   contents: write
 concurrency:
