@@ -34,6 +34,7 @@ from pathlib import Path
 from typing import Iterable
 
 from .classify import SYNTHESIS_CLASSES
+from .inclusion import ASSESSED, INCLUDED
 from .retractions import Retraction
 
 # Scopus forward citations were last updated on 21 November 2024 (Google Scholar 21 Nov–2 Dec 2024).
@@ -61,6 +62,12 @@ def load_vitality(directory: str | Path) -> tuple[dict[str, dict], list[dict]]:
     with open(d / "vitality_inclusions.csv", encoding="utf-8", newline="") as f:
         pairs = list(csv.DictReader(f))
     return trials, pairs
+
+
+def _inclusion_key(inclusion: dict) -> str:
+    """The verdict, with the strength appended for included_evidence ("included_evidence:table")."""
+    v = inclusion["verdict"]
+    return f"{v}:{inclusion['strength']}" if v == INCLUDED and inclusion.get("strength") else v
 
 
 def _ratio(n: int, d: int) -> float | None:
@@ -128,6 +135,7 @@ def validate(
 
     # Recall over verified (index trial, review) pairs.
     found_cls: Counter = Counter()
+    positive_inclusion: Counter = Counter()
     as_synthesis: Counter = Counter()  # keyed by whether the review DOI matched exactly
     outcome: Counter = Counter()
     missed = []
@@ -153,6 +161,8 @@ def validate(
             continue
         outcome["checkable: citation found" if exact else "checkable: other Cochrane version found"] += 1
         found_cls[edge["class"]] += 1
+        if "inclusion" in edge:
+            positive_inclusion[_inclusion_key(edge["inclusion"])] += 1
         synthesis = edge["class"] in SYNTHESIS_CLASSES
         as_synthesis[exact] += synthesis
         if not synthesis:
@@ -175,6 +185,35 @@ def validate(
             total[e["class"]] += 1
             agree[e["class"]] += doi in vitality_reviews
             agree_any[e["class"]] += review_id(doi) in vitality_review_ids
+
+    # Negatives for the inclusion check: reviews in which every meta-analysis VITALITY extracted
+    # pooled exactly one retracted trial (the index trial), so other VITALITY trials they cite
+    # were not pooled in any of those meta-analyses.
+    index_of: dict[str, set[str]] = {}
+    max_retracted: dict[str, int] = {}
+    for p in pairs:
+        if p["review_doi"]:
+            index_of.setdefault(p["review_doi"], set()).add(p["rct_id"])
+            max_retracted[p["review_doi"]] = max(max_retracted.get(p["review_doi"], 0), int(p["max_retracted_in_ma"] or 0))
+    single = {d: next(iter(ids)) for d, ids in index_of.items() if len(ids) == 1 and max_retracted[d] == 1}
+    negative_inclusion: Counter = Counter()
+    vitality_keys = set(fallout_key.values())
+    for doi, rct_id in single.items():
+        index_key = fallout_key.get(rct_id)
+        for key in vitality_keys - {index_key}:
+            e = by_trial.get(key, {}).get(doi)
+            if e is not None and "inclusion" in e:
+                negative_inclusion[_inclusion_key(e["inclusion"])] += 1
+
+    def inclusion_rates(c: Counter) -> dict:
+        verdicts = Counter()
+        for key, n in c.items():
+            verdicts[key.split(":", 1)[0]] += n
+        assessed = sum(verdicts[v] for v in ASSESSED)
+        strong = c[f"{INCLUDED}:table"]
+        return {"by_verdict": dict(c.most_common()), "assessed": assessed,
+                "included_evidence": verdicts[INCLUDED], "share_included_evidence": _ratio(verdicts[INCLUDED], assessed),
+                "included_evidence_from_table": strong, "share_from_table": _ratio(strong, assessed)}
 
     index_trials = {p["rct_id"] for p in pairs}
     summary = {
@@ -202,6 +241,13 @@ def validate(
             "citation_recall_any_cochrane_version": _ratio(any_found, checkable),
             "synthesis_recall_any_cochrane_version": _ratio(as_synthesis[True] + as_synthesis[False], checkable),
             "found_by_class": dict(found_cls.most_common()),
+        },
+        "inclusion_check": {
+            "note": "verified pairs should show included_evidence; negatives are other VITALITY trials cited by "
+                    "reviews whose every extracted meta-analysis pooled only the index trial, so included_evidence "
+                    "there means included in the review but not pooled, or a false signal",
+            "verified_pairs": inclusion_rates(positive_inclusion),
+            "negatives": inclusion_rates(negative_inclusion),
         },
         "review_level_agreement": {
             "last_search": last_search.isoformat(),

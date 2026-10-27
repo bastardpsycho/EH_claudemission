@@ -76,6 +76,7 @@ fallout trace --limit 50 --mailto you@example.org   # trace 50 trials, most rece
 fallout pubtypes --out rw_pubtypes.json   # PubMed publication types for Health Sciences research articles
 fallout trace --population trials --pubtypes rw_pubtypes.json   # also trace those PubMed indexes as trials
 fallout enrich                            # add PubMed publication types, re-classify
+fallout inclusion --limit 200            # look for inclusion evidence in open full text (PubMed Central)
 fallout report --out-dir site             # site/index.html, site/feed.xml, site/edges.csv
 fallout impact examples/bcg.csv --remove "TPT Madras 1980"
 fallout validate --out-dir validation-results    # score the ledger against VITALITY (see validation/README.md)

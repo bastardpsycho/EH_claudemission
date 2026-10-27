@@ -1,4 +1,4 @@
-"""Command-line interface: ``fallout retractions | pubtypes | trace | enrich | report | impact | validate``."""
+"""Command-line interface: ``fallout retractions | pubtypes | trace | enrich | inclusion | report | impact | validate``."""
 
 from __future__ import annotations
 
@@ -9,6 +9,7 @@ import sys
 from pathlib import Path
 
 from . import ledger as ledger_mod
+from .inclusion import PMCClient, verify_inclusion
 from .metaanalysis import effect_from_2x2, impact_without
 from .openalex import OpenAlexClient
 from .pubmed import PubMedClient
@@ -100,6 +101,31 @@ def cmd_enrich(args) -> int:
     return 0
 
 
+def cmd_inclusion(args) -> int:
+    led = ledger_mod.load(args.ledger)
+    client = PMCClient(email=args.email)
+    if args.recheck:
+        total = verify_inclusion(led, client, limit=args.limit, recheck=True)
+        ledger_mod.save(led, args.ledger)
+    else:
+        # Work in chunks and save after each, so an interrupted run keeps what it checked.
+        total = {"syntheses_checked": 0, "with_pmcid": 0, "edges_by_verdict": {}}
+        while args.limit is None or total["syntheses_checked"] < args.limit:
+            step = args.chunk if args.limit is None else min(args.chunk, args.limit - total["syntheses_checked"])
+            r = verify_inclusion(led, client, limit=step)
+            if not r["syntheses_checked"]:
+                break
+            ledger_mod.save(led, args.ledger)
+            total["syntheses_checked"] += r["syntheses_checked"]
+            total["with_pmcid"] += r["with_pmcid"]
+            for k, v in r["edges_by_verdict"].items():
+                total["edges_by_verdict"][k] = total["edges_by_verdict"].get(k, 0) + v
+            print(f"checked {total['syntheses_checked']} syntheses", file=sys.stderr)
+        total["requests"] = client.requests_made
+    print(json.dumps(total, indent=2))
+    return 0
+
+
 def cmd_report(args) -> int:
     led = ledger_mod.load(args.ledger)
     print(json.dumps(render_all(led, args.out_dir), indent=2))
@@ -172,6 +198,14 @@ def build_parser() -> argparse.ArgumentParser:
     en.add_argument("--ledger", default="ledger.json")
     en.add_argument("--email", help="contact email sent to NCBI (or NCBI_EMAIL)")
     en.set_defaults(func=cmd_enrich)
+
+    inc = sub.add_parser("inclusion", help="look for inclusion evidence in open full text of citing syntheses (PMC)")
+    inc.add_argument("--ledger", default="ledger.json")
+    inc.add_argument("--limit", type=int, help="distinct syntheses to check this run (default: all unchecked)")
+    inc.add_argument("--recheck", action="store_true", help="re-check syntheses already checked")
+    inc.add_argument("--chunk", type=int, default=500, help="syntheses per chunk; the ledger is saved after each")
+    inc.add_argument("--email", help="contact email sent to NCBI (or NCBI_EMAIL)")
+    inc.set_defaults(func=cmd_inclusion)
 
     rep = sub.add_parser("report", help="render ledger as HTML, Atom and CSV")
     rep.add_argument("--ledger", default="ledger.json")
