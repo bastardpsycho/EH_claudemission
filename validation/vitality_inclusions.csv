@@ -1,0 +1,852 @@
+rct_id,srfile,review_doi,ma_rows,replicated,max_retracted_in_ma,review_title
+1,1_1,10.1001/jama.2013.430,2,2,7,Association of hydroxyethyl starch administration with mortality and acute kidney injury in critically ill patients requiring volume resuscitation A systematic review and metaanalysis
+1,1_13,10.1186/cc6812,3,3,11,Smallvolume resuscitation with hyperoncotic albumin A systematic review of randomized clinical trials
+1,1_2,10.1097/ccm.0b013e3181ffe217,1,1,6,The role of albumin as a resuscitation fluid for patients with sepsis A systematic review and metaanalysis
+1,1_4,10.1136/bmj.g4561,8,8,4,Randomised trials of human albumin for adults with sepsis Systematic review and metaanalysis with trial sequential analysis of allcause mortality
+1,1_8,,1,1,7,Renal outcomes and mortality following hydroxyethyl starch resuscitation of critically ill patients Systematic review and metaanalysis of randomized trials
+2,2_11,10.1002/14651858.cd009526.pub2,2,2,1,Ovarian surgery for symptom relief in women with polycystic ovary syndrome
+2,2_15,10.1016/j.rbmo.2012.05.010,3,0,1,Impact of obesity on reproductive outcomes after ovarian ablative therapy in PCOS A collaborative metaanalysis
+2,2_3,10.1186/s12958-019-0461-3,4,4,1,Letrozole versus laparoscopic ovarian drilling in clomiphene citrateresistant women with polycystic ovary syndrome A systematic review and metaanalysis of randomized controlled trials
+2,2_4,10.1002/14651858.cd010287.pub3,36,36,2,Aromatase inhibitors letrozole for subfertile women with polycystic ovary syndrome
+2,2_5,10.1002/14651858.cd001122.pub4,4,4,1,Laparoscopic drilling by diathermy or laser for ovulation induction in anovulatory polycystic ovary syndrome
+5,5_21,10.18240/ijo.2019.07.20,1,1,1,Intravenous glucocorticoids therapy in the treatment of Graves ophthalmopathy A systematic review and Metaanalysis
+5,5_37,10.1080/21655979.2022.2101191,6,6,1,Efficacy and safety of mycophenolate mofetil in the treatment of moderate to severe Graves’ orbitopathy a metaanalysis
+6,6_1,10.1007/s00198-015-3148-4,1,1,1,Efficacy of bisphosphonates against osteoporosis in adult men a metaanalysis of randomized controlled trials
+9,9_10,10.26911/theijmed.2019.04.02.07,1,1,1,Comparative efficacy between intravenous iron and oral iron on enhancing hemoglobin level among pregnant women with iron deficiency anemia in low and middle income countries a meta-analysis
+9,9_2,10.1055/s-0038-1668555,3,3,1,Treatment of Iron Deficiency Anemia in Pregnancy with Intravenous versus Oral Iron Systematic Review and MetaAnalysis
+9,9_5,10.1038/s41372-019-0320-2,4,1,1,Intravenous compared with oral iron for the treatment of iron-deficiency anemia in pregnancy a systematic review and meta-analysis
+10,10_1,10.1093/hropen/hoy025,6,6,3,Endometrial scratching prior to ivf; does it help and for whom? A systematic review and meta-analysis
+10,10_10,10.4103/2096-2924.296549,10,10,2,Effects of endometrial stimulation timings and techniques on pregnancy outcomes in patients without prior embryo transfer a systematic review and meta-analysis
+10,10_11,10.3310/jnzt9406,17,17,2,Endometrial scratch to increase live birth rates in women undergoing firsttime in vitro fertilisation RCT and systematic review
+10,10_3,10.1016/j.fertnstert.2018.12.008,6,6,2,Endometrial scratching for infertile women undergoing a first embryo transfer a systematic review and metaanalysis of published and unpublished data from randomized controlled trials
+10,10_6,10.1016/j.rbmo.2021.11.021,6,6,2,Endometrial scratch in women undergoing firsttime IVF treatment a systematic review and metaanalysis of randomized controlled trials
+10,10_7,10.1177/03000605231175365,63,63,3,Endometrial scratch injury in infertile women undergoing in vitro fertilization cycles a systematic review and meta-analysis
+10,10_9,10.31083/j.ceog4901027,21,21,2,The impact of endometrial mechanical stimulation in women with normal hysteroscopic findings undergoing IVF/ICSI a metaanalysis
+13,13_3,10.1080/13625187.2019.1706079,14,14,3,Misoprostol administration prior to intrauterine contraceptive device insertion a systematic review and metaanalysis of randomised controlled trials
+16,16_1,10.1080/14767058.2019.1659769,1,1,1,The influence of zinc supplementation on metabolic status in gestational diabetes a metaanalysis of randomized controlled studies
+17,17_17,10.1016/j.heliyon.2023.e14291,4,4,1,Vitamin D supplementation in the treatment of polycystic ovary syndrome A metaanalysis of randomized controlled trials
+17,17_18,10.1097/md.0000000000030006,6,6,2,Effects of antioxidant intervention in patients with polycystic ovarian syndrome A systematic review and metaanalysis
+17,17_19,10.1161/jaha.120.017727,16,16,2,Effects of vitamin d supplementation on cardiovascular and glycemic biomarkers
+17,17_5,10.1055/s-0044-101355,5,5,2,The Effects of Vitamin D Supplementation on Biomarkers of Inflammation and Oxidative Stress among Women with Polycystic Ovary Syndrome A Systematic Review and MetaAnalysis of Randomized Controlled Trials
+17,17_8,10.21037/apm-20-2201,5,5,2,"Vitamin D improves levels of hormonal, oxidative stress and inflammatory parameters in polycystic ovary syndrome A metaanalysis study"
+18,18_11,10.1111/aogs.13352,1,1,1,Treatment efficacy for idiopathic recurrent pregnancy loss – a systematic review and metaanalyses
+18,18_12,10.1007/s12325-019-01124-z,2,2,1,Safety and Efficacy of Enoxaparin in Pregnancy A Systematic Review and MetaAnalysis
+18,18_13,10.1160/th16-02-0169,4,2,1,Lmwh in the prevention of preeclampsia and fetal growth restriction in women without thrombophilia
+18,18_16,10.1080/14767058.2021.1957819,3,3,1,Evaluation of the effect of low molecular weight heparin in unexplained recurrent pregnancy loss a metaanalysis of randomized controlled trials
+18,18_2,10.1002/14651858.cd004734.pub4,6,6,1,Aspirin and/or heparin for women with unexplained recurrent miscarriage with or without inherited thrombophilia
+18,18_22,10.1016/j.tjog.2020.11.001,8,8,1,The role of low molecular weight heparin on recurrent pregnancy loss A systematic review and metaanalysis
+18,18_29,10.1016/j.ejogrb.2021.10.036,2,2,1,Low molecular weight heparin or LMWH plus aspirin in the treatment of unexplained recurrent miscarriage with negative antiphospholipid antibodies A metaanalysis of randomized controlled trial
+18,18_37,10.1016/j.jogoh.2020.101935,3,3,1,Hold your needles in women with recurrent pregnancy losses with or without hereditary thrombophilia Metaanalysis and review of the literature
+18,18_41,10.5935/1518-0557.20200042,6,6,1,Effectiveness of the use of low molecular heparin in patients with repetition abortion history Systematic review and metaanalysis
+18,18_42,10.1155/2022/1248577,1,1,1,Efficacy of Low Molecular Weight Heparin in Preventing Perinatal Venous Thrombosis A MetaAnalysis
+18,18_8,10.1016/j.ajog.2020.11.006,17,17,1,Lowmolecularweight heparin for prevention of preeclampsia and other placentamediated complications a systematic review and metaanalysis
+19,19_12,10.1016/j.imr.2021.100758,2,2,1,The effectiveness and safety of complementary health approaches to managing postpartum pain A systematic review and metaanalysis
+19,19_6,10.1016/j.ctim.2020.102510,2,2,1,The effect of lavender on pain and healing of episiotomy a systematic review
+21,21_1,10.1016/j.neurom.2024.03.002,2,2,1,A Mechanistic Analysis of the Neural Modulation of the Inflammatory System Through Vagus Nerve Stimulation A Systematic Review and Metaanalysis
+22,22_10,10.1111/j.1537-2995.2011.03515.x,1,1,3,Is freshfrozen plasma clinically effective An update of a systematic review of randomized controlled trials CME
+22,22_8,10.1016/j.jclinane.2019.01.018,9,6,3,Effects of plateletrich plasmapheresis during cardiovascular surgery A metaanalysis of randomized controlled clinical trials
+22,22_9,10.1016/s0022-5223(98)70172-2,1,1,4,Plateletrich plasmapheresis in cardiac surgery A metaanalysis of the effect on transfusion requirements
+23,23_1,10.1016/j.ajcnut.2023.03.025,2,2,1,Dietary interventions for perinatal depression and anxiety a systematic review and metaanalysis of randomized controlled trials
+23,23_2,10.1186/s12889-022-12710-2,1,0,1,Effect of postpartum anaemia on maternal healthrelated quality of life a systematic review and metaanalysis
+26,26_11,10.1002/14651858.cd007407.pub4,6,6,2,Psychological therapies for the management of chronic pain excluding headache in adults
+26,26_2,10.1080/16506073.2023.2236296,1,1,1,The effectiveness of cognitive behavioural therapy in chronic neck pain A systematic review with metaanalysis
+26,26_3,10.1371/journal.pone.0223367,12,12,4,Effectiveness of physical and cognitivebehavioural intervention programmes for chronic musculoskeletal pain in adults A systematic review and metaanalysis of randomised controlled trials
+26,26_7,10.1097/ajp.0000000000000871,4,4,2,Multidisciplinarybased Rehabilitation MBR Compared with Active Physical Interventions for Pain and Disability in Adults with Chronic Pain A Systematic Review and Metaanalysis
+26,26_9,10.1080/10833196.2018.1483550,1,1,2,Combining a psychological intervention with physiotherapy A systematic review to determine the effect on physical function and quality of life for adults with chronic pain
+28,28_1,10.1038/s41467-021-22446-z,8,2,1,Mortality outcomes with hydroxychloroquine and chloroquine in COVID19 from an international collaborative metaanalysis of randomized trials
+28,28_18,,5,5,1,Efficacy and safety of chloroquine and hydroxychloroquine for treatment of covid-19 patients-a systematic review and meta-analysis of randomized controlled trials
+28,28_20,10.2217/fvl-2021-0119,20,9,1,Efficacy of chloroquine and hydroxychloroquine for the treatment of hospitalized COVID19 patients A metaanalysis
+28,28_23,10.1038/s41598-021-91089-3,4,4,1,Hydroxychloroquine plus standard of care compared with standard of care alone in COVID19 a metaanalysis of randomized controlled trials
+28,28_24,10.1080/20477724.2021.1884807,6,0,1,Use of hydroxychloroquine and chloroquine in patients with COVID19 a metaanalysis of randomized clinical trials
+28,28_28,10.3390/jcm10112503,8,5,1,Efficacy and safety of hydroxychloroquine for hospitalized covid19 patients A systematic review and metaanalysis
+28,28_31,10.1080/20477724.2021.1936818,8,0,1,Hydroxychloroquine and mortality in COVID19 patients a systematic review and a metaanalysis of observational studies and randomized controlled trials
+28,28_32,10.1111/cts.13001,7,7,1,"Mortality, viral clearance, and other clinical outcomes of hydroxychloroquine in COVID19 patients A systematic review and metaanalysis of randomized controlled trials"
+28,28_33,10.1002/rmv.2276,6,6,1,Hydroxychloroquine in the treatment of coronavirus disease 2019 Rapid updated systematic review and metaanalysis
+28,28_39,10.31744/einstein_journal/2022rw0045,2,2,1,Hydroxychloroquine for treatment of covid-19 patients a systematic review and meta-analysis of randomized controlled trials.
+28,28_4,10.1002/14651858.cd013587.pub2,2,2,1,Chloroquine or hydroxychloroquine for prevention and treatment of COVID19
+28,28_41,10.1097/md.0000000000025532,3,3,1,The therapeutic effect and safety of the drugs for COVID19 A systematic review and metaanalysis
+28,28_45,10.1080/14787210.2022.1997587,7,7,1,Comparative effectiveness of pharmacological interventions on mortality and the average length of hospital stay of patients with COVID19 a systematic review and metaanalysis of randomized controlled trials
+28,28_47,10.1016/j.jiac.2021.02.021,3,3,1,Efficacy and safety of hydroxychloroquine/chloroquine against SARSCoV2 infection A systematic review and metaanalysis
+28,28_6,10.1371/journal.pone.0248132,2,2,1,Interventions for treatment of COVID19 Second edition of a living systematic review with metaanalyses and trial sequential analyses The LIVING Project
+28,28_8,10.1183/16000617.0171-2021,1,1,1,The impact of therapeutics on mortality in hospitalised patients with COVID19 systematic review and metaanalyses informing the European Respiratory Society living guideline
+29,29_1,10.1186/s12879-023-08525-0,2,2,1,The efficacy and safety of remdesivir alone and in combination with other drugs for the treatment of COVID19 a systematic review and metaanalysis
+29,29_14,10.3390/medicina59061027,1,1,1,Remdesivir Treatment Lacks the Effect on Mortality Reduction in Hospitalized Adult COVID19 Patients Who Required HighFlow Supplemental Oxygen or Invasive Mechanical Ventilation
+29,29_16,,6,6,1,Should remdesivir be used in the treatment of children with covid-19 infection?
+29,29_2,10.7326/m21-4784,2,0,1,Major Update 2 Remdesivir for Adults With COVID19 A Living Systematic Review and Metaanalysis for the American College of Physicians Practice Points
+29,29_3,10.1016/j.cmi.2022.04.018,2,2,1,Remdesivir for the treatment of COVID19 a systematic review and metaanalysis
+31,31_3,10.1016/j.ijantimicag.2022.106545,2,2,1,Effect of sofosbuvirbased treatment on clinical outcomes of patients with COVID19 a systematic review and metaanalysis of randomised controlled trials
+31,31_5,10.1080/14787210.2022.2000861,1,0,1,Clinical outcomes of sofosbuvirbased antivirals in patients with COVID19 a systematic review and metaanalysis of randomized trials
+31,31_8,10.1080/17512433.2022.2103539,4,4,1,Clinical efficacy of sofosbuvir/daclatasvir in patients with COVID19 a systematic review and metaanalysis of randomized trials
+33,33_2,10.1002/14651858.cd004011.pub4,19,19,1,Strategies for the removal of shortterm indwelling urethral catheters in adults
+35,35_1,10.1016/j.jpurol.2021.07.027,1,1,1,Evaluating the literature on preoperative androgen stimulation for hypospadias repair using the fragility index – can we trust observational studies?
+35,35_10,10.5534/wjmh.220173,16,16,1,Effect of Preoperative Androgen Stimulation on Penile Size and Postoperative Complication Rate in Patients with Hypospadias A Systematic Review and MetaAnalysis
+35,35_12,10.20473/fmi.v58i1.32182,4,4,1,Pre-operative hormonal administration in hypospadias patients undergoing urethroplasty
+35,35_3,10.4314/aas.v20i1.4,4,4,1,Preoperative hormonal stimulation in hypospadias: a systematic review
+35,35_5,10.1016/j.jpurol.2017.06.019,2,2,1,Preoperative hormonal stimulation effect on hypospadias repair complications Metaanalysis of observational versus randomized controlled studies
+41,41_10,10.1016/j.ejogrb.2018.06.022,4,4,1,Tamoxifen versus clomiphene citrate for ovulation induction in infertile women
+41,41_11,10.1002/14651858.cd002249.pub5,8,8,1,Clomiphene and other antioestrogens for ovulation induction in polycystic ovarian syndrome
+41,41_2,10.1002/uog.18933,6,6,1,"Effect of clomiphene citrate on endometrial thickness, ovulation, pregnancy and live birth in anovulatory women systematic review and metaanalysis"
+43,43_2,10.1136/bmjgh-2021-007537,2,2,1,"Preconception and periconception interventions to prevent low birth weight, small for gestational age and preterm birth a systematic review and metaanalysis"
+43,43_3,10.1002/14651858.cd012534.pub2,5,5,1,Antiplatelet and anticoagulant agents for primary prevention of thrombosis in individuals with antiphospholipid antibodies
+43,43_4,10.1080/14767058.2017.1404979,2,2,1,Aspirin or heparin or both in the treatment of recurrent spontaneous abortion in women with antiphospholipid antibody syndrome a metaanalysis of randomized controlled trials
+43,43_5,10.1080/14767058.2019.1608433,6,6,1,The efficacy of enoxaparin for recurrent abortion a metaanalysis of randomized controlled studies
+46,46_1,10.1002/14651858.cd015017.pub3,3,3,1,Ivermectin for preventing and treating COVID19
+46,46_13,10.1186/s12985-022-01829-8,6,4,1,Ivermectin under scrutiny a systematic review and meta-analysis of efficacy and possible sources of controversies in covid-19 patients
+46,46_15,10.1093/qjmed/hcab247,7,0,1,Efficacy and safety of ivermectin for the treatment of COVID19 A systematic review and metaanalysis
+46,46_16,10.1016/j.jclinepi.2021.12.018,23,23,1,Bias as a source of inconsistency in ivermectin trials for COVID19 A systematic review. Ivermectins suggested benefits are mainly based on potentially biased results
+46,46_5,10.1002/rmv.2265,15,15,2,Ivermectin and outcomes from Covid19 pneumonia A systematic review and metaanalysis of randomized clinical trial studies
+48,48_1,10.1016/j.clnesp.2021.12.033,3,3,1,Clinical significance of micronutrient supplements in patients with coronavirus disease 2019 A comprehensive systematic review and metaanalysis
+48,48_2,10.1080/14787210.2022.2035217,3,3,2,COVID19 and vitamin D CoVIVID study a systematic review and metaanalysis of randomized controlled trials
+48,48_3,10.3390/nu14102134,22,22,1,Effects of Vitamin D Supplementation on COVID19 Related Outcomes A Systematic Review and MetaAnalysis
+48,48_4,10.12944/crnfsj.11.1.3,3,2,1,"Vitamin D on COVID19 Patients During the Pandemic, 2022. A Systematic Review and MetaAnalysis"
+48,48_5,10.1007/s40618-021-01614-4,3,3,1,Vitamin D supplementation and clinical outcomes in COVID19 a systematic review and metaanalysis
+48,48_6,10.3389/fimmu.2022.1023903,3,2,1,Vitamin D supplementation for the treatment of COVID19 A systematic review and metaanalysis of randomized controlled trials
+49,49_1,10.3389/fcvm.2021.721264,3,3,1,Influence of Dexmedetomidine on Postoperative Atrial Fibrillation After Cardiac Surgery A MetaAnalysis of Randomized Controlled Trials
+49,49_10,10.1097/md.0000000000026662,2,2,1,Effects of perioperative interventions for preventing postoperative delirium A protocol for systematic review and metaAnalysis of randomized controlled trials
+49,49_11,10.1016/j.bja.2021.11.041,5,5,1,Influence of perioperative dexmedetomidine on the incidence of postoperative delirium in adult patients undergoing cardiac surgery
+49,49_12,10.1177/02676591211066232,3,3,1,Prophylactic dexmedetomidine use did not decrease the incidence of delirium in patients undergoing cardiac surgery A metaanalysis
+49,49_2,10.1111/aas.14208,3,3,2,Dexmedetomidine for the prevention of delirium in adults admitted to the intensive care unit or postoperative care unit A systematic review of randomised clinical trials with metaanalysis and Trial Sequential Analysis
+49,49_3,10.3389/fmed.2021.645975,7,6,1,Is perioperative dexmedetomidine associated with a reduced risk of perioperative neurocognitive disorders following cardiac surgery? A systematic review and meta-analysis with trial sequential analysis of randomized controlled trials
+49,49_4,10.1016/j.bjane.2023.07.003,1,1,1,Does dexmedetomidine reduce the risk of acute kidney injury after cardiac surgery? A meta-analysis of randomized controlled trials.
+49,49_5,10.5152/anatoljcardiol.2022.1346,3,3,1,Does dexmedetomidine reduce the risk of atrial fibrillation and stroke after adult cardiac surgery? A systematic review and meta-analysis of randomized controlled trials
+49,49_6,10.1053/j.jvca.2020.10.022,4,4,1,Critical Review and MetaAnalysis of Postoperative Sedation after Adult Cardiac Surgery Dexmedetomidine Versus Propofol
+49,49_7,10.1097/md.0000000000027782,9,9,1,Dexmedetomidine effect on delirium in elderly patients undergoing general anesthesia A protocol for systematic review and metaanalysis
+49,49_8,10.1186/s12871-021-01370-1,8,8,1,Dexmedetomidine reduces the incidence of postoperative delirium after cardiac surgery a metaanalysis of randomized controlled trials
+49,49_9,10.1097/fjc.0000000000001196,7,7,1,Effect of Dexmedetomidine on Tachyarrhythmias after Cardiac Surgery A Systematic Review and MetaAnalysis
+52,52_1,,2,2,1,Primary Tooth Vital Pulp Treatment Interventions: Systematic Review and Meta-Analyses.
+58,58_2,10.1002/14651858.cd012799.pub2,10,10,1,Selective serotonin reuptake inhibitors for premature ejaculation in adult men
+58,58_3,10.3310/hta19210,3,3,1,Interventions to treat premature ejaculation A systematic review short report
+59,59_19,10.1016/j.urology.2012.05.035,4,4,1,Efficacy and safety of tramadol for premature ejaculation A systematic review and metaanalysis
+59,59_21,10.1159/000348826,2,2,1,Role of tramadol in premature ejaculation A systematic review and metaanalysis
+59,59_22,10.1111/ijcp.14825,2,2,1,"A systematic review and meta-analysis of randomized controlled trials of ""on-demand"" use of tramadol vs ""on-demand"" use of paroxetine in the management of patients with premature ejaculation"
+59,59_47,10.61662/pcs_oido9441,6,6,1,Meta-analysis with meta-regression and systematic review of the efficacy of on-demand tramadol for the treatment of lifelong premature ejaculation
+59,59_5,10.1186/1471-2490-15-6,2,2,1,Tramadol for premature ejaculation a systematic review and meta-analysis
+62,62_2,10.1371/journal.pone.0251980,11,10,1,Thoracolumbar interfascial plane block for postoperative analgesia in spine surgery A systematic review and metaanalysis
+62,62_3,,8,8,1,Efficacy of Thoracolumbar Interfascial Plane Block for Postoperative Analgesia in Lumbar Spine Surgery A Metaanalysis of Randomized Clinical Trials
+64,64_1,10.1002/14651858.cd005355.pub5,7,7,1,Interventions to reduce haemorrhage during myomectomy for fibroids
+67,67_2,10.1080/14767058.2019.1574741,9,9,1,Misoprostol combined with cervical single or double balloon catheters versus misoprostol alone for labor induction of singleton pregnancies a metaanalysis of randomized trials
+67,67_3,10.1016/j.ajogmf.2019.06.003,2,2,1,Maternal and neonatal outcomes with mechanical cervical dilation plus misoprostol compared to misoprostol alone for cervical ripening; a systematic review of literature and metaanalysis
+67,67_4,10.1002/14651858.cd001233.pub3,13,13,1,Mechanical methods for induction of labour
+68,68_2,10.1007/s10096-021-04307-1,2,2,2,Effectiveness of favipiravir in COVID19 a live systematic review
+68,68_37,10.15419/bmrat.v10i5.811,4,4,1,Effects of Remdesivir and Favipiravir on Covid19 Clinical Outcomes  A Systematic Review and MetaAnalysis
+68,68_38,10.1080/14787210.2022.2012155,9,9,3,Evaluation of favipiravir in the treatment of COVID19 based on the realworld
+70,70_19,10.22159/ijap.2022v14i4.44689,1,0,1,IVERMECTIN IN THE TREATMENT OF COVID19 DISEASE A SYSTEMATIC REVIEW AND METAANALYSIS
+73,73_1,10.1038/s41598-021-90551-6,5,5,3,The efficacy and safety of Favipiravir in treatment of COVID19 a systematic review and metaanalysis of clinical trials
+75,75_1,10.1016/j.jpurol.2022.08.015,1,1,1,Biologic adjuvant urethral coverings for singlestage primary hypospadias repairs A systematic review and pooled proportional metaanalysis of postoperative urethrocutaneous fistulas
+76,76_1,10.1002/cam4.7080,14,14,1,East Asian patients who received immunotherapybased therapy associated with improved survival benefit in advanced nonsmall cell lung cancer An updated metaanalysis
+78,78_1,10.1002/uog.17397,1,1,2,Vaginal progesterone decreases preterm birth and neonatal morbidity and mortality in women with a twin gestation and a short cervix an updated metaanalysis of individual patient data
+78,78_19,10.1515/jpm-2015-0317,1,1,1,The safety of progestogen in the prevention of preterm birth Metaanalysis of neonatal mortality
+78,78_2,10.1002/14651858.cd012024.pub3,24,24,2,Prenatal administration of progestogens for preventing spontaneous preterm birth in women with a multiple pregnancy
+78,78_3,10.1055/a-1877-5827,27,27,2,Pregnant Populations which Benefit from Vaginal Progesterone for Preventing Preterm Birth at <34 Weeks and Neonatal Morbidities A Systematic Review and Metaanalysis
+80,80_6,10.1016/j.fas.2022.03.012,4,4,1,Negative pressure wound therapy versus gauze dressings in managing open fracture wound of lower limbs A metaanalysis of randomized controlled trials
+82,82_1,10.1097/mjt.0000000000001377,3,3,1,Review of the emerging evidence demonstrating the efficacy of ivermectin in the prophylaxis and treatment of covid-19
+82,82_10,10.1016/j.dsx.2021.102186,2,2,1,"Ivermectin and mortality in patients with covid-19 a systematic review, meta-analysis, and meta-regression of randomized controlled trials"
+82,82_14,10.3390/diagnostics11091645,12,12,2,Ivermectin for prophylaxis and treatment of covid19 A systematic review and metaanalysis
+82,82_2,10.1097/mjt.0000000000001402,11,11,2,"Ivermectin for Prevention and Treatment of COVID19 Infection A Systematic Review, Metaanalysis, and Trial Sequential Analysis to Inform Clinical Guidelines"
+82,82_32,10.4103/jfmpc.jfmpc_527_22,2,0,1,Effect of ivermectin prophylaxis in prevention of covid 19 meta-analysis and systematic review
+82,82_36,10.26911/jepublichealth.2021.06.04.02,1,1,1,The effectiveness of ivermectin on the risk of mortality in covid-19 patients a meta analysis
+82,82_9,10.1007/s43440-021-00245-z,1,0,1,The association between the use of ivermectin and mortality in patients with covid-19 a meta-analysis
+83,83_5,10.1177/02676591231159513,2,2,1,Safety outcomes of antiplatelet therapy post coronary artery bypass graft surgery A systematic review and network metaanalysis of randomized control trials
+83,83_6,10.1111/jocs.17195,1,1,1,Sex differences in saphenous vein graft patency A systematic review and metaanalysis
+83,83_7,10.1177/02676591221076284,4,4,1,Ticagrelor for patients undergoing coronary artery bypass grafting A metaanalysis of randomized controlled trials
+85,85_1,10.3390/jcm11040991,4,3,1,Music Intervention for Pain Control in the Pediatric Population A Systematic Review and MetaAnalysis
+85,85_4,10.1002/nop2.2094,4,4,2,Effects of white noise on preterm infants in the neonatal intensive care unit A metaanalysis of randomised controlled trials
+87,87_1,10.14309/ctg.0000000000000341,7,7,1,Oral proton pump inhibitors may be as effective as intravenous in peptic ulcer bleeding a systematic review and meta-analysis
+91,91_2,10.1108/nfs-11-2022-0387,4,4,1,The effects of vitamin D and omega3 cosupplementation on lipid profile in adults a systematic review and metaanalysis
+91,91_28,10.31686/ijier.vol8.iss5.2363,1,1,1,Vitamin d3 supplementation an option associated with the treatment of multiple sclerosis a systematic review and meta-analysis
+91,91_8,10.3390/nu14214627,1,0,1,Association of Polyunsaturated Fatty Acid Intake on Inflammatory Gene Expression and Multiple Sclerosis A Systematic Review and MetaAnalysis
+92,92_10,10.1159/000490358,1,1,1,Effect of Vitamin D Supplementation on Some Inflammatory Biomarkers in Type 2 Diabetes Mellitus Subjects A Systematic Review and MetaAnalysis of Randomized Controlled Trials
+92,92_12,10.1038/s41598-020-69762-w,5,5,1,Vitamin D supplementation effects on the clinical outcomes of patients with coronary artery disease a systematic review and metaanalysis
+92,92_13,10.1055/a-0630-1303,8,8,2,The Effects of Vitamin D Supplementation on Biomarkers of Inflammation and Oxidative Stress in Diabetic Patients A Systematic Review and MetaAnalysis of Randomized Controlled Trials
+92,92_14,10.1186/s12902-022-01209-x,2,2,1,What is the impact of vitamin D supplementation on glycemic control in people with type2 diabetes a systematic review and metaanalysis of randomized controlled trails
+92,92_22,10.1016/j.ctcp.2018.12.009,2,2,1,The effects of vitamin D supplementation on indices of glycemic control in Iranian diabetics A systematic review and metaanalysis
+92,92_25,10.1016/j.phrs.2021.105727,2,2,1,The effects of vitamin D supplementation on inflammatory biomarkers in patients with abnormal glucose homeostasis A systematic review and metaanalysis of randomized controlled trials
+92,92_26,10.3164/jcbn.20-165,8,8,1,Effect of vitamin D supplementation on glycose homeostasis and islet function in vitamin D deficient or insufficient diabetes and prediabetes A systematic review and metaanalysis
+92,92_27,10.2174/1381612825666190308152943,9,9,1,"The effects of Vitamin D supplementation on glycemic control, lipid profiles and creactive protein among patients with cardiovascular disease A systematic review and metaanalysis of randomized controlled trials"
+92,92_4,10.1093/nutrit/nuz037,7,7,1,Effect of vitamin D supplementation on serum lipid profiles A systematic review and metaanalysis
+92,92_6,10.3389/fcvm.2018.00087,5,5,1,"Vitamin D Supplementation, Serum 25OHD Concentrations and Cardiovascular Disease Risk Factors A Systematic Review and MetaAnalysis"
+92,92_7,10.1016/j.phrs.2018.11.011,58,58,3,The effect of vitamin D supplementation on oxidative stress parameters A systematic review and metaanalysis of clinical trials
+92,92_8,10.1093/nutrit/nux077,1,1,1,Vitamin D supplementation for improvement of chronic lowgrade inflammation in patients with type 2 diabetes A systematic review and metaanalysis of randomized controlled trials
+93,93_10,10.1177/17455057221111066,3,3,1,Vitamin D supplementation higher than 2000 IU/day compared to lower dose on maternal–fetal outcome Systematic review and metaanalysis
+93,93_2,10.3390/nu12020491,5,5,1,"Vitamin and mineral supplementation during pregnancy on maternal, birth, child health and development outcomes in lowand middleincome countries A systematic review and metaanalysis"
+93,93_4,10.1002/14651858.cd008873.pub4,39,39,1,Vitamin D supplementation for women during pregnancy
+93,93_5,10.1016/j.fertnstert.2015.02.019,4,4,1,Effect of vitamin D supplementation during pregnancy on maternal and neonatal outcomes A systematic review and metaanalysis of randomized controlled trials
+93,93_6,10.30476/ijms.2021.90586.2166,4,4,1,Effect of Vitamin D Supplementation on Serum 25Hydroxyvitamin D and Homeostatic Model of Insulin Resistance Levels in Healthy Pregnancy A Systematic Review and MetaAnalysis
+93,93_7,10.3390/nu6062206,1,1,1,Effect of vitamin D supplementation on the level of circulating highsensitivity Creactive protein A metaanalysis of randomized controlled trials
+93,93_8,10.1111/jog.13239,1,1,1,Vitamin D and risk of preterm birth Uptodate metaanalysis of randomized controlled trials and observational studies
+93,93_9,10.1016/j.jsbmb.2016.02.008,1,1,1,Vitamin D supplementation during pregnancy Updated metaanalysis on maternal outcomes
+94,94_10,10.3389/fpubh.2022.903547,3,3,1,Effect of vitamin D supplementation on the incidence and prognosis of depression An updated metaanalysis based on randomized controlled trials
+94,94_11,10.4103/jpgm.jpgm_571_17,1,1,1,Efficacy of Vitamin D supplementation in major depression A metaanalysis of randomized controlled trials
+94,94_2,10.1002/da.23025,5,5,1,The effect of vitamin D supplement on negative emotions A systematic review and metaanalysis
+94,94_9,10.1016/j.pnpbp.2019.109651,4,4,1,"The effects of vitamin D supplementation on mental health, and biomarkers of inflammation and oxidative stress in patients with psychiatric disorders A systematic review and metaanalysis of randomized controlled trials"
+96,96_14,10.1016/j.jand.2019.07.002,5,5,2,Vitamin D Supplementation during Pregnancy An Evidence Analysis Center Systematic Review and MetaAnalysis
+96,96_16,10.1016/j.clnu.2020.12.016,3,3,1,The effects of vitamin D supplementation on glycemic control and maternalneonatal outcomes in women with established gestational diabetes mellitus A systematic review and metaanalysis
+96,96_18,10.3390/ijerph16101716,4,4,1,The effect of vitamin d supplementation on glycaemic control in women with gestational diabetes mellitus A systematic review and metaanalysis of randomised controlled trials
+96,96_20,10.1055/s-0043-115225,9,9,1,The Effects of Vitamin D Supplementation on Glucose Metabolism and Lipid Profiles in Patients with Gestational Diabetes A Systematic Review and MetaAnalysis of Randomized Controlled Trials
+96,96_30,10.1371/journal.pone.0213006,1,1,1,Efficacy of Vitamin D supplementation in gestational diabetes mellitus Systematic review and metaanalysis of randomized trials
+96,96_36,10.1159/000491643,8,6,1,Maternal and neonatal metabolic outcomes of Vitamin D supplementation in gestational diabetes mellitus A systematic review and metaanalysis
+96,96_4,10.1001/jamainternmed.2015.0237,2,0,1,Effect of vitamin D supplementation on blood pressure a systematic review and metaanalysis incorporating individual patient data
+96,96_46,10.1186/s12884-022-05132-w,2,2,2,The effect of vitamin D supplementation on oxidative stress and inflammatory biomarkers in pregnant women a systematic review and metaanalysis of clinical trials
+96,96_47,10.1155/2023/1907222,5,4,1,Vitamin D Supplementation for the Outcomes of Patients with Gestational Diabetes Mellitus and Neonates A MetaAnalysis and Systematic Review
+96,96_49,10.1186/s12902-021-00712-x,31,27,2,The effects of vitamin and mineral supplementation on women with gestational diabetes mellitus
+96,96_6,10.1016/j.clnu.2019.08.015,11,11,2,Vitamin D supplementation and incident preeclampsia A systematic review and metaanalysis of randomized clinical trials
+97,97_1,10.1016/j.ejogrb.2023.12.014,6,6,1,The efficacy of magnesium supplementation for gestational diabetes A metaanalysis of randomized controlled trials
+97,97_7,10.3390/nu14030679,2,2,1,Effect of Magnesium Supplementation on Inflammatory Parameters A MetaAnalysis of Randomized Controlled Trials
+97,97_8,10.2174/1381612823666170525153605,3,3,1,Effect of magnesium supplementation on plasma Creactive protein concentrations A systematic review and metaanalysis of randomized controlled trials
+97,97_9,10.1080/09513590.2021.1988558,6,6,1,Magnesium supplementation for glycemic status in women with gestational diabetes a systematic review and metaanalysis
+98,98_1,10.1002/14651858.cd014989.pub2,9,9,2,Surgical decompression for malignant cerebral oedema after ischaemic stroke
+100,100_1,10.5312/wjo.v15.i2.180,1,1,1,Metaanalysis of factors influencing anterior knee pain after total knee arthroplasty
+101,101_3,10.1186/s12871-020-01016-8,5,5,1,The effect of ultrasound-guided erector spinae plane block on postsurgical pain a meta-analysis of randomized controlled trials
+101,101_5,10.3390/jcm9092928,8,2,1,The effects of erector spinae plane block in terms of postoperative analgesia in patients undergoing laparoscopic cholecystectomy a meta-analysis of randomized controlled trials
+112,112_2,10.1213/ane.0b013e3182055384,1,1,1,Maintaining tissue perfusion in highrisk surgical patients A systematic review of randomized clinical trials
+112,112_4,10.1186/cc3902,2,2,1,Meta-analysis of hemodynamic optimization relationship to methodological quality
+120,120_1,10.1007/s11605-023-05782-x,14,14,1,One Anastomosis Gastric Bypass Versus Sleeve Gastrectomy for Obesity a Systemic Review and Metaanalysis
+120,120_12,10.1007/s11695-019-04288-3,8,8,1,One Anastomosis Gastric Bypass Versus RouxenY Gastric Bypass for Obesity a Systematic Review and MetaAnalysis of Randomized Clinical Trials
+120,120_14,10.1007/s11695-020-04488-2,3,3,1,"In terms of nutrition, the most suitable method for bariatric surgery laparoscopic sleeve gastrectomy or roux-en-y gastric bypass? A systematic review and meta-analysis"
+120,120_15,10.1097/hjh.0000000000002255,4,4,1,Laparoscopic RouxenY gastric bypass versus laparoscopic sleeve gastrectomy for 5year hypertension remission in obese patients A systematic review and metaanalysis
+120,120_16,10.1016/j.soard.2019.11.013,2,2,1,Bariatric procedure selection in patients with type 2 diabetes choice between roux-en-y gastric bypass or sleeve gastrectomy
+120,120_17,10.1007/s11695-021-05783-2,6,6,2,Vitamin b complex deficiency after roux-en-y gastric bypass and sleeve gastrectomy—a systematic review and meta-analysis
+120,120_2,10.1097/sla.0000000000003671,5,5,1,"Laparoscopic sleeve gastrectomy versus laparoscopic rouxeny gastric bypass A systematic review and metaanalysis of weight loss, comorbidities, and biochemical outcomes from randomized controlled trials"
+120,120_23,10.1007/s11695-019-04303-7,4,4,1,Clinical Outcomes of One Anastomosis Gastric Bypass Versus Sleeve Gastrectomy for Morbid Obesity
+120,120_24,10.1007/s11695-022-06401-5,10,10,1,Efficacy and Safety of One Anastomosis Gastric Bypass Versus RouxenY Gastric Bypass for Obesity a Metaanalysis and Systematic Review
+120,120_25,10.3389/fsurg.2022.953804,3,3,1,RouxenY gastric bypass and laparoscopic sleeve gastrectomy effects on obesity comorbidities A systematic review and metaanalysis
+120,120_27,10.1111/obr.13011,2,2,1,Comparison of the effect of RouxenY gastric bypass and sleeve gastrectomy on remission of type 2 diabetes A systematic review and metaanalysis of randomized controlled trials
+120,120_3,10.1007/s11695-023-07022-2,1,1,1,Systematic Review and Metaanalysis of the Effects of Laparoscopic RouxenY Gastric Bypass and Laparoscopic Sleeve Gastrectomy on Dyslipidemia
+120,120_30,10.1097/sle.0000000000000834,4,4,1,Fiveyear weight loss outcomes in laparoscopic vertical sleeve gastrectomy LVSG versus laparoscopic RouxenY gastric bypass LRYGB procedures A systematic review and metaanalysis of randomized controlled trials
+120,120_31,10.2337/dc22-0835,4,2,1,Biliopancreatic Limb Length as a Potential Key Factor in Superior Glycemic Outcomes After RouxenY Gastric Bypass in Patients With Type 2 Diabetes A MetaAnalysis
+120,120_4,10.1186/s12893-020-00695-x,7,7,1,A metaanalysis of the medium And longterm effects of laparoscopic sleeve gastrectomy and laparoscopic RouxenY gastric bypass
+120,120_5,10.1007/s11695-019-04005-0,3,2,1,One Anastomosis Gastric Bypass Versus RouxenY Gastric Bypass for Morbid Obesity an Updated MetaAnalysis
+120,120_6,10.1111/obr.13419,3,3,1,Comparative risk of anemia and related micronutrient deficiencies after RouxenY gastric bypass and sleeve gastrectomy in patients with obesity An updated metaanalysis of randomized controlled trials
+120,120_8,10.1210/clinem/dgaa737,8,8,1,RouxenY Gastric Bypass vs Sleeve Gastrectomy for Remission of Type 2 Diabetes
+124,124_1,10.1016/j.jclinane.2021.110308,9,9,2,Perioperative dexmedetomidine administration to prevent delirium in adults after noncardiac surgery A systematic review and metaanalysis
+124,124_13,,1,1,1,The efficacy of anti-inflammatory medication in postoperative cognitive decline
+124,124_14,10.1177/1559325820902345,2,2,1,Dexmedetomidine May Reduce IL6 Level and the Risk of Postoperative Cognitive Dysfunction in Patients After Surgery A MetaAnalysis
+124,124_3,10.1371/journal.pone.0218088,4,4,1,Dexmedetomidine for the prevention of postoperative delirium in elderly patients undergoing noncardiac surgery A metaanalysis of randomized controlled trials
+124,124_5,10.1177/03000605211014294,13,13,2,Effects of dexmedetomidine on neurocognitive disturbance after elective noncardiac surgery in senile patients a systematic review and metaanalysis
+124,124_7,10.1111/1440-1681.13312,10,10,2,Dexmedetomidine in the prevention of postoperative delirium in elderly patients following noncardiac surgery A systematic review and metaanalysis
+124,124_8,10.1097/mjt.0000000000001271,2,2,1,Pharmacological Agents That Prevent Postoperative Cognitive Dysfunction in Patients with General Anesthesia A Network Metaanalysis
+124,124_9,10.1177/1060028020951954,13,13,3,Effect of Dexmedetomidine on Delirium in Elderly Surgical Patients A Metaanalysis of Randomized Controlled Trials
+126,126_4,10.1186/s12871-022-01876-2,3,3,1,Comparison of the effect of doublelumen endotracheal tubes and bronchial blockers on lung collapse in videoassisted thoracoscopic surgery a systematic review and metaanalysis
+127,127_1,10.1186/s12887-024-04588-3,7,6,3,Efficient administration of a combination of nifedipine and sildenafil citrate versus only nifedipine on clinical outcomes in women with threatened preterm labor a systematic review and metaanalysis
+132,132_2,10.4065/83.4.418,1,0,1,Effect of perioperative insulin infusion on surgical morbidity and mortality Systematic review and metaanalysis of randomized trials
+133,133_2,10.1002/14651858.cd001208.pub4,2,2,1,Human albumin solution for resuscitation and volume expansion in critically ill patients.
+133,133_20,10.1007/s00228-011-1008-5,8,8,5,Hydroxyethyl starch for cardiovascular surgery A systematic review of randomized controlled trials
+133,133_9,10.1016/s0003-4975(01)02745-x,3,2,4,Albumin versus hydroxyethyl starch in cardiopulmonary bypass surgery A metaanalysis of postoperative bleeding
+134,134_8,10.1053/j.jvca.2004.05.019,2,2,2,Albumin versus crystalloid for pump priming in cardiac surgery meta-analysis of controlled trials
+136,136_3,10.1002/14651858.cd007594.pub3,8,8,2,Hydroxyethyl starch HES versus other fluid therapies Effects on kidney function
+138,138_2,10.1016/j.tmrv.2019.10.001,2,2,1,Efficacy and safety of tranexamic acid in major non-cardiac surgeries at high risk for transfusion a systematic review and meta-analysis
+138,138_4,10.1016/j.tmrv.2017.03.002,2,2,1,The safety and efficacy of lysine analogues in cancer patients a systematic review and meta-analysis
+138,138_7,10.1177/01455613231155855,9,9,1,The efficacy of tranexamic acid on the postoperative bleeding in patients receiving head-and-neck surgery a meta-analysis
+144,144_1,10.1093/humrep/dex035,3,3,2,Endometrial thickness in women undergoing iui with ovarian stimulation. How thick is too thin? A systematic review and meta-analysis
+144,144_13,10.1111/jog.12393,9,9,1,Letrozole versus clomiphene citrate for unexplained infertility A systematic review and metaanalysis
+144,144_14,10.1097/md.0000000000021006,8,8,1,Comparison of clomiphene and letrozole for superovulation in patients with unexplained infertility undergoing intrauterine insemination A systematic review and metaanalysis
+145,145_10,10.1093/humupd/dms003,4,4,1,Aromatase inhibitors for PCOS A systematic review and metaanalysis
+145,145_11,10.3109/09513590.2015.1096337,1,1,1,Letrozole versus clomiphene citrate in polycystic ovary syndrome Systematic review and metaanalysis
+145,145_14,10.1007/s00404-018-4688-6,9,9,1,Letrozole versus clomiphene citrate in polycystic ovary syndrome a metaanalysis of randomized controlled trials
+145,145_15,10.1016/j.rbmo.2011.03.024,1,1,1,Metaanalysis of letrozole versus clomiphene citrate in polycystic ovary syndrome
+145,145_30,10.1016/j.mefs.2018.03.008,3,3,1,Systematic review and metaanalysis of letrozole and clomiphene citrate in polycystic ovary syndrome
+145,145_8,10.1093/humupd/dmn033,3,3,1,Use of letrozole in assisted reproduction A systematic review and metaanalysis
+146,146_12,10.1111/aogs.12673,4,4,1,Combined metforminclomiphene in clomipheneresistant polycystic ovary syndrome A systematic review and metaanalysis of randomized controlled trials
+146,146_14,10.1186/s12958-021-00772-7,9,9,3,The function of metformin in endometrial receptivity ER of patients with polycyclic ovary syndrome PCOS a systematic review and metaanalysis
+148,148_13,10.1016/j.jemermed.2013.05.018,2,2,5,Colloid solutions for fluid resuscitation in patients with sepsis Systematic review of randomized controlled trials
+148,148_7,10.1002/14651858.cd001319.pub5,3,3,6,Colloid solutions for fluid resuscitation
+153,153_1,10.1097/eja.0000000000000780,3,3,1,Safety and efficacy of perioperative administration of hydroxyethyl starch in children undergoing surgery
+156,156_1,10.1038/s41598-021-82318-w,15,15,1,Clinical data mining reveals analgesic effects of lapatinib in cancer patients. Sci Rep. 2021 Feb 11;11(1):3528.
+161,161_3,,2,2,1,The effect of different doses of intrathecal dexmedetomidine on spinal anesthesia A meta analysis
+161,161_4,10.1371/journal.pone.0183154,1,1,1,Dexmedetomidine as a neuraxial adjuvant for prevention of perioperative shivering Metaanalysis of randomized controlled trials
+162,162_1,10.3390/healthcare10101996,1,1,1,Parental Reminder Strategies and the Cost Implication for Improved Immunisation Outcomes A Systematic Review and MetaAnalysis
+166,166_1,10.1016/j.heliyon.2023.e18356,4,4,1,Efficacy and safety of sugammadex sodium in reversing rocuroniuminduced neuromuscular blockade in children An updated systematic review and metaanalysis
+166,166_2,10.1590/1806-9282.2022d687,2,2,1,Sugammadex in awakening from general anesthesia systematic review and metaanalysis
+167,167_5,10.3389/fanes.2022.980483,8,7,1,Efficacy and safety of ultrasound-guided serratus anterior plane block for postoperative analgesia in thoracic surgery and breast surgery a systematic review and meta-analysis of randomized controlled studies
+170,170_1,10.1093/bja/aew411,11,11,1,Evidence basis for using perineural dexmedetomidine to enhance the quality of brachial plexus nerve blocks A systematic review and metaanalysis of randomized controlled trials
+170,170_12,,7,7,1,Effects of dexmedetomidine as a local anesthetic adjuvant for brachial plexus block A systematic review and metaanalysis
+170,170_13,10.1213/ane.0000000000003860,4,1,1,Dexamethasone is superior to dexmedetomidine as a perineural adjunct for supraclavicular brachial plexus block Systematic review and indirect metaAnalysis
+170,170_2,10.1097/aap.0000000000000564,4,4,1,Investigating the efficacy of dexmedetomidine as an adjuvant to local anesthesia in brachial plexus block a systematic review and metaanalysis of 18 randomized controlled trials
+170,170_6,10.1097/md.0000000000005846,5,5,1,Dexmedetomidine as an adjuvant to local anesthetics in brachial plexus blocks a metaanalysis of randomized controlled trials
+170,170_7,10.1097/md.0000000000012573,12,12,1,The effect and safety of dexmedetomidine added to ropivacaine in brachial plexus block A metaanalysis of randomized controlled trials
+170,170_8,10.1111/aas.14002,25,25,1,Alpha2receptor agonists as adjuvants for brachial plexus nerve blocksA systematic review with metaanalyses
+176,176_3,10.1097/eja.0000000000001371,4,4,1,"Fluid loading therapy to prevent spinal hypotension in women undergoing elective caesarean section Network metaanalysis, trial sequential analysis and metaregression"
+176,176_4,10.1016/j.bja.2021.06.040,1,1,1,Safety and efficacy of tetrastarches in surgery and trauma a systematic review and metaanalysis of randomised controlled trials
+176,176_5,10.1097/md.0000000000024607,4,4,2,Colloid preloading versus crystalloid preloading to prevent hypotension after spinal anesthesia for cesarean delivery A protocol for systematic review and metaanalysis
+176,176_6,10.1002/14651858.cd002251.pub3,4,4,1,Techniques for preventing hypotension during spinal anaesthesia for caesarean section
+178,178_1,10.1038/s41598-020-64910-8,5,5,1,Antidepressants during and after Menopausal Transition A Systematic Review and MetaAnalysis
+178,178_2,10.1097/jcp.0000000000001196,2,2,1,Homeopathic Remedies in Psychiatric Disorders A Metaanalysis of Randomized Controlled Trials
+183,183_1,10.1371/journal.pone.0219732,8,8,1,The effects of sildenafil in maternal and fetal outcomes in pregnancy A systematic review and metaanalysis
+196,196_1,10.1371/journal.pone.0227410,2,1,1,Comparison of effects and safety in providing controlled hypotension during surgery between dexmedetomidine and magnesium sulphate A metaanalysis of randomized controlled trials
+198,198_1,10.1177/0004867417741555,2,2,1,The efficacy of cognitive behavioral therapy for Chinese people A metaanalysis
+201,201_4,10.1002/14651858.cd000227.pub3,2,2,2,Vitamin D and vitamin D analogues for preventing fractures associated with involutional and postmenopausal osteoporosis
+201,201_6,10.1002/14651858.cd007470.pub3,29,29,3,Vitamin D supplementation for prevention of mortality in adults
+204,204_13,10.1002/14651858.cd004172.pub2,14,14,3,Platelet‐rich‐plasmapheresis for minimising peri‐operative allogeneic blood transfusion
+205,205_1,10.1016/j.bja.2019.07.027,20,20,1,"Effects of dexmedetomidine on perioperative stress, inflammation, and immune function systematic review and metaanalysis"
+207,207_1,10.1161/circresaha.116.304386,5,5,1,Metaanalysis of cell therapy trials for patients with heart failure
+212,212_1,10.1186/s12903-018-0695-z,1,1,1,A comparison of treatment effectiveness between clear aligner and fixed appliance therapies
+212,212_2,10.1093/ejo/cjz094,2,0,1,Treatment outcome with orthodontic aligners and fixed appliances A systematic review with metaanalyses
+215,215_4,10.1186/s13075-019-1951-6,8,8,1,Metaanalysis of pain and function placebo responses in pharmacological osteoarthritis trials
+216,216_14,10.3945/ajcn.116.134981,2,2,1,"Hypercalcemia, hypercalciuria, and kidney stones in longterm studies of Vitamin D supplementation A systematic review and metaanalysis"
+216,216_20,10.1097/md.0000000000007024,1,1,1,Vitamin d supplementation and disease activity in patients with immunemediated rheumatic diseases a systematic review and meta-analysis
+216,216_36,10.1093/nutrit/nux059,3,3,1,Noncalcemic adverse effects and withdrawals in randomized controlled trials of longterm vitamin d2 or d3 supplementation a systematic review and meta-analysis
+216,216_38,10.1016/j.amjms.2019.04.020,3,3,1,Efficacy and Safety of Vitamin D Supplementation in Patients With Systemic Lupus Erythematosus A Metaanalysis of Randomized Controlled Trials
+216,216_39,,1,1,1,The Role of Vitamin D Supplementation in Preventing Osteoporosis as Complication among Patients with Systemic Lupus Erythematosus A Systematic Review of Clinical Trials
+217,217_1,10.1213/ane.0000000000002278,3,3,2,Perioperative Amino Acid Infusion for Preventing Hypothermia and Improving Clinical Outcomes during Surgery under General Anesthesia A Systematic Review and Metaanalysis
+222,222_4,10.1186/s12905-023-02532-8,1,1,1,Effectiveness of physical therapy interventions in women with dyspareunia a systematic review and metaanalysis
+224,224_1,10.1002/14651858.cd011940.pub2,4,4,1,Adverse side effects of dexamethasone in surgical patients
+224,224_12,10.1177/0194599818793414,1,1,1,Intraoperative Corticosteroids for Voice Outcomes among Patients Undergoing Thyroidectomy A Systematic Review and Metaanalysis
+224,224_13,10.1080/07435800.2023.2293103,2,2,1,The Impact of Glucocorticoid Treatment on Hypocalcemia Following Thyroid Surgery A Systematic Review and MetaAnalysis
+224,224_7,10.1371/journal.pone.0109582,9,9,2,The impact of prophylactic dexamethasone on nausea and vomiting after thyroidectomy A systematic review and metaanalysis
+225,225_2,10.1001/archinte.166.12.1256,4,2,3,Vitamin K and the prevention of fractures Systematic review and metaanalysis of randomized controlled trials
+230,230_11,10.1016/j.ejim.2019.04.019,3,2,1,Systematic review and metaanalysis of randomised controlled clinical trial evidence refutes relationship between pharmacotherapy with angiotensinreceptor blockers and an increased risk of cancer
+230,230_14,10.1016/j.jash.2013.09.002,10,10,1,Effects of antihypertensive treatment in Asian populations A metaanalysis of prospective randomized controlled studies CARdiovascular protectioN group in Asia CARNA
+230,230_15,10.1111/jch.12388,9,9,2,Calcium Channel Blocker Compared With Angiotensin Receptor Blocker for Patients With Hypertension A MetaAnalysis of Randomized Controlled Trials
+230,230_18,10.1177/1074248418771341,10,10,1,"Effects of long and intermediateacting dihydropyridine calcium channel blockers in hypertension  a systematic review and meta-analysis of 18 prospective, randomized, actively controlled trials"
+230,230_2,10.1136/bmj.i438,8,8,1,Diabetes mellitus as a compelling indication for use of renin angiotensin system blockers Systematic review and metaanalysis of randomized trials
+230,230_20,10.1016/j.cjca.2017.01.011,8,8,2,Efficacy of Calcium Channel Blockers on Major Cardiovascular Outcomes for the Treatment of Hypertension in Asian Populations A Metaanalysis
+230,230_9,10.1186/1471-2261-14-148,4,2,1,Effects of ACEI/ARB in hypertensive patients with type 2 diabetes mellitus A metaanalysis of randomized controlled studies
+236,236_2,10.4097/kjae.2011.61.5.405,2,2,7,Ramosetron for the prevention of postoperative nausea and vomiting PONV A metaanalysis
+237,237_10,10.1097/md.0000000000007134,4,0,3,Can intravenous steroid administration reduce postoperative pain scores following total knee arthroplasty? A meta-analysis
+237,237_2,10.1186/s13018-017-0601-4,2,2,3,Perioperative systemic steroid for rapid recovery in total knee and hip arthroplasty A systematic review and metaanalysis of randomized trials
+237,237_3,10.1016/j.ijsu.2018.02.043,1,1,1,The efficacy of dexamethasone reducing postoperative pain and emesis after total knee arthroplasty A systematic review and metaanalysis
+237,237_5,10.1177/0300060521998220,1,1,1,The role of perioperative intravenous lowdose dexamethasone in rapid recovery after total knee arthroplasty a metaanalysis
+237,237_6,10.1111/papr.12637,2,2,1,Effect of Intravenous Corticosteroids on Pain Management and Early Rehabilitation in Patients Undergoing Total Knee or Hip Arthroplasty A MetaAnalysis of Randomized Controlled Trials
+237,237_8,10.1097/md.0000000000007836,4,0,6,Preoperative intravenous glucocorticoids can reduce postoperative acute pain following total knee arthroplasty a meta-analysis
+237,237_9,10.1097/md.0000000000006382,1,0,3,Perioperative intravenous glucocorticoids can decrease postoperative nausea and vomiting and pain in total joint arthroplasty A metaanalysis and trial sequence analysis
+239,239_2,10.12659/msm.890102,12,6,10,Efficacy and safety of flurbiprofen axetil in the prevention of pain on propofol injection A systematic review and metaanalysis
+249,249_2,10.1177/0300060517703276,4,4,4,Granisetron plus dexamethasone for prevention of postoperative nausea and vomiting in patients undergoing laparoscopic surgery A metaanalysis
+249,249_3,,1,1,1,The meta analysis of postoperative nausea and vomiting after taking granisetron with hexadecadrol for laparoscopic cholecystemy
+254,254_7,10.1016/j.jhin.2016.03.015,4,3,2,Effect of intraoperative high inspired oxygen fraction on surgical site infection a metaanalysis of randomized controlled trials
+254,254_8,10.1007/s00101-017-0286-4,1,1,1,The who recommendation for 80% perioperative oxygen is poorly justified
+254,254_9,10.1016/j.bja.2018.02.027,2,2,1,Effect of intraoperative hyperoxia on the incidence of surgical site infections a metaanalysis
+256,256_7,10.1016/j.jamda.2018.02.005,4,4,1,Can bisphosphonates prevent recurrent fragility fractures? A systematic review and meta-analysis of randomized controlled trials
+256,256_8,10.3389/fendo.2021.688269,2,2,1,The Effect of Bisphosphonates on Fracture Healing Time and Changes in Bone Mass Density A MetaAnalysis
+258,258_2,10.1155/2018/5209108,1,1,1,Augmentation versus no augmentation for immediate postextraction implants
+258,258_4,10.1080/00016357.2018.1508743,2,2,1,Validity of a regenerative procedure for a minor bone defect with immediate implant placement a systematic review and meta-analysis
+259,259_13,10.1155/2014/796510,5,5,1,Alendronate versus raloxifene for postmenopausal women A metaanalysis of seven headtohead randomized controlled trials
+260,260_5,10.1016/j.nut.2012.11.018,2,2,2,Vitamin D levels in Alzheimers and Parkinsons diseases A metaanalysis
+260,260_7,10.1007/s10072-014-1821-6,1,1,1,Vitamin D status and Parkinson’s disease a systematic review and metaanalysis
+262,262_14,10.1100/2012/872173,1,1,1,Alzheimers disease and risk of hip fracture A metaanalysis study
+262,262_17,10.3233/jad-2012-121432,1,1,1,Low serum vitamin D concentrations in Alzheimers disease A systematic review and metaanalysis
+266,266_18,10.1210/jc.2011-1193,1,1,1,The effect of vitamin D on falls A systematic review and metaanalysis
+266,266_20,10.1007/s00132-017-3446-y,3,3,1,The effect of vitamin D and calcium supplementation on falls in older adults  A systematic review and metaanalysis
+266,266_21,10.1016/j.clnu.2021.09.031,1,1,1,Vitamin D supplementation reduces the risk of fall in the vitamin D deficient elderly An updated metaanalysis
+266,266_8,10.1210/jc.2014-1742,1,1,1,"The effects of vitamin d on skeletal muscle strength, muscle mass, and muscle power A systematic review and metaanalysis of randomized controlled trials"
+267,267_2,10.1093/bja/aex138,2,2,1,Perioperative goaldirected therapy with uncalibrated pulse contour methods Impact on fluid management and postoperative outcome
+267,267_3,10.1097/sla.0000000000001366,6,6,1,Intraoperative goaldirected fluid therapy in elective major abdominal surgery  A metaanalysis of randomized controlled trials
+267,267_4,10.1186/s13054-019-2516-4,6,6,1,Hemodynamic goaldirected therapy and postoperative kidney injury An updated metaanalysis with trial sequential analysis
+267,267_5,10.1186/s13054-017-1728-8,3,3,1,Effect of perioperative goaldirected hemodynamic therapy on postoperative recovery following major abdominal surgerya systematic review and metaanalysis of randomized controlled trials
+267,267_8,10.1007/s00540-016-2261-7,11,11,1,Goal directed fluid therapy decreases postoperative morbidity but not mortality in major noncardiac surgery a metaanalysis and trial sequential analysis of randomized controlled trials
+267,267_9,10.1016/j.ijsu.2017.01.081,12,12,1,Goaldirected fluid therapy for reducing risk of surgical site infections following abdominal surgery – A systematic review and metaanalysis of randomized controlled trials
+268,268_1,10.1002/14651858.cd007146.pub2,2,2,1,Interventions for preventing falls in older people living in the community
+271,271_1,10.1111/aogs.13703,2,2,1,Live birth and miscarriage rate following intracytoplasmic morphologically selected sperm injection vs intracytoplasmic sperm injection An updated systematic review and metaanalysis
+273,273_4,10.1007/s00702-020-02163-5,2,2,1,Botulinum neurotoxin injections for musclebased dystonia and spasticity and nonmusclebased neuropathic pain pain disorders a metaanalytic study
+277,277_2,10.1016/j.bjps.2018.08.027,3,3,1,A systematic review and meta-analysis do absorbable or non-absorbable suture materials differ in cosmetic outcomes in patients requiring primary closure of facial wounds?
+279,279_2,10.3389/fnut.2023.1084084,15,15,2,The effects of acarbose treatment on cardiovascular risk factors in impaired glucose tolerance and diabetic patients a systematic review and dose–response metaanalysis of randomized clinical trials
+279,279_3,10.1371/journal.pone.0079421,1,1,1,Comparisons of the efficacy of alpha glucosidase inhibitors on type 2 diabetes patients between Asian and Caucasian
+281,281_1,10.1016/j.cmi.2017.08.019,4,4,1,Selective digestive and oropharyngeal decontamination in medical and surgical ICU patients individual patient data metaanalysis
+281,281_2,10.2147/dddt.s84587,6,6,1,Selective oropharyngeal decontamination versus selective digestive decontamination in critically ill patients A metaanalysis of randomized controlled trials
+290,290_1,10.1016/j.apmr.2021.02.009,4,4,1,Effect of therapeutic ultrasound for neck pain a systematic review and meta-analysis
+294,294_1,10.1016/j.ajur.2021.05.011,6,6,1,The role of preoperative dutasteride in reducing bleeding during transurethral resection of the prostate A systematic review and metaanalysis of randomized controlled trials
+296,296_1,10.1002/14651858.cd003654.pub6,8,8,2,Calcium channel blockers versus other classes of drugs for hypertension
+296,296_2,10.1038/ajh.2011.180,2,2,2,Treatment of hypertension with reninangiotensin system inhibitors and renal dysfunction A systematic review and metaanalysis
+307,307_4,10.6061/clinics/2015(09)09,2,2,1,Analgesia for total knee arthroplasty A metaanalysis comparing local infiltration and femoral nerve block
+307,307_5,10.1186/1471-2474-15-220,10,10,1,Local anaesthetic infiltration for perioperative pain control in total hip and knee replacement Systematic review and metaanalyses of short and longterm effectiveness
+308,308_12,10.12659/msm.893310,2,2,1,"Effect of B vitamin Folate, B6, and B12 supplementation on osteoporotic fracture and bone turnover markers A metaanalysis"
+309,309_2,10.1177/1357633x15608297,4,4,1,Does nutritional counseling in telemedicine improve treatment outcomes for diabetes A systematic review and metaanalysis of results from 92 studies
+309,309_3,10.1111/dom.13845,1,1,1,Impact of technology on glycaemic control in type 2 diabetes A metaanalysis of randomized trials on continuous glucose monitoring and continuous subcutaneous insulin infusion
+310,310_3,10.3389/fonc.2021.644341,8,8,1,Novel Visualization Methods Assisted Transurethral Resection for Bladder Cancer An Updated SurvivalBased Systematic Review and MetaAnalysis
+310,310_6,10.18632/oncotarget.13054,4,4,1,Narrow band imagingassisted transurethral resection reduces the recurrence risk of nonmuscle invasive bladder cancer A systematic review and metaanalysis
+313,313_1,10.4103/jofs.jofs_235_21,2,2,1,Remineralizing Agents in the Prevention of Caries A Systematic Review and Metaanalysis of Randomized Controlled Trials
+316,316_1,10.12659/msm.897293,3,3,1,Intrathecal sufentanil does not reduce shivering during neuraxial anesthesia A metaanalysis
+318,318_12,10.1093/nutrit/nuab053,2,2,1,"Nut consumption, body weight, and adiposity in patients with type 2 diabetes a systematic review and metaanalysis of randomized controlled trials"
+318,318_13,10.1371/journal.pone.0103376,2,2,1,Effect of tree nuts on glycemic control in diabetes A systematic review and metaanalysis of randomized controlled dietary trials
+318,318_6,10.3945/ajcn.114.091595,2,2,2,"The effect of tree nut, peanut, and soy nut consumption on blood pressure a systematic review and meta-analysis of randomized controlled clinical trials"
+318,318_7,10.1136/bmjopen-2013-004660,8,8,1,Effect of tree nuts on metabolic syndrome criteria A systematic review and metaanalysis of randomised controlled trials
+321,321_1,10.1001/jama.297.8.842,1,1,1,Mortality in randomized trials of antioxidant supplements for primary and secondary prevention Systematic review and metaanalysis
+321,321_2,10.1002/14651858.cd007176,18,18,1,Antioxidant supplements for prevention of mortality in healthy participants and patients with various diseases
+321,321_3,10.3945/ajcn.112.049304,3,3,1,Multivitaminmultimineral supplementation and mortality A metaanalysis of randomized controlled trials
+321,321_4,10.1136/bmj.38399.495648.8f,1,0,1,Role of multivitamins and mineral supplements in preventing infections in elderly people Systematic review and metaanalysis of randomised controlled trials
+321,321_5,10.2174/1874609811104020158,1,1,1,Vitamin E and allcause mortality A metaanalysis
+325,325_4,10.1155/2020/7056184,4,4,2,Effects of AngiotensinConverting Enzyme Inhibitors on Arterial Stiffness A Systematic Review and MetaAnalysis of Randomized Controlled Trials
+331,331_4,10.1067/mjd.2001.114741,2,1,1,Breastfeeding and the onset of atopic dermatitis in childhood A systematic review and metaanalysis of prospective studies
+332,332_1,10.1016/j.atherosclerosis.2013.09.037,6,6,2,Metaanalysis of angiotensin converting enzyme inhibitors effect on walking ability and ankle brachial pressure index in patients with intermittent claudication
+332,332_2,10.1097/mjt.0000000000000011,3,3,2,The roles of ACE inhibitors in lower extremity peripheral artery disease
+334,334_1,10.1080/09513590.2022.2136160,2,2,1,"Effectiveness of inositol, metformin and their combination in women with PCOS undergoing assisted reproduction systematic review and metaanalysis"
+334,334_2,10.1002/uog.15898,2,2,1,Strategies for improving outcome of assisted reproduction in women with polycystic ovary syndrome systematic review and metaanalysis
+335,335_2,,11,11,1,Blood pressure-lowering agents response-a systematic review and genome wide study
+338,338_1,10.1016/j.mayocp.2022.06.036,1,1,1,Effect of the ReninAngiotensin System Inhibitors on Inflammatory Markers A Systematic Review and Metaanalysis of Randomized Controlled Trials
+342,342_1,10.1371/journal.pone.0192464,6,4,1,Efficacy of PI3K/AKT/mTOR pathway inhibitors for the treatment of advanced solid cancers A literaturebased metaanalysis of 46 randomised control trials
+348,348_1,10.1136/bmj.h1225,1,1,1,Efficacy and safety of paracetamol for spinal pain and osteoarthritis Systematic review and metaanalysis of randomised placebo controlled trials
+348,348_2,10.1136/annrheumdis-2016-210597,2,0,1,Nonsteroidal antiinflammatory drugs for spinal pain A systematic review and metaanalysis
+352,352_1,10.1186/s12891-016-1039-2,3,3,1,No clear benefit or drawback to the use of closed drainage after primary total knee arthroplasty A systematic review and metaanalysis
+357,357_1,10.1177/03000605231220870,6,6,1,"Comparison of enteral immunonutrition and enteral nutrition in patients undergoing gastric cancer surgery a systematic review and metaanalysis of randomized, controlled trials"
+357,357_2,10.1002/jpen.1736,5,5,1,Immunonutrition vs Standard Nutrition for Cancer Patients A Systematic Review and MetaAnalysis Part 1
+357,357_3,10.1016/j.clnu.2016.06.011,4,4,1,Optimal postoperative nutrition support for patients with gastrointestinal malignancy A systematic review and metaanalysis
+363,363_1,10.1007/s10103-022-03514-2,2,2,1,Laser therapy in the treatment of melasma a systematic review and metaanalysis
+366,366_3,10.1038/jhh.2014.46,2,2,2,The effect of chlorogenic acid on blood pressure A systematic review and metaanalysis of randomized clinical trials
+366,366_4,10.1080/10408398.2014.973932,1,1,1,Nutritional intervention and impact of polyphenol on glycohemoglobin HbA1c in nondiabetic and type 2 diabetic subjects Systematic review and nmetaanalysis
+367,367_1,10.1213/ane.0b013e3182662e30,1,1,1,Does intraoperative ketamine attenuate inflammatory reactivity following surgery A systematic review and metaanalysis
+369,369_2,10.1097/sle.0000000000000009,11,11,1,Ligasure versus stapled hemorrhoidectomy in the treatment of hemorrhoids A metaanalysis of randomized control trials
+369,369_3,10.1016/j.ijsu.2013.07.006,2,2,1,Metaanalysis of randomized controlled trials comparing outcomes for stapled hemorrhoidopexy versus LigaSure hemorrhoidectomy for symptomatic hemorrhoids in adults
+369,369_4,10.3748/wjg.v19.i29.4799,10,10,1,Metaanalysis of stapled hemorrhoidopexy vs Ligasure hemorrhoidectomy
+371,371_1,10.1002/14651858.cd003557.pub5,3,3,1,Antibiotics and antiseptics for venous leg ulcers
+371,371_2,10.1177/1534734616674624,3,3,1,A Systematic Review and MetaAnalysis of Nutritional Supplementation in Chronic Lower Extremity Wounds
+371,371_3,10.1002/14651858.cd005083.pub3,2,2,1,Honey as a topical treatment for wounds
+388,388_5,10.1097/aln.0b013e31829aaff4,2,2,1,"Effect of intraoperative high inspired oxygen fraction on surgical site infection, postoperative nausea and vomiting, and pulmonary function  systematic review and meta-analysis of randomized controlled trials"
+390,390_11,10.1016/j.smrv.2015.05.003,2,2,1,Meta-analysis of randomised controlled trials of oral mandibular advancement devices and continuous positive airway pressure for obstructive sleep apnoea-hypopnoea
+390,390_29,10.1513/annalsats.201209-081oc,1,1,1,Metaanalysis Continuous positive airway pressure improves insulin resistance in patients with sleep apnea without diabetes
+390,390_32,10.1016/j.atherosclerosis.2014.03.034,4,2,1,Effect of continuous positive airway pressure on lipid profile in patients with obstructive sleep apnea syndrome A metaanalysis of randomized controlled trials
+390,390_80,10.1097/md.0000000000031258,8,8,1,Influence of continuous positive airway pressure on lipid profiles of obstructive sleep apnea A systematic review and metaanalysis
+391,391_21,10.1002/14651858.cd012051.pub2,3,3,1,Interventions for treating persistent pain in survivors of torture
+391,391_22,10.1017/s2045796019000027,29,29,1,Efficacy and acceptability of psychosocial interventions in asylum seekers and refugees Systematic review and metaanalysis
+391,391_23,10.1016/j.psychsport.2021.101901,2,2,1,"Efficacy of physical activity interventions on psychological outcomes in refugee, asylum seeker and migrant populations A systematic review and metaanalysis"
+391,391_24,10.1371/journal.pone.0171030,1,1,1,Psychosocial interventions for postTraumatic stress disorder in refugees and asylum seekers resettled in highincome countries Systematic review and metaAnalysis
+392,392_1,10.1016/j.jpurol.2023.11.017,2,2,1,Comparison between open and minimally invasive pyeloplasty in infants A systematic review and metaanalysis
+396,396_1,10.3324/haematol.2020.249680,2,0,3,Impact on survival through consolidation radiotherapy for diffuse large Bcell lymphoma A comprehensive metaanalysis
+403,403_3,10.1093/bja/aer509,4,4,2,Metoclopramide for nausea and vomiting prophylaxis during and after Caesarean delivery A systematic review and metaanalysis
+406,406_1,10.1213/ane.0b013e31826f0a0a,6,6,1,Dexamethasone to prevent postoperative nausea and vomiting An updated metaanalysis of randomized controlled trials
+410,410_2,10.1097/eja.0b013e32833b7969,1,1,2,Efficacy of perphenazine to prevent postoperative nausea and vomiting A quantitative systematic review
+415,415_13,10.1016/j.asjsur.2014.04.005,2,2,2,Dexamethasone combined with other antiemetics for prophylaxis after laparoscopic cholecystectomy
+415,415_14,10.1097/sla.0b013e3181856024,6,6,1,The impact of prophylactic dexamethasone on nausea and vomiting after laparoscopic cholecystectomy A systematic review and metaanalysis
+432,432_3,10.1034/j.1399-6576.2001.045006659.x,6,6,34,The influence of a dominating centre on a quantitative systematic review of granisetron for preventing postoperative nausea and vomiting
+433,433_7,10.4103/0022-3859.93249,4,4,5,5HT 3 antagonists for prophylaxis of postoperative nausea and vomiting in breast surgery A metaanalysis
+445,445_1,,5,5,3,Effect of prophylactic dexamethasone on nausea and vomiting after laparoscopic gynecological operation Meta analysis
+459,459_1,10.1002/14651858.cd004125.pub2,187,187,37,Drugs for preventing postoperative nausea and vomiting
+461,461_1,10.1111/j.1365-2036.2012.05229.x,3,3,1,Metaanalysis Sequential therapy for Helicobacter pylori eradication in children
+462,462_10,10.1186/s12872-020-01466-5,3,2,1,Assessing the risk of angiotensin receptor blockers on major cardiovascular events A systematic review and metaanalysis of randomized controlled trials
+462,462_4,10.1136/bmj.d2234,14,14,2,Angiotensin receptor blockers and risk of myocardial infarction Metaanalyses and trial sequential analyses of 147 020 patients from randomised trials
+462,462_5,10.1111/dom.15200,7,7,1,ACEIs/ARBs for the prevention of type 2 diabetes in patients with cardiovascular diseases A systematic review and metaanalysis
+462,462_6,10.1038/ajh.2011.8,6,6,1,"Angiotensinconverting enzyme inhibitors, angiotensin ii receptor blockers and diabetes A metaanalysis of placebocontrolled clinical trials"
+462,462_7,10.1093/eurheartj/ehs075,3,3,2,Angiotensinconverting enzyme inhibitors reduce mortality in hypertension A metaanalysis of randomized clinical trials of reninangiotensinaldosterone system inhibitors involving 158 998 patients
+462,462_8,10.1016/j.ijcard.2010.10.011,6,6,1,"Angiotensin receptor blockers for prevention of newonset type 2 diabetes A metaanalysis of 59,862 patients"
+462,462_9,10.1016/s1470-2045(10)70260-6,4,4,2,Antihypertensive drugs and risk of cancer Network metaanalyses and trial sequential analyses of 324 168 participants from randomised trials
+481,481_4,10.1002/pon.3476,2,2,1,Improving subjective perception of personal cancer risk Systematic review and metaanalysis of educational interventions for people with cancer or at high risk of cancer
+488,488_1,10.1097/eja.0000000000000516,12,8,1,The efficacy of local infiltration analgesia in the early postoperative period after total knee arthroplasty a systematic review and meta-analysis
+491,491_10,10.1177/147323001204000302,2,2,1,Treatment of trochanteric fractures with proximal femoral nail antirotation or dynamic hip screw systems A metaanalysis
+491,491_4,10.1016/j.aott.2018.02.009,5,5,1,"Intramedullary versus extramedullary internal fixation for unstable intertrochanteric fracture, a metaanalysis"
+491,491_5,10.1016/j.otsr.2012.12.019,2,2,1,Antirotation proximal femoral nail versus dynamic hip screw for intertrochanteric fractures A metaanalysis of randomized controlled studies
+491,491_6,10.1007/s00776-015-0770-0,2,2,1,Comparison of tip apex distance and cutout complications between helical blades and lag screws in intertrochanteric fractures among the elderly a metaanalysis
+491,491_7,10.1007/s00590-014-1429-9,5,5,1,Is helical blade superior to screw design in terms of cutout rate for elderly trochanteric fractures A metaanalysis of randomized controlled trials
+491,491_8,,2,2,1,Is proximal femoral nail antirotation superior to gamma nail and dynamic hip screw in treatment of intertrochanteric fractures A pairwise and network metaanalysis
+491,491_9,10.1016/j.otsr.2014.07.023,3,3,2,"Proximal femoral nails antirotation, Gamma nails, and dynamic hip screws for fixation of intertrochanteric fractures of femur A metaanalysis"
+500,500_3,10.1016/s2255-4823(13)70492-2,2,2,1,Efficacy of dexamethasone in the prophylaxis of nausea and vomiting during the postoperative period of laparoscopic cholecystectomy
+509,509_1,10.1016/s2256-2087(12)40009-8,1,1,1,Use of intraoperative supplemental oxygen to reduce morbidity and mortality in general anesthesia Systematic review and metaanalysis of randomized controlled trials
+515,515_17,10.4103/0973-1482.188434,8,4,1,Gemcitabine/cisplatin versus methotrexate/vinblastine/doxorubicin/cisplatin for muscleinvasive bladder cancer A systematic review and metaanalysis
+515,515_18,10.3389/fonc.2021.678896,3,3,1,"Curative Effect and Survival Assessment Comparing Gemcitabine and Cisplatin Versus Methotrexate, Vinblastine, Doxorubicin and Cisplatin as Neoadjuvant Therapy for Bladder Cancer A Systematic Review and MetaAnalysis"
+517,517_11,10.1053/j.jvca.2011.06.022,1,1,1,Milrinone and mortality in adult cardiac surgery A metaanalysis
+517,517_2,10.1097/ccm.0b013e318232962a,2,2,1,Effects of levosimendan on mortality and hospitalization. A metaanalysis of randomized controlled studies
+517,517_21,,2,2,1,Heart calcium sensitizer on morbidity and mortality of highrisk surgical patients with MODS Systematic review and metaanalysis
+517,517_22,,2,2,1,Levosimendan reduces mortality in critically ill patients. A metaanalysis of randomized controlled studies
+517,517_6,10.1053/j.jvca.2009.05.031,3,3,1,Reducing Mortality in Cardiac Surgery With Levosimendan A Metaanalysis of Randomized Controlled Trials
+517,517_7,10.1186/cc10263,7,7,1,Levosimendan and mortality after coronary revascularisation A metaanalysis of randomised controlled trials
+519,519_15,10.1213/ane.0b013e318236b4d6,3,3,10,Fluid resuscitation with 6% hydroxyethyl starch 130/0.4 in acutely Ill patients An updated systematic review and metaanalysis
+525,525_1,10.1002/14651858.cd006059.pub2,3,3,2,Targetcontrolled infusion versus manuallycontrolled infusion of propofol for general anaesthesia or sedation in adults
+527,527_11,10.1007/bf03256593,5,5,1,Cardiovascular outcomes in highrisk patients without heart failure treated with ARBs A systematic review and metaanalysis
+527,527_12,10.1586/erc.13.42,2,2,1,The impact of ACE inhibition on allcause and cardiovascular mortality in contemporary hypertension trials A review
+527,527_7,10.5339/gcsp.2013.34,2,2,1,Raas inhibition and mortality in hypertension
+527,527_9,10.1097/hjh.0b013e32832961ed,2,2,1,Angiotensin II receptor blockers and myocardial infarction An updated analysis of randomized clinical trials
+533,533_1,10.7326/0003-4819-142-7-200504050-00010,1,0,1,Metaanalysis Lowdose dopamine increases urine output but does not prevent renal dysfunction or death
+533,533_10,10.1007/s10741-011-9235-5,3,3,2,Pharmacological therapies for the prevention of acute kidney injury following cardiac surgery A systematic review
+545,545_8,10.1186/s12871-015-0068-y,5,5,3,Nefopam for the prevention of perioperative shivering A metaanalysis of randomized controlled trials
+548,548_2,10.1213/01.ane.0000130589.00098.cd,4,3,4,SingleDose parenteral pharmacological interventions for the prevention of postoperative shivering A quantitative systematic review of randomized controlled trials
+555,555_6,10.1016/j.nut.2012.11.014,1,1,1,Metaanalysis of structured triglyceride versus other lipid emulsions for parenteral nutrition
+557,557_4,10.1053/j.jvca.2009.07.008,1,1,1,Esmolol Reduces Perioperative Ischemia in Noncardiac Surgery A Metaanalysis of Randomized Controlled Studies
+557,557_5,10.1213/ane.0b013e3182025af7,2,2,1,The safety of perioperative esmolol A systematic review and metaanalysis of randomized controlled trials
+572,572_2,10.1002/14651858.cd003843.pub3,5,5,1,Bispectral index for improving anaesthetic delivery and postoperative recovery
+572,572_4,10.3310/hta17340,1,1,1,"Clinical effectiveness and costeffectiveness of depth of anaesthesia monitoring EEntropy, Bispectral Index and Narcotrend A systematic review and economic evaluation"
+572,572_5,10.23736/s0375-9393.17.12033-x,2,2,1,Bispectral index and nonbispectral index anesthetic protocols on postoperative recovery outcomes
+583,583_2,10.1002/14651858.cd001886.pub3,25,25,1,Anti‐fibrinolytic use for minimising perioperative allogeneic blood transfusion
+586,586_7,10.1053/j.jvca.2009.01.003,1,1,1,Esmolol Reduces Perioperative Ischemia in Cardiac Surgery A Metaanalysis of Randomized Controlled Studies
+592,592_1,10.1002/art.38290,4,4,1,Impact of exercise type and dose on pain and disability in knee osteoarthritis A systematic review and metaregression analysis of randomized controlled trials
+592,592_14,10.1177/0269215520954343,10,10,1,Tai chi exercise can ameliorate physical and mental health of patients with knee osteoarthritis systematic review and meta-analysis
+592,592_23,10.1016/j.jsams.2010.10.004,1,1,1,Effects of exercise on functional aerobic capacity in lower limb osteoarthritis A systematic review
+592,592_24,10.1371/journal.pone.0170237,3,3,1,The effects of traditional Chinese exercise in treating knee osteoarthritis A systematic review and metaanalysis
+592,592_26,10.1155/2016/1813979,5,3,1,The Effects of Tai Chi Chuan on Improving MindBody Health for Knee Osteoarthritis Patients A Systematic Review and MetaAnalysis
+592,592_28,10.1136/bmjopen-2010-000035,6,3,1,Tai chi for the treatment of osteoarthritis A systematic review and metaanalysis
+595,595_10,10.3389/fphar.2021.638611,2,2,2,Efficacy and Safety of AngiotensinConverting Enzyme Inhibitor in Combination with AngiotensinReceptor Blocker in Chronic Kidney Disease Based on Dose A Systematic Review and MetaAnalysis
+595,595_11,10.2174/0929867328666210614120552,2,2,2,Efficacy and safety of angiotensinconverting enzyme inhibitors in combination with angiotensinreceptor blockers in nondiabetic chronic kidney disease A systematic review and metaanalysis
+595,595_12,10.1097/md.0000000000026544,2,2,2,Efficacy and safety of dual vs single reninangiotensinaldosterone system blockade in chronic kidney disease An updated metaanalysis of randomized controlled trials
+596,596_1,10.1161/01.hyp.0000161880.59963.da,2,2,1,Systematic review of combined angiotensinconverting enzyme inhibition and angiotensin receptor blockade in hypertension
+597,597_1,10.3390/diagnostics14101030,4,4,1,The Efficacy and Safety of Tandem Transplant Versus Single Stem Cell Transplant for Multiple Myeloma Patients A Systematic Review and MetaAnalysis
+597,597_4,10.1093/jnci/djn439,4,4,1,Tandem versus single autologous hematopoietic cell transplantation for the treatment of multiple myeloma A systematic review and metaanalysis
+597,597_8,10.1016/j.ctrv.2008.02.003,2,2,1,A metaanalysis and systematic review of thalidomide for patients with previously untreated multiple myeloma
+598,598_1,10.3748/wjg.v20.i29.10174,3,3,1,Clinical outcome of small hepatocellular carcinoma after different treatments A metaanalysis
+598,598_2,10.1007/s10620-012-2212-6,3,2,1,Combination of radiofrequency ablation with transarterial chemoembolization for hepatocellular carcinoma A metaanalysis
+598,598_3,10.4238/2015.december.22.24,6,4,2,Efficacy of percutaneous radiofrequency ablation for the treatment of hepatocellular carcinoma
+598,598_4,10.3748/wjg.v19.i24.3872,10,9,1,Metaanalysis of radiofrequency ablation in combination with transarterial chemoembolization for hepatocellular carcinoma
+598,598_5,10.1097/meg.0b013e32835a0a07,3,3,1,Radiofrequency ablation plus chemoembolization versus radiofrequency ablation alone for hepatocellular carcinoma A metaanalysis of randomizedcontrolled trials
+599,599_1,10.1016/j.arth.2012.04.008,6,6,1,Perioperative Administration of Selective Cyclooxygenase2 Inhibitors for Postoperative Pain Management in Patients After Total Knee Arthroplasty
+600,600_18,10.3171/spi/2008/9/7/022,8,8,2,Nonsteroidal antiinflammatory drugs for postoperative pain management after lumbar spine surgery A metaanalysis of randomized controlled trials
+600,600_19,10.1097/brs.0b013e3181dfd163,3,3,4,Highdose ketorolac affects adult spinal fusion A metaanalysis of the effect of perioperative nonsteroidal antiinflammatory drugs on spinal fusion
+612,612_21,10.3402/fnr.v52i0.1641,4,0,1,Effect of peptides derived from food proteins on blood pressure A metaanalysis of randomized controlled trials
+612,612_22,10.1016/j.dsx.2019.11.001,4,2,1,The effect of whey protein on the components of metabolic syndrome in overweight and obese individuals; a systematic review and metaanalysis
+612,612_26,10.3390/nu7021131,1,1,1,Effect of whey supplementation on circulating Creactive protein A metaanalysis of randomized controlled trials
+619,619_1,10.1503/cmaj.131693,2,0,1,Outcomes for patients with the same disease treated inside and outside of randomized trials A systematic review and metaanalysis
+623,623_2,10.1089/bfm.2023.0233,1,1,1,Comparative Efficacy of Breastfeeding or Feeding of Breast Milk on Blood Sampling Pain Relief in FullTerm Neonates A Systematic Review and MetaAnalysis
+628,628_1,10.1097/md.0000000000023667,2,2,1,Dexmedetomidine as an adjuvant for patients undergoing breast cancer surgery a meta-analysis
+641,641_1,10.25270/owm.2018.5.3037,2,2,1,A Metaanalysis to Compare Fourlayer to Shortstretch Compression Bandaging for Venous Leg Ulcer Healing
+641,641_2,10.1002/14651858.cd013397.pub2,7,7,1,Compression bandages or stockings versus no compression for treating venous leg ulcers
+645,645_1,10.1016/j.atherosclerosis.2011.12.005,2,2,2,Angiotensin converting enzyme inhibitors effect on arterial stiffness and wave reflections A metaanalysis and metaregression of randomised controlled trials
+645,645_2,10.1093/ajh/hpv134,2,2,1,Impact of antihypertensive agents on central systolic blood pressure and augmentation index A metaanalysis
+648,648_4,10.1016/j.fertnstert.2012.09.003,3,3,1,Fresh embryo transfer versus frozen embryo transfer in in vitro fertilization cycles A systematic review and metaanalysis
+648,648_6,10.1186/s12884-020-03248-5,8,8,1,Which is better for mothers and babies Fresh or frozenthawed blastocyst transfer
+649,649_1,10.1097/md.0000000000021417,3,3,1,Dexamethasone for preventing postoperative nausea and vomiting after mastectomy
+652,652_12,10.1007/s00198-016-3618-3,7,7,1,Effects of whole body vibration on bone mineral density in postmenopausal women a systematic review and metaanalysis
+652,652_14,10.1186/s13018-016-0357-2,2,2,1,Effect of wholebody vibration on reduction of bone loss and fall prevention in postmenopausal women A metaanalysis and systematic review
+652,652_17,10.1016/j.apmr.2019.03.011,5,5,1,Whole Body Vibration Exercise for Chronic Musculoskeletal Pain A Systematic Review and Metaanalysis of Randomized Controlled Trials
+652,652_19,10.1007/s00198-014-2644-2,7,7,1,Additive effects of antiresorptive agents and exercise on lumbar spine bone mineral density in adults with low bone mass A metaanalysis
+652,652_21,10.1589/jpts.24.1349,1,1,1,Exercise intervention to improve the bone mineral density and bone metabolic markers as risk factors for fracture in Japanese subjects with osteoporosis A systematic review and metaanalysis of randomized controlled trials
+652,652_22,10.1002/14651858.cd000333.pub2,4,4,1,Exercise for preventing and treating osteoporosis in postmenopausal women
+652,652_3,10.1007/s00198-010-1228-z,3,3,1,Effect of wholebody vibration on BMD A systematic review and metaanalysis
+652,652_6,10.1136/bmjopen-2017-018342,3,3,1,Effect of wholebody vibration exercise in preventing falls and fractures A systematic review and metaanalysis
+683,683_1,10.3310/hta23140,1,1,1,"Brazzelli M, Javanbakht M, Imamura M, et al. Surgical treatments for women with stress urinary incontinence: the ESTER systematic review and economic evaluation. Health Technol Assess. 2019;23(14):1-306. Doi:10.3310/hta23140"
+683,683_16,10.1590/s1677-5538.ibju.2015.02.06,4,4,1,Comparison between the retropubic and transobturator approaches in the treatment of female stress urinary incontinence A systematic review and metaanalysis of effectiveness and complications
+683,683_18,10.2147/tcrm.s169014,6,6,1,TVT versus TOT in the treatment of female stress urinary incontinence A systematic review and metaanalysis
+683,683_23,10.1007/s11255-015-1020-2,2,2,1,Incontinencespecific quality of life measures used in trials of sling procedures for female stress urinary incontinence a metaanalysis
+683,683_25,,2,2,1,"Effectiveness and complication rates of tensionfree vaginal tape, transobturator tape, and tensionfree vaginal tapeobturator in the treatment of female stress urinary incontinence in a medium to longterm follow up"
+683,683_26,10.1002/14651858.cd006375.pub3,10,10,1,Midurethral sling operations for stress urinary incontinence in women
+683,683_27,10.1111/j.1471-0528.2007.01268.x,2,2,1,Transobturator and retropubic tape procedures in stress urinary incontinence A systematic review and metaanalysis of effectiveness and complications
+683,683_4,10.1111/j.1464-410x.2009.09051.x,1,1,1,Two routes of transobturator tape procedures in stress urinary incontinence A metaanalysis with direct and indirect comparison of randomized trials
+691,691_4,10.1002/uog.20859,2,2,1,Impact of lowdose aspirin on adverse perinatal outcome metaanalysis and metaregression
+694,694_6,10.1016/j.clinthera.2015.05.508,5,5,1,Spironolactone Addon for Preventing or Slowing the Progression of Diabetic Nephropathy A Metaanalysis
+701,701_10,10.1186/s12944-019-1086-4,14,14,1,Effect of dipeptidylpeptidase4 inhibitors on Creactive protein in patients with type 2 diabetes A systematic review and metaanalysis
+701,701_11,10.2174/0929867323666160405111354,4,4,1,Effect of dipeptidyl peptidase4 inhibitors on plasma adiponectin A systematic review and metaanalysis of randomized controlled trials
+701,701_4,10.1007/s12020-015-0841-1,3,3,1,Systematic review and metaanalysis of vildagliptin for treatment of type 2 diabetes
+701,701_5,10.1038/srep10202,4,4,1,Antiatherosclerotic effects of the glucagonlike peptide1 GLP1 based therapies in patients with type 2 Diabetes Mellitus A metaanalysis
+701,701_8,10.1186/s12944-016-0372-7,2,2,1,Impact of dipeptidyl peptidase4 inhibitors on serum adiponectin a metaanalysis
+708,708_1,10.1002/14651858.cd009437.pub3,7,7,1,Integrated disease management interventions for patients with chronic obstructive pulmonary disease
+708,708_2,10.1111/jan.14505,5,0,4,The effects of nursedriven selfmanagement programs on chronic obstructive pulmonary disease A systematic review and metaanalysis
+711,711_1,10.1080/10408398.2015.1107021,4,4,1,A comprehensive metaanalysis on evidence of Mediterranean diet and cardiovascular disease Are individual components equal
+711,711_10,10.1192/bjp.2019.234,1,1,1,Omega3 and polyunsaturated fat for prevention of depression and anxiety symptoms Systematic review and metaanalysis of randomised trials
+711,711_12,10.3390/nu9111226,1,1,1,Transferability of the Mediterranean diet to nonMediterranean countries. What is and what is not the Mediterranean diet
+711,711_2,10.1186/s12916-014-0177-3,2,2,2,Association of behaviour change techniques with effectiveness of dietary interventions among adults of retirement age A systematic review and metaanalysis of randomised controlled trials
+711,711_3,10.3945/ajcn.113.076901,3,3,1,"Consumption of nuts and legumes and risk of incident ischemic heart disease, stroke, and diabetes A systematic review and metaanalysis"
+711,711_4,10.1097/mol.0000000000000044,1,1,1,"Dietary patterns, Mediterranean diet, and cardiovascular disease"
+711,711_5,10.1371/journal.pone.0159252,5,5,1,Effects of the mediterranean diet on cardiovascular outcomesa systematic review and metaanalysis
+711,711_7,10.1016/j.cpcardiol.2024.102509,5,5,1,Longterm impact of mediterranean diet on cardiovascular disease prevention A systematic review and metaanalysis of randomized controlled trials
+711,711_9,10.1017/s0007114514000713,3,3,2,"Olive oil consumption and risk of CHD and/or stroke A metaanalysis of casecontrol, cohort and intervention studies"
+726,726_12,10.1080/14767058.2016.1205031,3,3,1,Antenatal steroid administration in medically uncomplicated pregnancy beyond 37 weeks of gestation for the prevention of neonatal morbidities prior to elective caesarean section a systematic review and metaanalysis of randomised controlled trials
+726,726_13,10.1136/bmj.i5044,2,2,1,Antenatal corticosteroids for maturity of term or near term fetuses Systematic review and metaanalysis of randomized controlled trials
+726,726_4,10.1002/14651858.cd006614.pub3,17,17,1,Corticosteroids for preventing neonatal respiratory morbidity after elective caesarean section at term
+727,727_13,10.1515/hmbci-2015-0058,2,2,1,Progestogens in the prevention of miscarriage
+727,727_19,10.1186/s12958-021-00846-6,8,7,1,Pregnancy-related complications and perinatal outcomes following progesterone supplementation before 20 weeks of pregnancy in spontaneously achieved singleton pregnancies a systematic review and meta-analysis
+727,727_3,10.1002/14651858.cd003511.pub5,9,9,1,Progestogen for preventing miscarriage in women with recurrent miscarriage of unclear etiology
+727,727_5,10.1016/j.fertnstert.2016.10.031,1,1,1,"Supplementation with progestogens in the first trimester of pregnancy to prevent miscarriage in women with unexplained recurrent miscarriage a systematic review and metaanalysis of randomized, controlled trials"
+727,727_6,10.1111/aji.12493,1,1,1,Unexplained Recurrent Miscarriage and Recurrent Implantation Failure Is There a Place for Immunomodulation
+727,727_8,10.3109/09513590.2015.1006618,1,1,1,A systematic review of dydrogesterone for the treatment of recurrent miscarriage
+728,728_12,10.1590/s2237-93632012000100002,4,4,2,Preoperative mechanical bowel preparation in elective colorectal surgery. An update of systematic review of the literature and metaanalysis
+728,728_2,10.1002/14651858.cd001544.pub4,7,7,2,Mechanical bowel preparation for elective colorectal surgery
+728,728_4,10.1007/s00384-011-1361-y,1,1,1,Mechanical bowel preparation for elective colorectal surgery Updated systematic review and metaanalysis
+729,729_5,10.1177/0269881107078308,1,1,1,"Acamprosate supports abstinence, Naltrexone prevents excessive drinking Evidence from a metaanalysis with unreported outcomes"
+737,737_3,10.1007/bf03024875,2,0,10,5HT3 receptor antagonists vs traditional agents for the prophylaxis of postoperative nausea and vomiting
+743,743_1,10.1002/14651858.cd011136.pub3,18,18,2,Videolaryngoscopy versus direct laryngoscopy for adults undergoing tracheal intubation
+750,750_1,10.1016/j.jad.2016.03.063,6,3,1,Exercise as a treatment for depression A metaanalysis
+750,750_11,10.1007/s40279-015-0441-5,3,2,1,Challenges Establishing the Efficacy of Exercise as an Antidepressant Treatment A Systematic Review and MetaAnalysis of Control Group Responses in Exercise Randomised Controlled Trials
+750,750_141,10.1016/j.psychres.2022.114857,1,1,1,BrainDerived Neurotrophic Factor BDNF as a biomarker of treatment response in patients with Treatment Resistant Depression TRD A systematic review & metaanalysis
+750,750_143,10.1016/j.psychres.2022.114857,1,1,1,BrainDerived Neurotrophic Factor BDNF as a biomarker of treatment response in patients with Treatment Resistant Depression TRD A systematic review & metaanalysis
+760,760_4,10.1186/s11556-015-0158-3,2,2,1,Effects of whole-body vibration on proxies of muscle strength in old adults a systematic review and meta-analysis on the role of physical capacity level
+764,764_1,10.1002/14651858.cd010960.pub2,2,2,1,Injection therapies for Achilles tendinopathy
+771,771_27,10.1016/j.jval.2015.02.017,1,1,1,Effectiveness and Content Analysis of Interventions to Enhance Oral Antidiabetic Drug Adherence in Adults with Type 2 Diabetes Systematic Review and MetaAnalysis
+771,771_31,10.1177/1357633x17733772,1,1,1,Effectiveness of remote feedback on physical activity in persons with type 2 diabetes A systematic review and metaanalysis of randomized controlled trials
+771,771_32,10.1111/phn.12603,1,1,1,The role of telenursing in the management of diabetesA systematic review and metaanalysis
+772,772_13,10.1016/j.ctcp.2020.101151,1,1,1,Clinical evidence for acupressure with the improvement of sleep disorders in hemodialysis patients A systematic review and metaanalysis
+772,772_14,10.1002/14651858.cd009440.pub2,2,2,1,Acupuncture and related interventions for symptoms of chronic kidney disease
+772,772_15,10.1002/14651858.cd005472.pub2,10,10,1,Acupuncture for insomnia
+772,772_16,10.1002/14651858.cd012625.pub2,8,8,1,Interventions for improving sleep quality in people with chronic kidney disease
+773,773_4,10.1111/jgs.17149,3,3,1,Effect of music therapy on improving sleep quality in older adults A systematic review and metaanalysis
+773,773_5,10.1016/j.ijnurstu.2013.03.008,2,2,1,Music therapy improves sleep quality in acute and chronic sleep disorders A metaanalysis of 10 randomized studies
+777,777_5,10.1186/s13098-023-01144-4,14,14,1,Glucose control and psychosocial outcomes with use of automated insulin delivery for 12 to 96 weeks in type 1 diabetes a metaanalysis of randomised controlled trials
+777,777_7,10.20945/2359-4292-2023-0280,12,12,1,Efficacy of the hybrid closed-loop insulin delivery system in children and adolescents with type 1 diabetes: a meta-analysis with trial sequential analysis
+777,777_8,10.1016/j.dsx.2023.102847,4,4,1,Automated glycemic control with a bionic pancreas for type 1 diabetes mellitus A systematic review and metaanalysis
+817,817_1,10.17116/hirurgia20240215,2,2,1,Improvement of mortality Russian clinical guidelines and reduction of in perforated ulcers
+817,817_2,10.1007/s11605-018-4047-8,2,0,1,Laparoscopic Repair for Perforated Peptic Ulcer Disease Has Better Outcomes Than Open Repair
+817,817_3,10.1016/j.ijsu.2016.07.077,6,6,1,Laparoscopic versus open repair for perforated peptic ulcer A meta analysis of randomized controlled trials
+821,821_1,10.1007/s00125-011-2398-8,1,1,1,Renoprotective effects of reninangiotensin system blockade in type 2 diabetic patients A systematic review and network metaanalysis
+821,821_2,10.3310/hta18140,1,0,1,"Optimal strategies for identifying kidney disease in diabetes: properties of screening tests, progression of renal dysfunction and impact of treatment - systematic review and modelling of progression and cost-effectiveness"
+827,827_1,10.1136/openhrt-2014-000068,12,12,1,Efficacy of cilostazol on platelet reactivity and cardiovascular outcomes in patients undergoing percutaneous coronary intervention Insights from a metaanalysis of randomised trials
+831,831_1,10.1002/14651858.cd005454.pub2,1,1,1,Antidepressants for neuropathic pain
+831,831_2,10.1016/j.clineuro.2024.108223,4,4,1,Serotonin norepinephrine reuptake inhibitors in managing neuropathic pain following spinal and nonspinal surgery A systematic review and metaanalysis of randomized controlled trials
+843,843_1,10.1136/bmj.d1110,2,2,1,Prevention of pain on injection of propofol Systematic review and metaanalysis
+847,847_1,10.1016/j.ijsu.2010.12.006,3,3,1,Do angiotensin converting enzyme inhibitors improve walking distance in patients with symptomatic lower limb arterial disease A systematic review and metaanalysis of randomised controlled trials
+848,848_1,10.1016/j.vaccine.2015.04.085,1,1,1,"Parental reminder, recall and educational interventions to improve early childhood immunisation uptake A systematic review and metaanalysis"
+849,849_3,10.1016/j.bja.2021.08.037,1,0,1,The potential for autonomic neuromodulation to reduce perioperative complications and pain a systematic review and metaanalysis
+849,849_6,10.1037/neu0000735,1,1,1,The effects of transcutaneous auricular vagal nerve stimulation on cognition in healthy individuals A metaanalysis.
+868,868_2,10.4158/ep161678.ra,6,6,2,Clinical evaluation of cost efficacy of drugs for treatment of osteoporosis A metaanalysis
+871,871_1,10.1097/ajp.0000000000000630,2,1,1,Effect of Intravenous Dexmedetomidine during General Anesthesia on Acute Postoperative Pain in Adults
+871,871_2,10.1097/ajp.0000000000000219,3,3,1,Effects of combining dexmedetomidine and opioids for postoperative intravenous patientcontrolled analgesia a systematic review and metaanalysis
+871,871_5,10.36076/ppj/2017.7.569,2,2,1,Optimization of post-operative intravenous patient-controlled analgesia with opioiddexmedetomidine combinations An updated metaanalysis with trial sequential analysis of randomized controlled trials
+890,890_1,10.1016/j.ijom.2018.05.023,24,24,1,Efficacy of corticosteroids versus placebo in impacted third molar surgery systematic review and metaanalysis of randomized controlled trials
+892,892_10,10.3389/fnut.2022.964484,6,6,1,The effect of intravenous vitamin C on clinical outcomes in patients with sepsis or septic shock A metaanalysis of randomized controlled trials
+892,892_13,10.1097/md.0000000000037420,1,1,1,The effects of vitamin C supplementation in the critically ill patients outcomes A systematic review and metaanalysis of randomized controlled trials
+892,892_14,10.1016/j.jcrc.2022.154099,1,1,1,Vitamin Cbased regimens for sepsis and septic shock Systematic review and metaanalysis of randomized clinical trials.
+892,892_15,10.1097/md.0000000000035648,6,6,1,Intravenous highdose vitamin C monotherapy for sepsis and septic shock A metaanalysis of randomized controlled trials
+892,892_16,10.21203/rs.3.rs-850576/v1,10,10,1,Application of Intravenous Vitamin C in Adult Patients with Sepsis: A Meta-Analysis of Randomized Controlled Trials
+892,892_17,10.1097/ccm.0000000000005263,14,14,1,Effect of IV HighDose Vitamin C on Mortality in Patients With Sepsis A Systematic Review and MetaAnalysis of Randomized Controlled Trials
+892,892_18,10.1016/j.ajem.2021.08.012,7,7,1,Efficacy of intravenous vitamin C intervention for septic patients A systematic review and metaanalysis based on randomized controlled trials
+892,892_19,10.1097/ccm.0000000000005320,9,9,1,IV Vitamin C in Critically Ill Patients A Systematic Review and MetaAnalysis
+892,892_2,10.1056/evidoa2200105,10,10,1,Parenteral vitamin C in patients with severe infection: a systematic review
+892,892_20,10.1155/2023/6733465,4,4,1,IV Vitamin C in Sepsis A Latest Systematic Review and MetaAnalysis
+892,892_3,10.1186/s13054-023-04392-y,3,3,1,The outcome of IV vitamin C therapy in patients with sepsis or septic shock a metaanalysis of randomized controlled trials
+892,892_4,10.1186/s13613-023-01116-x,38,38,1,Intravenous vitamin C monotherapy in critically ill patients a systematic review and metaanalysis of randomized controlled trials with trial sequential analysis
+892,892_5,10.3390/nu13103564,6,6,1,Vitamin c in critically ill patients An updated systematic review and metaanalysis
+892,892_6,10.3390/nu15081848,3,3,1,Association of Oral or Intravenous Vitamin C Supplementation with Mortality A Systematic Review and MetaAnalysis
+892,892_7,10.3390/arm90040038,1,1,1,The Role and Efficacy of Vitamin C in Sepsis A Systematic Review and MetaAnalysis
+892,892_8,10.1016/j.jiph.2022.11.015,1,1,1,The impact of vitamin Ccontaining treatment on the mortality of patients with sepsis A systematic review and metaanalysis of randomized controlled trials
+892,892_9,10.3389/fnut.2023.1211194,17,17,1,Effect of intravenous vitamin C on adult septic patients a systematic review and metaanalysis
+899,899_1,10.1007/s00426-018-1066-8,2,2,1,"Efficacy of binaural auditory beats in cognition, anxiety, and pain perception a metaanalysis"
+912,912_4,10.1002/14651858.cd013505,3,3,1,Metformin for ovulation induction excluding gonadotrophins in women with polycystic ovary syndrome
+912,912_5,10.1093/humupd/dmm026,2,2,1,The role of metformin in polycystic ovary syndrome A systematic review
+913,913_2,10.2196/31007,2,2,1,Impact of virtual realitybased therapies on cognition and mental health of stroke patients Systematic review and metaanalysis
+913,913_3,10.1007/s10143-023-02061-w,3,3,1,"The effectiveness of virtual reality games in improving cognition, mobility, and emotion in elderly poststroke patients a systematic review and metaanalysis"
+916,916_2,10.2147/cmar.s195935,2,2,1,Efficacy of complementary and integrative medicine on healthrelated quality of life in cancer patients A systematic review and metaanalysis
+916,916_5,10.1016/j.ctim.2021.102743,3,3,1,Qigong for women with breast cancer An updated systematic review and metaanalysis
+919,919_4,10.1002/lary.25636,11,10,2,The efficacy of gabapentin/pregabalin in improving pain after tonsillectomy A metaanalysis
+919,919_6,10.1007/s00405-018-5202-2,8,8,2,The use of steroids to reduce complications after tonsillectomy a systematic review and metaanalysis of randomized controlled studies
+927,927_1,10.1016/j.ijsu.2019.09.026,1,1,1,Efficacy and safety of active abdominal compressiondecompression versus standard CPR for cardiac arrests A systematic review and metaanalysis of 17 RCTs
+930,930_15,10.1007/s00432-013-1574-2,6,6,1,A systematic review and metaanalysis of comparative studies on the efficacy of extended pelvic lymph node dissection in patients with clinically localized prostatic carcinoma
+933,933_2,10.1001/jamapsychiatry.2020.0431,1,0,1,Psychosocial Interventions and Immune System Function A Systematic Review and Metaanalysis of Randomized Clinical Trials
+935,935_1,10.1007/s11892-018-1105-2,2,2,1,Effect of Health Information Technologies on Glycemic Control Among Patients with Type 2 Diabetes
+936,936_1,10.1002/14651858.cd001122.pub5,8,8,1,Laparoscopic ovarian drilling for ovulation induction in women with anovulatory polycystic ovary syndrome
+944,944_1,10.1111/jcpp.13891,1,1,1,"Research Review Psychological and psychosocial interventions for children and adolescents with depression, anxiety, and posttraumatic stress disorder in low and middleincome countries – a systematic review and metaanalysis"
+955,955_1,10.1089/jicm.2022.0735,2,2,1,Effectiveness of Acupuncture for Relieving ChemotherapyInduced Bone Marrow Suppression A Systematic Review with a Metaanalysis and Trial Sequential Analysis
+957,957_10,10.1097/phm.0000000000001397,8,7,1,Effects of Transcutaneous Neuromuscular Electrical Stimulation on Swallowing Disorders A Systematic Review and MetaAnalysis
+957,957_3,10.1016/j.neucli.2021.02.006,9,4,2,Comparative efficacy of non-invasive neurostimulation therapies for poststroke dysphagia: a systematic review and meta-analysis.
+957,957_9,,2,2,1,Role of physical therapy interventions in orofacial dysfunction after stroke: systematic review.
+973,973_1,10.1111/wrr.12863,1,1,1,Negativepressure wound therapy for III/IV pressure injuries A metaanalysis
+974,974_1,10.1002/14651858.cd011867.pub2,2,2,1,"Interventions for obtaining and maintaining employment in adults with severe mental illness, a network metaanalysis"
+980,980_1,10.33448/rsd-v10i3.13137,1,1,1,Does Ketorolac reduce the intensity of postoperative pain after impacted third molars surgery in adults compared to the use of tramadol? A systematic review and meta-analysis
+984,984_52,10.30574/wjarr.2023.20.3.2483,3,3,1,Systematic review and meta-analysis on safety and efficacy of immune checkpoint inhibitors and radiotherapy for advanced pancreatic cancer
+984,984_53,10.3390/cancers16020382,4,4,1,The Effect of Sex on the Therapeutic Efficiency of Immune Checkpoint Inhibitors A Systematic Review and MetaAnalysis Based on Randomized Controlled Trials
+1001,1001_1,10.1002/rmv.2479,2,0,1,Impact of differentiated service delivery models on retention in hiv care and viral suppression among people living with hiv in sub-saharan africa: a systematic review and meta-analysis of randomised controlled trials
+1009,1009_3,10.3233/nre-230215,5,5,1,Efficacy of brain-computer interfaces on upper extremity motor function rehabilitation after stroke: a systematic review and meta-analysis
+1009,1009_7,,5,5,1,Theraputic effects of brain-computer interface on motor recovery of stroke patients: a meta-analysis
+1014,1014_1,10.1111/jan.16011,2,2,1,Effects of a collaborative health management model on people with congestive heart failure: a systematic review and meta-analysis
+1015,1015_13,,1,1,1,"The effectiveness of reproductive surgery in the treatment of female infertility: facts, views and vision."
+1015,1015_5,10.1002/14651858.cd001122.pub5,4,4,1,Laparoscopic drilling by diathermy or laser for ovulation induction in anovulatory polycystic ovary syndrome
+1015,1015_7,,2,2,1,Unilateral or bilateral laparoscopic ovarian drilling in polycystic ovary syndrome: a meta-analysis of randomized trials
+1027,1027_1,10.1111/1471-0528.15566,10,10,2,"Vaginal progesterone, oral progesterone, 17‐ohpc, cerclage, and pessary for preventing preterm birth in at‐risk singleton pregnancies: an updated systematic review and network meta‐analysis"
+1028,1028_2,10.3389/fpsyg.2024.1470817,1,0,2,The efficacy of personalized psychological interventions in adolescents: a scoping review and meta-analysis
+1037,1037_11,10.1038/s41598-020-78075-x,9,9,1,Nutraceutical supplements in management of pain and disability in osteoarthritis: a systematic review and meta-analysis of randomized clinical trials.
+1037,1037_12,10.1186/s13018-023-03590-2,12,12,1,Efficacy and safety of anti-interleukin-1 therapeutics in the treatment of knee osteoarthritis: a systematic review and meta-analysis of randomized controlled trials.
+1037,1037_17,10.1097/md.0000000000031700,11,11,1,"Efficacy, residual effectiveness and safety of diacerein in the treatment of knee osteoarthritis: a meta-analysis of randomized placebo-controlled trials."
+1037,1037_6,10.1007/s40266-019-00662-z,12,12,1,Safety of symptomatic slow-acting drugs for osteoarthritis: outcomes of a systematic review and meta-analysis.
+1037,1037_7,10.1186/s40001-015-0115-7,8,4,1,"Efficacy and safety of glucosamine, diacerein, and nsaids in osteoarthritis knee: a systematic review and network meta-analysis."
+1037,1037_8,10.1016/j.joca.2009.10.006,4,4,1,Symptomatic efficacy and safety of diacerein in the treatment of osteoarthritis: a meta-analysis of randomized placebo-controlled trials
+1042,1042_2,,1,1,1,A network meta-analysis comparing the efficacy and safety of thoracic endovascular aortic repair with open surgical repair and optimal medical therapy for type b aortic dissection.
+1042,1042_2,10.1186/s12885-023-10571-5,2,2,1,A network meta-analysis comparing the efficacy and safety of thoracic endovascular aortic repair with open surgical repair and optimal medical therapy for type b aortic dissection.
+1049,1049_2,10.1186/s12885-023-10571-5,11,11,1,Incidence and risk of hypertension associated with parp inhibitors in cancer patients: a systematic review and meta-analysis.
+1057,1057_1,10.1177/17449871241268513,4,4,1,Effects of self-management education integrated nursing on cancer patients with picc placement: a systematic review and meta-analysis.
+1071,1071_10,10.7717/peerj.13992,2,2,1,Effects of l-carnitine supplementation for women with polycystic ovary syndrome: a systematic review and meta-analysis
+1071,1071_3,10.1002/14651858.cd007807.pub4,15,15,3,Antioxidants for female subfertility
+1072,1072_1,10.1111/ijn.13243,3,3,1,Effect of comprehensive nursing care for the liver cancer patients undergoing interventional therapy in china: a systematic review and meta‐analysis
+1104,1104_4,10.1017/s0007114522003270,6,6,1,The effects of n-acetylcysteine on ovulation and sex hormones profile in women with polycystic ovary syndrome: a systematic review and meta-analysis
+1104,1104_5,10.1515/jbcpp-2020-0107,6,6,1,N-acetyl-cysteine as adjuvant therapy in female infertility: a systematic review and meta-analysis
+1105,1105_112,10.1002/14651858.cd008018.pub3,2,2,1,Adjuvant gonadotropin-releasing hormone analogues for the prevention of chemotherapy-induced premature ovarian failure in premenopausal women (2019)
+1105,1105_14,10.1016/j.fertnstert.2010.11.017,2,2,1,Gonadotropin-releasing hormone analog cotreatment for preservation of ovarian function during gonadotoxic chemotherapy: a systematic review and meta-analysis
+1105,1105_17,10.1002/uog.18934,4,4,1,Gonadotropin‐releasing hormone agonists for ovarian protection during cancer chemotherapy: systematic review and meta‐analysis
+1105,1105_23,10.3892/ol.2019.10252,4,4,1,Protective effect of gonadotropin‑releasing hormone agonist against chemotherapy‑induced ovarian dysfunction: a meta‑analysis
+1105,1105_27,10.1016/j.breast.2012.12.008,2,2,1,Concurrent treatment with gonadotropin-releasing hormone agonists for chemotherapy-induced ovarian damage in premenopausal women with breast cancer: a meta-analysis of randomized controlled trials
+1105,1105_32,10.1007/s10549-010-0996-7,6,2,1,Pharmacological interventions for fertility preservation during chemotherapy: a systematic review and meta-analysis
+1105,1105_40,10.1093/humrep/dew224,1,1,1,Factors associated with ovarian function recovery after chemotherapy for breast cancer: a systematic review and meta-analysis
+1105,1105_44,10.1097/grf.0b013e3181f96cb1,2,1,1,Use of hormonal protection for chemotherapy-induced gonadotoxicity
+1105,1105_46,10.2147/ott.s95936,1,1,1,Utility of gonadotropin-releasing hormone  agonists for prevention of chemotherapy-induced  ovarian damage in premenopausal women with  breast cancer: a systematic review and metaanalysis
+1105,1105_5,10.1093/annonc/mdv374,1,1,1,Ovarian suppression using luteinizing hormone-releasing hormone agonists during chemotherapy to preserve ovarian function and fertility of breast cancer patients: a meta-analysis of randomized studies
+1105,1105_50,10.1097/gme.0000000000002019,1,1,1,Gonadotropin-releasing hormone agonists for ovarian protection during breast cancer chemotherapy: a systematic review and meta-analysis
+1105,1105_58,10.1371/journal.pone.0066360,2,2,1,Gonadotropin-releasing hormone analog cotreatment for the preservation of ovarian function during gonadotoxic chemotherapy for breast cancer: a meta-analysis
+1105,1105_6,10.1016/j.ctrv.2013.12.001,1,1,1,Gonadotropin-releasing hormone analogues for the prevention  of chemotherapy-induced premature ovarian failure in cancer women: systematic review and meta-analysis of randomized trials
+1105,1105_74,10.1177/1933719118799203,12,12,1,Gonadotropin-releasing hormone analogs for gonadal protection during gonadotoxic chemotherapy: a systematic review and meta-analysis
+1105,1105_80,10.1016/j.ejogrb.2023.05.030,4,4,1,"Fertility preservation, its effectiveness and its impact on disease status in pre-menopausal women with breast cancer: a systematic review and meta-analysis"
+1105,1105_81,10.1159/000454983,1,1,1,Protecting effects of gonadotropin-releasing hormone agonist on chemotherapy-induced ovarian damage in premenopausal breast cancer patients: a systematic review and meta-analysis
+1105,1105_84,10.3892/ijo.2014.2296,3,3,1,Protection of ovarian function by gnrh agonists during chemotherapy: a meta-analysis
+1105,1105_9,10.1001/jamaoncol.2015.3251,1,1,1,"Gonadotropin-releasing hormone agonists for ovarian function preservation in premenopausal women undergoing chemotherapy for early-stage breast cancer
+a systematic review and meta-analysis"
+1106,1106_3,10.1016/j.jogoh.2023.102606,4,4,1,Transvaginal needle versus laparoscopic ovarian drilling in hormonal profile and pregnancy outcomes of polycystic ovary syndrome: a systematic review and meta-analysis
+1114,1114_3,10.1080/09513590.2016.1197196,5,5,2,Luteal phase clomiphene citrate for ovulation induction in women with polycystic ovary syndrome: a systematic review and meta-analysis
+1117,1117_3,10.1111/j.1537-2995.2004.03353.x,3,1,2,Preoperative acute normovolemic hemodilution: a meta‐analysis
+1119,1119_1,10.1136/bmjsrh-2022-201468,4,4,1,A systematic review of randomised controlled trials of the effects of digital health interventions on postpartum contraception use
+1119,1119_3,10.3389/ijph.2023.1605564,2,1,1,Strategies for improving postpartum contraception compared with routine maternal care: a systematic review and meta-analysis
+1123,1123_5,10.1080/13625187.2018.1469124,14,14,1,Uterine or paracervical lidocaine application for pain control during intrauterine contraceptive device insertion: a meta-analysis of randomised controlled trials
+1126,1126_1,10.3389/fpubh.2023.1144404,1,1,1,Essential oils for treating anxiety: a systematic review of randomized controlled trials and network meta-analysis
+1127,1127_4,10.1007/s10815-020-01906-3,3,3,1,Does coenzyme q 10 supplementation improve fertility outcomes in women undergoing assisted reproductive technology procedures? A systematic review and meta-analysis of randomized-controlled trials
+1127,1127_9,10.1007/s43032-022-01038-2,2,2,1,Efficacy and safety of coenzyme q10 supplementation in the treatment of polycystic ovary syndrome: a systematic review and meta-analysis
+1129,1129_10,10.1093/humupd/dmy034,12,12,1,The impact of intentional endometrial injury on reproductive outcomes: a systematic review and meta-analysis
+1129,1129_11,10.1002/14651858.cd009517.pub4,2,2,2,Endometrial injury in women undergoing in vitro fertilisation (ivf)
+1129,1129_20,10.1002/rmb2.12348,9,9,1,The impact of endometrial injury on reproductive outcomes: results of an updated meta‐analysis
+1129,1129_21,10.3389/fsurg.2023.1225111,6,6,1,Endometrial scratching during hysteroscopy in women undergoing in vitro fertilization: a systematic review and meta-analysis
+1129,1129_4,10.1016/j.fertnstert.2018.04.040,10,10,1,Endometrial scratch injury for women with one or more previous failed embryo transfers: a systematic review and meta-analysis of randomized controlled trials
+1129,1129_9,10.1186/s12958-023-01141-2,2,2,2,The role of endometrial scratching prior to in vitro fertilization: an updated systematic review and meta-analysis
+1132,1132_13,10.1111/1471-0528.14754,3,3,1,Inositol treatment of anovulation in women with polycystic ovary syndrome: a meta‐analysis of randomised trials
+1132,1132_27,10.1002/osp4.569,1,1,1,Inositol supplementation and body mass index: a systematic review and meta‐analysis of randomized clinical trials
+1132,1132_47,10.1007/s43032-022-00933-y,8,8,1,"Efficacy of myo-inositol on anthropometric, metabolic, and endocrine outcomes in pcos patients: a meta-analysis of randomized controlled trial"
+1132,1132_7,10.1530/ec-17-0243,3,3,1,Myo-inositol effects in women with pcos: a meta-analysis of randomized controlled trials
+1133,1133_1,10.3389/fcvm.2022.1090616,7,7,1,Qili qiangxin capsules for chronic heart failure: a grade-assessed clinical evidence and preclinical mechanism
+1135,1135_11,10.3389/fphar.2022.1028704,6,6,1,Efficacy and safety evaluation of dexmedetomidine for postoperative patient controlled intravenous analgesia: a systematic review and meta-analysis
+1135,1135_17,10.1016/j.bjane.2021.02.020,1,1,1,Dexmedetomidine reduces postoperative cognitive and behavioral dysfunction in adults submitted to general anesthesia for non-cardiac surgery: meta-analysis of randomized clinical trials
+1135,1135_22,,12,12,11,The effects of dexmedetomidine on postoperative sleep in elderly patients: a systematic review and meta-analysis
+1135,1135_23,,1,1,1,Efficacy of sleep interventions on postoperative delirium: a systematic review and meta-analysis of randomized controlled trials
+1135,1135_24,,4,4,1,Effects of dexmedetomidine on cardioprotection and other postoperative complications in elderly patients after cardiac and non-cardiac surgerie
+1135,1135_5,10.3389/fpsyt.2020.570362,2,1,1,Perioperative sleep disturbances and postoperative delirium in adult patients: a systematic review and meta-analysis of clinical trials
+1137,1137_1,10.1016/j.ajog.2021.09.025,4,3,1,Tranexamic acid for the prevention of postpartum hemorrhage in women undergoing cesarean delivery: an updated meta-analysis
+1137,1137_2,10.1186/s12884-023-05753-9,1,1,1,Effect of preoperative prophylactic intravenous tranexamic acid on perioperative blood loss control in patients undergoing cesarean delivery: a systematic review and meta-analysis
+1137,1137_3,10.1016/j.ajogmf.2023.101049,3,3,1,Tranexamic acid for the prevention of blood loss after cesarean section: an updated systematic review and meta-analysis of randomized controlled trials
+1137,1137_4,10.1186/s12884-023-06100-8,3,1,1,"Efficacy and safety of tranexamic acid in prevention of postpartum hemorrhage: a systematic review and meta-analysis of 18,649 patients"
+1137,1137_6,10.1055/a-2109-3730,2,2,1,Prophylactic tranexamic acid prevents postpartum hemorrhage and transfusions in cesarean deliveries: a systematic review and meta-analysis
+1138,1138_1,,1,1,1,Comparison of different cesarean delivery techniques: a systematic review and meta-analysis.
+1139,1139_2,10.1016/j.heliyon.2024.e31176,2,2,1,Acupuncture for dyspnea and breathing physiology in chronic respiratory diseases: a systematic review and meta-analysis of randomized controlled trials
+1145,1145_2,10.1097/ajp.0000000000001166,11,11,2,Application of dexmedetomidine in epidural labor analgesia: a systematic review and meta-analysis on randomized controlled trials
+1149,1149_1,10.1016/j.jad.2024.08.110,2,2,1,The impact of compassion-based interventions on perioperative anxiety and depression: a systematic review and meta-analysis
+1151,1151_1,10.1186/s12890-024-03244-x,2,2,1,Bronchial artery embolization versus conservative treatment for hemoptysis: a systematic review and meta-analysis
+1162,1162_17,10.1111/cen.14885,3,3,1,Effects of carnitine on glucose and lipid metabolic profiles and fertility outcomes in women with polycystic ovary syndrome: a systematic review and meta-analysis
+1163,1163_1,10.1371/journal.pone.0263931,3,3,1,Lifestyle changes in patients with non-alcoholic fatty liver disease: a systematic review and meta-analysis
+1163,1163_2,10.1111/obr.13269,4,4,1,"Effect of exercise on cardiometabolic health of adults with overweight or obesity: focus on blood pressure, insulin resistance, and intrahepatic fat—a systematic review and meta-analysis"
+1163,1163_4,10.1097/md.0000000000033147,2,2,1,Effects of aerobic exercise on metabolic indicators and physical performance in adult nafld patients: a systematic review and network meta-analysis
+1163,1163_5,10.1097/meg.0000000000002662,16,16,1,Effect of exercise intervention on clinical parameters in patients with non-alcoholic fatty liver disease and type 2 diabetes mellitus: a meta-analysis of randomized controlled trials
+1165,1165_2,10.1038/s41440-022-00853-z,8,7,1,Optimal blood pressure target to prevent severe hypertension in pregnancy: a systematic review and meta-analysis
+1166,1166_1,10.1111/jog.15318,10,10,2,The efficacy of misoprostol in reducing intraoperative blood loss in women undergoing elective cesarean section. A systematic review and meta-analysis
+1167,1167_10,10.61622/rbgo/2024rbgo37,5,5,1,Effects of vitamin d supplementation on oxidative stress biomarkers of iranian women with polycystic ovary syndrome: a meta-analysis study
+1167,1167_11,10.21037/apm-20-2492,7,7,1,Effectiveness of vitamin d supplementation on lipid profile in polycystic ovary syndrome women: a meta-analysis of randomized controlled trials
+1167,1167_12,10.1039/d3fo02824k,24,24,1,"Efficacy of antioxidant supplementation in improving endocrine, hormonal, inflammatory, and metabolic statuses of pcos: a meta-analysis and systematic review"
+1167,1167_8,10.1002/ptr.6716,4,4,1,Effect of evening primrose oil supplementation on lipid profile: a systematic review and meta‐analysis of randomized clinical trials
+1168,1168_1,10.1177/0310057x1804600303,1,1,1,Effect on neonatal outcome of pharmacological interventions for attenuation of the maternal haemodynamic response to tracheal intubation: a systematic review
+1168,1168_3,10.1097/01.prs.0000438459.60474.b5,2,0,1,Ketorolac does not increase perioperative bleeding a meta-analysis of randomized controlled trials
+1168,1168_4,10.1016/j.jamcollsurg.2021.01.005,1,0,1,Systematic review and meta–analysis of the association between non–steroidal anti–inflammatory drugs and operative bleeding in the perioperative period
+1168,1168_6,10.1097/aap.0000000000000460,1,1,1,The analgesic efficacy of nonsteroidal anti-inflammatory agents (nsaids) in patients undergoing cesarean deliveries: a meta-analysis
+1174,1174_17,10.5534/wjmh.230106,2,2,1,Effects of physical activity on fertility parameters: a meta-analysis of randomized controlled trials
+1175,1175_12,10.1002/14651858.cd011497.pub2,3,3,1,Physical activity for treatment of irritable bowel syndrome
+1176,1176_3,10.3389/fendo.2022.833932,1,1,1,The efficacy of nitrates for bone health: a systematic review and meta-analysis of observational and randomized controlled studies
+1177,1177_2,10.1016/j.ajogmf.2023.101024,1,1,1,Combined vaginal progesterone and cervical cerclage in the prevention of preterm birth: a systematic review and meta-analysis
+1177,1177_3,10.3389/fmed.2023.1111315,26,26,1,"Progesterone, cerclage, pessary, or acetylsalicylic acid for prevention of preterm birth in singleton and multifetal pregnancies – a systematic review and meta-analyses"
+1178,1178_1,10.1111/anae.14582,2,2,1,Analgesic impact of intra-operative opioids vs. Opioid-free anaesthesia: a systematic review and meta-analysis
+1178,1178_10,10.1213/ane.0000000000005843,1,0,1,The effect of dexmedetomidine on postanesthesia care unit discharge and recovery: a systematic review and meta-analysis
+1178,1178_20,,1,1,1,The effects of continuous intravenous infusion of dexmedetomidine and remifentanil on postoperative pain: a systematic review and meta-analysis
+1178,1178_4,10.1177/0194599817733735,12,11,1,Can dexmedetomidine influence recovery profiles from general anesthesia in nasal surgery?
+1178,1178_5,10.3389/fphar.2022.993239,2,2,1,Comparison of dexmedetomidine and remifentanil on reducing coughing during emergence from anesthesia with tracheal intubation: a meta-analysis
+1178,1178_6,10.1186/s12871-024-02563-0,6,6,1,Dexmedetomidine versus remifentanil in nasal surgery: a systematic review and meta-analysis
+1178,1178_7,10.2147/dddt.s207016,2,2,1,Effects of peri-operative intravenous administration of dexmedetomidine on emergence agitation after general anesthesia in adults: a meta-analysis of randomized controlled trials
+1178,1178_8,10.1111/anae.14657,2,2,1,Intra-operative analgesia with remifentanil vs. Dexmedetomidine: a systematic review and meta-analysis with trial sequential analysis
+1180,1180_2,10.1002/14651858.cd006715.pub3,14,14,1,Epidural analgesia for adults undergoing cardiac surgery with or without cardiopulmonary bypass
+1180,1180_5,10.1213/ane.0000000000006532,3,2,1,"Thoracic epidural anesthesia in cardiac surgery: a systematic review, meta-analysis, and trial sequential analysis of randomized controlled trials"
+1182,1182_4,10.3389/fped.2024.1353508,5,5,2,Preoperative anxiety management in pediatric patients: a systemic review and meta-analysis of randomized controlled trials on the efficacy of distraction techniques
+1193,1193_1,10.3389/fneur.2023.1241521,5,5,1,Biomarkers associated with functional improvement after stroke rehabilitation: a systematic review and meta-analysis of randomized controlled trials
+1199,1199_7,10.1097/aog.0000000000003105,8,7,1,Letrozole compared with clomiphene citrate for unexplained infertility: a systematic review and meta-analysis
+1200,1200_1,10.1002/14651858.cd007373.pub3,3,3,1,Interventions for pain with intrauterine device insertion
+1200,1200_10,,15,15,1,Efficacy and safety of misoprostol for intrauterine device insertion in women with no previous vaginal delivery: a systematic review and meta-analysis of randomized controlled trials
+1204,1204_1,10.1002/14651858.cd002855.pub5,6,6,1,MEdical methods for first trimester abortion
+1205,1205_2,10.1002/14651858.cd006034.pub3,7,7,2,Interventions to prevent or treat heavy menstrual bleeding or pain associated with intrauterine‐device use
+1207,1207_10,10.1371/journal.pone.0134192,6,6,1,The effectiveness of cognitive behavioural treatment for non-specific low back pain: a systematic review and meta-analysis
+1207,1207_18,10.3390/ijerph19010060,4,4,1,Psychological approaches for the integrative care of chronic low back pain: a systematic review and metanalysis
+1207,1207_2,10.1136/bmj.h444,2,2,1,Multidisciplinary biopsychosocial rehabilitation for chronic low back pain: cochrane systematic review and meta-analysis
+1207,1207_3,10.1002/14651858.cd000963.pub3,20,20,1,Multidisciplinary biopsychosocial rehabilitation for chronic low back pain: cochrane systematic review and meta-analysis
+1207,1207_30,10.1111/papr.13198,6,6,1,The effectiveness of low‐dosed outpatient biopsychosocial interventions compared to active physical interventions on pain and disability in adults with nonspecific chronic low back pain: a systematic review with meta‐analysis
+1207,1207_46,,4,4,1,Effectivity biopsychosocial intervention with cognitive behavioral therapy and exercise therapy program in chronic low back pain: meta-analysis
+1207,1207_9,10.1155/2022/4276175,5,5,1,"Evaluation of cognitive behavioral therapy on improving pain, fear avoidance, and self‐efficacy in patients with chronic low back pain: a systematic review and meta‐analysis"
+1211,1211_4,10.1097/yic.0000000000000457,8,8,1,Phosphodiesterase inhibitor and selective serotonin reuptake inhibitor combination therapy versus monotherapy for the treatment of major depressive disorder: a systematic review and meta-analysis
+1211,1211_7,10.7759/cureus.62991,3,3,2,Evidence of the immunomodulatory effects of selective serotonin reuptake inhibitors in patients with depression through a systematic review
+1214,1214_11,,1,1,1,Perioperative approaches to prevent delayed neurocognitive recovery and postoperative neurocognitive disorder in older surgical patients: a systematic review and meta-analysis of randomized controlled trials
+1214,1214_12,10.1186/s40001-024-01838-z,9,9,1,Intravenous infusion of dexmedetomidine during the surgery to prevent postoperative delirium and postoperative cognitive dysfunction undergoing non-cardiac surgery: a meta-analysis of randomized controlled trials
+1215,1215_103,10.1111/crj.13034,5,5,1,A meta‐analysis of randomized controlled trials in targeted treatments of chronic thromboembolic pulmonary hypertension
+1215,1215_33,10.1038/s41598-020-65697-4,1,0,1,Comparison of balloon pulmonary angioplasty and pulmonary vasodilators for inoperable chronic thromboembolic pulmonary hypertension: a systematic review and meta-analysis
+1215,1215_39,10.1111/eci.14059,9,9,1,Long‐term safety of macitentan in patients with pulmonary hypertension: a meta‐analysis of randomised controlled trials
+1215,1215_5,10.1111/crj.13621,6,6,1,Efficacy and safety of macitentan for pulmonary hypertension: a meta-analysis
+1215,1215_61,10.5334/gh.1274,8,8,1,Benefits of macitentan in patients with pulmonary hypertension: a systematic review and meta-analysis of randomized controlled trials
+1221,1221_1,10.1016/j.ejogrb.2022.06.028,7,7,1,Isosorbide mononitrate for cervical ripening during labour induction: a systematic review and meta-analysis of 23 randomized controlled trials
+1222,1222_2,10.1186/s12958-023-01055-z,3,3,1,Inositol is an effective and safe treatment in polycystic ovary syndrome: a systematic review and meta-analysis of randomized controlled trials
+1222,1222_3,10.1016/j.psyneuen.2018.05.010,2,2,6,Repositioning of diabetes treatments for depressive symptoms: a systematic review and meta-analysis of clinical trials
+1226,1226_7,10.1016/j.ejogrb.2022.01.025,2,2,1,"Does metformin improve reproduction outcomes for non-obese, infertile women with polycystic ovary syndrome? Meta-analysis and systematic review"
+1228,1228_2,10.1016/j.heliyon.2024.e27647,2,2,1,Ivermectin for treatment of covid-19: a systematic review and meta-analysis
+1229,1229_7,10.1007/s00134-013-2840-0,2,1,1,Fluid resuscitation with 6% hydroxyethyl starch (130/0.4 and 130/0.42) in acutely ill patients: systematic review of effects on mortality and treatment with renal replacement therapy
+1233,1233_1,10.1002/14651858.cd003348.pub3,14,14,1,Patient controlled opioid analgesia versus non‐patient controlled opioid analgesia for postoperative pain
+1233,1233_15,,1,1,1,Patient controlled intravenous opioid analgesia versus conventional opioid analgesia for postoperative pain control: a quantitative systematic review
+1234,1234_1,10.1146/annurev-nutr-011224-030917,6,6,2,The potential effectiveness of front-of-pack nutrition labeling for improving population diets
+1235,1235_11,,6,6,1,The effect of sildenafil citrate on fetal and maternal ultrasound indices in iugr-complicated pregnancies; a systematic review and meta-analysis of randomized clinical trials
+1235,1235_6,10.1186/s12884-023-05747-7,3,3,1,The effects of sildenafil citrate on intrauterine growth restriction: a systematic review and meta-analysis
+1235,1235_7,10.3389/jpps.2024.13206,8,8,1,Safety and efficacy of phosphodiesterase-5 (pde-5) inhibitors in fetal growth restriction: a systematic literature review and meta-analysis
+1235,1235_9,,4,4,1,The effects of sildenafil on fetal doppler indices: a systematic review and meta-analysis
+1236,1236_13,10.1007/s00394-020-02233-0,11,11,1,Therapy with probiotics and synbiotics for polycystic ovarian syndrome: a systematic review and meta-analysis
+1236,1236_14,10.1007/s12602-018-9493-9,16,16,1,The effects of probiotics or synbiotics supplementation in women with polycystic ovarian syndrome: a systematic review and meta-analysis of randomized clinical trials
+1236,1236_15,10.1080/10408398.2021.1951155,11,11,1,"Effects of probiotics, prebiotics, and synbiotics on polycystic ovary syndrome: a systematic review and meta-analysis"
+1236,1236_17,10.1007/s12602-019-09559-0,11,11,1,"The effects of probiotic supplementation on clinical symptom, weight loss, glycemic control, lipid and hormonal profiles, biomarkers of inflammation, and oxidative stress in women with polycystic ovary syndrome: a systematic review and meta-analysis of randomized controlled trials"
+1236,1236_18,10.1093/cvr/cvac128,4,4,1,The effect of probiotic and synbiotic supplementation on lipid parameters among patients with cardiometabolic risk factors: a systematic review and meta-analysis of clinical trials
+1236,1236_30,,6,3,1,Probiotics supplementation for management of type ii diabetes risk factors in adults with polycystic ovarian syndrome: a meta-analysis of randomized clinical trial
+1237,1237_1,10.1016/j.ajog.2017.11.576,1,0,1,Vaginal progesterone for preventing preterm birth and adverse perinatal outcomes in singleton gestations with a short cervix: a meta-analysis of individual patient data
+1237,1237_14,10.1016/j.ajog.2022.04.023,2,2,1,Does vaginal progesterone prevent recurrent preterm birth in women with a singleton gestation and a history of spontaneous preterm birth? Evidence from a systematic review and meta-analysis
+1237,1237_21,10.1002/uog.24839,1,1,1,Vaginal progesterone for the prevention of preterm birth and adverse perinatal outcomes in twin gestations with a short cervix: an updated individual patient data meta-analysis
+1237,1237_24,10.1016/j.ajog.2023.05.010,4,2,1,Vaginal progesterone for preventing preterm birth and adverse perinatal outcomes in twin gestations: a systematic review and meta-analysis
+1237,1237_35,10.1186/s13643-021-01702-9,2,2,1,Vaginal progesterone for prevention of preterm birth in asymptomatic high-risk women with a normal cervical length: a systematic review and meta-analysis
+1237,1237_5,10.1016/j.ajog.2011.12.003,1,1,1,Vaginal progesterone in women with an asymptomatic sonographic short cervix in the midtrimester decreases preterm delivery and neonatal morbidity: a systematic review and metaanalysis of individual patient data
+1237,1237_56,,1,1,1,Efficacy of progesterone therapy in the prevention of preterm labor in women with mixed risk-factors: a systematic review and meta-analysis of randomized clinical trials
+1237,1237_6,10.1002/uog.15953,1,1,1,Vaginal progesterone decreases preterm birth≤ 34 weeks of gestation in women with a singleton pregnancy and a short cervix: an updated meta‐analysis including data from the opptimum study
+1237,1237_8,10.1002/14651858.cd004947.pub3,23,23,2,Prenatal administration of progesterone for preventing preterm birth in women considered to be at risk of preterm birth
+1237,1237_9,10.1111/1471-0528.14513,8,8,1,"Preterm birth prevention in twin pregnancies with progesterone, pessary, or cerclage: a systematic review and meta-analysis"
+1238,1238_2,10.3390/healthcare11152225,2,2,1,Assistive technology involving postural control and gait performance for adults with stroke: a systematic review and meta-analysis
+1238,1238_5,10.1080/17483107.2017.1358304,1,1,1,How assistive devices affect activities of daily living and cognitive functions of people with brain injury: a meta-analysis
+1239,1239_1,10.1093/gerona/gly271,5,5,1,Effect of balance training after hip fracture surgery: a systematic review and meta-analysis of randomized controlled studies
+1239,1239_15,10.1097/md.0000000000019641,6,6,1,Balance training can enhance hip fracture patients’ independence in activities of daily living: a meta-analysis of randomized controlled trials
+1239,1239_17,10.1177/21514593241261506,2,2,1,Effect of comprehensive rehabilitation training based on balance function on postoperative recovery and function of hip fracture in the elderly: a systematic review and meta-analysis
+1239,1239_5,10.1093/gerona/glab236,1,1,1,"Exercise therapy is effective at improving short-and long-term mobility, activities of daily living, and balance in older patients following hip fracture: a systematic review and meta-analysis"
+1239,1239_6,10.1016/j.physio.2020.04.009,2,2,1,Effect of exercise interventions in the early phase to improve physical function after hip fracture–a systematic review and meta-analysis
+1239,1239_7,10.1186/s13018-019-1125-x,6,6,1,Efficacy of balance training for hip fracture patients: a meta-analysis of randomized controlled trials
+1239,1239_9,10.1002/14651858.cd001704.pub5,7,7,1,Interventions for improving mobility after hip fracture surgery in adults
+1240,1240_10,,4,4,1,The effects of exercise on function and pain following total hip arthroplasty: a systematic literature review and meta-analysis
+1240,1240_2,10.1097/md.0000000000014591,5,5,2,Efficacy of exercise for improving functional outcomes for patients undergoing total hip arthroplasty
+1240,1240_3,10.1001/jamanetworkopen.2021.0254,2,1,1,Evaluation of exercise interventions and outcomes after hip arthroplasty: a systematic review and meta-analysis
+1240,1240_6,,2,2,1,Rehabilitation effects in patients with total hip replacement: a systematic review and meta-analysis
+1240,1240_9,10.3389/fsurg.2023.1225649,2,2,1,Early unrestricted vs. Partial weight bearing after uncemented total hip arthroplasty: a systematic review and meta-analysis
+1242,1242_2,,16,16,1,Effect of granulocyte colony-stimulating factor on clinical pregnancy outcomes of recurrent miscarriage and recurrent implantation failure cases: a meta-analysis
+1242,1242_4,10.3390/ijms232012193,6,6,1,Does intrauterine injection of hcg improve ivf outcome? A systematic review and a meta-analysis
+1242,1242_6,10.1186/s12884-024-06662-1,36,30,1,Meta-analysis of intrauterine hcg perfusion efficacy in recurrent implantation failure as defined by eshre guidelines
+1242,1242_7,10.1186/s12958-024-01221-x,3,3,1,Uterine infusion strategies for infertile patients with recurrent implantation failure: a systematic review and network meta-analysis
+1242,1242_9,10.3389/fendo.2024.1370114,39,39,1,The value of g-csf in women experienced at least one implantation failure: a systematic review and meta-analysis
+1243,1243_1,10.62347/llgy4023,1,1,2,Assessing the anti-inflammatory effects of whole-body vibration: a meta-analysis based on pre-clinical and clinical evidences
+1244,1244_4,10.1371/journal.pone.0278342,11,9,1,Comparison of emergency cervical cerclage and expectant treatment in cervical insufficiency in singleton pregnancy: a meta-analysis
+1244,1244_5,10.1016/j.ajogmf.2023.100971,2,0,1,The efficacy of emergency cervical cerclage in singleton and twin pregnancies: a systematic review with meta-analysis
+1244,1244_9,10.1016/j.ejogrb.2024.07.022,2,2,1,Interventions for women with premature cervical dilatation and exposed fetal membranes to prevent pregnancy loss and preterm birth–a systematic review and meta-analysis
+1256,1256_1,10.2174/1573399816666200812151029,10,10,1,"A meta-analysis of randomized controlled trials of the effect of probiotic food or supplement on glycemic response and body mass index in patients with type 2 diabetes, updating the evidence"
+1256,1256_13,10.1186/s12902-023-01338-x,4,4,1,Effects of probiotic/synbiotic supplementation on body weight in patients with diabetes: a systematic review and meta-analyses of randomized-controlled trials
+1256,1256_14,10.1016/j.clnu.2022.06.030,4,4,1,Effects of lactobacillus supplementation on glycemic and lipid indices in overweight or obese adults: a systematic review and meta-analysis
+1256,1256_5,10.1016/j.phrs.2022.106288,3,3,1,"Beneficial effects of probiotic and synbiotic supplementation on some cardiovascular risk factors among individuals with prediabetes and type 2 diabetes mellitus: a grade-assessed systematic review, meta-analysis, and meta-regression of randomized clinical trials"
+1261,1261_2,10.1186/s12902-023-01512-1,5,0,1,The effect of sodium-glucose co-transporter-2 (sglt2) inhibitors on blood interleukin-6 concentration: a systematic review and meta-analysis of randomized controlled trials
+1261,1261_4,10.1186/s12872-023-03324-6,1,1,1,Effects of new hypoglycemic drugs on cardiac remodeling: a systematic review and network meta-analysis
+1261,1261_5,,4,4,1,Effects of sglt2 inhibitors on acute myocardial infarction: a systematic review and meta-analysis
+1286,1286_10,,2,2,1,Efficacy of intraoperative dexmedetomidine compared with placebo for surgery in adults: a meta-analysis of published studies
+1286,1286_11,10.1016/j.clinthera.2018.10.022,6,6,1,Effects of perioperative dexmedetomidine on postoperative mortality and morbidity: a systematic review and meta-analysis
+1286,1286_14,10.1111/anae.14472,3,3,1,The effect of dexmedetomidine on delirium and agitation in patients in intensive care: systematic review and meta-analysis with trial sequential analysis
+1286,1286_4,10.1016/j.pain.2013.03.029,1,1,1,Is intraoperative dexmedetomidine a new option for postoperative pain treatment? A meta-analysis of randomized controlled trials
+1286,1286_6,10.1371/journal.pone.0152829,3,3,1,The influence of perioperative dexmedetomidine on patients undergoing cardiac surgery: a meta-analysi
+1286,1286_8,10.1371/journal.pone.0082913,1,1,1,Dexmedetomidine as a sedative agent in critically ill patients: a meta-analysis of randomized controlled trials
+1286,1286_9,10.1111/anae.15947,2,0,1,"Dexmedetomidine for adult cardiac surgery: a systematic review, meta‐analysis and trial sequential analysis"
+1295,1295_1,10.1111/jch.14645,4,4,1,Statin's role on blood pressure levels: meta‐analysis based on randomized controlled trials
+1300,1300_1,10.1016/j.sleep.2023.05.004,1,1,1,The effectiveness of non-pharmacological sleep interventions for improving inpatient sleep in hospital: a systematic review and meta-analysis
+1310,1310_1,10.1016/j.suronc.2022.101818,4,4,1,Association of apatinib and breast cancer: a systematic review and meta-analysis
+1312,1312_1,10.26355/eurrev_202309_33551,1,0,1,Meta-analysis: reducing the recurrence rate of allergic rhinitis through oral administration of traditional chinese medicine
+1339,1339_1,10.3390/brainsci12070836,5,5,1,Effects of non-invasive brain stimulation on post-stroke spasticity: a systematic review and meta-analysis of randomized controlled trials
+1344,1344_1,10.3390/jpm13030421,1,1,2,Enhanced recovery after surgery rehabilitation protocol in the perioperative period of orthopedics: a systematic review
+1344,1344_2,10.1007/s00402-023-04963-2,2,2,2,The safety and effectiveness of enhanced recovery after surgery (eras) in older patients undergoing orthopedic surgery: a systematic review and meta-analysis
+1349,1349_2,,1,1,1,Effects of the nurse-led program on disability improvement in patients with stroke: a systematic review and meta-analysis
+1360,1360_1,10.3389/fphar.2023.1237210,1,1,1,The efficacy and safety of sacubitril/valsartan compared with acei/arb in the treatment of heart failure following acute myocardial infarction: a systematic review and meta-analysis of randomized controlled trials
+1360,1360_2,10.1097/mca.0000000000001332,2,2,1,Sacubitril/valsartan improves the prognosis of acute myocardial infarction: a meta-analysis
+1375,1375_1,10.1111/jocn.17092,4,4,1,Effects of transitional care interventions on quality of life in people with lung cancer: a systematic review and meta‐analysis
+1376,1376_1,10.3390/jcm12072459,4,4,1,The effect of peripheral nerve block on postoperative delirium in older adults undergoing hip surgery: a systematic review and meta-analysis of randomized controlled trials
+1400,1400_2,10.3390/cancers16081596,3,3,1,Robotic versus laparoscopic liver resections for colorectal metastases: a systematic review and meta-analysis
+1409,1409_5,10.1016/j.jad.2024.07.032,1,0,1,Network meta-analysis of the effectiveness of different interventions for internet addiction in college students
+1421,1421_1,10.1186/s12893-024-02416-0,8,0,1,Duhamel and transanal endorectal pull-throughs for hirschsprung disease: a bayesian network meta-analysis
+1450,1450_2,10.1016/j.jad.2024.02.085,6,5,1,Efficacy of perioperatively application of ketamine on postoperative depressive symptoms in adult patients: a systematic review and meta-analysis with trial sequential analysis
+1450,1450_3,10.1016/j.jad.2024.06.080,3,1,1,Perioperative esketamine administration for prevention of postpartum depression after the cesarean section: a systematic review and meta-analysis
+1450,1450_4,10.1016/j.jad.2024.01.202,10,10,3,Effects of ketamine and esketamine on preventing postpartum depression after cesarean delivery: a meta-analysis
+1450,1450_5,10.1016/j.ajogmf.2023.101241,4,4,1,Association between esketamine interventions and postpartum depression and analgesia following cesarean delivery: a systematic review and meta-analysis
+1450,1450_6,10.1016/j.psychres.2024.115890,8,8,1,Effect of intraoperative and/or postoperative esketamine administration on preventing postpartum depression: a systematic review and meta-analysis
+1476,1476_1,10.1111/iwj.14169,5,4,1,In‐hospital nursing care intervention increasing the effect of vacuum sealing drainage on wound healing: a meta‐analysis
+1483,1483_2,10.1007/s11255-023-03568-3,25,25,6,Reno-protective effects of perioperative dexmedetomidine in kidney transplantation: a systematic review and meta-analysis of randomized controlled trials
+1483,1483_3,10.1016/j.accpm.2024.101359,8,8,1,Dexmedetomidine and acute kidney injury after non-cardiac surgery: a meta-analysis with trial sequential analysis
+1483,1483_4,10.18632/aging.205296,13,13,1,The positive efficacy of dexmedetomidine on the clinical outcomes of patients undergoing renal transplantation: evidence from meta-analysis
+1483,1483_5,10.1016/j.bjane.2024.844534,12,12,2,Effects of perioperative dexmedetomidine on delayed graft function following renal transplant: a systematic review and meta-analysis
+1483,1483_6,,3,3,1,Renoprotective effect of perioperative dexmedetomidine in kidney transplant patients: systematic review and meta-analysis
+1502,1502_1,10.1097/phm.0000000000002389,3,3,1,The efficacy of different exercises on mild to moderate adolescent idiopathic scoliosis: a systematic review and meta-analysis
+1502,1502_2,,1,1,1,Short-term benefit from core stabilization exercises in adolescent idiopathic scoliosis: a meta-analysis of randomized controlled trials
+1507,1507_2,10.3390/healthcare11142042,7,5,1,Acupuncture improves sleep disorders and depression among patients with parkinson's disease: a meta-analysis
+1507,1507_6,10.1016/j.ctcp.2022.101677,3,3,1,Combination treatment of acupoint therapy and conventional medication for motor function of parkinson's disease: a systematic review and meta-analysis
+1507,1507_8,10.1097/md.0000000000036286,1,1,1,Acupuncture and sleep disorders in parkinson's disease: a systematic evaluation with meta-analysis
+1531,1531_18,10.1016/j.dsx.2019.01.047,2,2,1,Effect of q10 supplementation on body weight and body mass index: a systematic review and meta-analysis of randomized controlled clinical trials
+1531,1531_24,10.4103/ijpvm.ijpvm_179_19,2,2,1,Effects of coenzyme q10 supplementation on anthropometric indices in adults: a systematic review and meta-analysis of randomized controlled trials
+1535,1535_1,10.3390/ijerph20085570,1,1,1,Evidence for the effectiveness of psychological interventions for internalized stigma among adults with schizophrenia spectrum disorders: a systematic review and meta-analyses
+1535,1535_2,,2,2,1,Reducing self-stigma in psychosis: a systematic review and meta-analysis of psychological interventions
+1536,1536_1,10.1213/ane.0000000000001609,1,1,1,Acute normovolemic hemodilution reduces allogeneic red blood cell transfusion in cardiac surgery: a systematic review and meta-analysis of randomized trials
+1536,1536_11,10.1016/j.ijsu.2020.09.016,1,1,1,Effect of acute normovolemic hemodilution on coronary artery bypass grafting: A systematic review and meta-analysis of 22 randomized trials
+1536,1536_6,10.1111/j.0958-7578.2004.0489.x,1,1,1,Autologous transfusion techniques: a systematic review of their efficacy
