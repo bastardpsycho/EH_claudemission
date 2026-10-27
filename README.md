@@ -41,7 +41,7 @@ Fallout records that a work **cites** a retracted trial, according to OpenAlex. 
 
 812 of the 2,729 were retracted in 2023, and 644 of those were Hindawi papers, consistent with Hindawi's mass paper-mill retractions that year. VITALITY's cohort of 1,330 retracted RCTs comes from its own full-text screening of Retraction Watch records, a different quantity from these counts; not all 1,330 were pooled in reviews.
 
-The "Clinical Study" label is Retraction Watch's, and it is an imperfect proxy for an RCT: it includes non-randomised studies and misses RCTs labelled "Research Article". Use `--type` or `--all-types` to change the filter.
+The "Clinical Study" label is Retraction Watch's, and it is an imperfect proxy for an RCT: it includes non-randomised studies and misses RCTs labelled "Research Article". Use `--type` or `--all-types` to change the filter, or `--population trials` (with `fallout pubtypes`) to add Health Sciences "Research Article" retractions that look like trials. A record qualifies if PubMed indexes it as a trial (publication type "Randomized Controlled Trial", "Clinical Trial", "Controlled Clinical Trial", or a phase or pragmatic trial). Failing that, it qualifies if its PubMed abstract describes random allocation of people ("randomised", "randomly assigned"); non-randomised and quasi-randomised studies, reviews, and animal or laboratory studies are rejected. Each ledger trial records `selected_by`, and `fallout validate` reports how many trials from each rule are in VITALITY's cohort.
 
 ## Validation against VITALITY
 
@@ -63,7 +63,7 @@ Read the last two rows with care. If VITALITY's search was complete, they are an
 
 1. **Retractions** (`fallout.retractions`): downloads the [Retraction Watch database](https://gitlab.com/crossref/retraction-watch-data) that Crossref publishes, keeps full retractions of the chosen article types, drops papers later reinstated, and normalises DOIs, PubMed IDs and dates.
 2. **Tracing** (`fallout.openalex`, `fallout.ledger`): resolves each trial's DOI in [OpenAlex](https://openalex.org) and pages through works whose reference lists include it (`filter=cites:`), with rate limiting, retries and an on-disk cache. Runs are resumable.
-3. **Classification** (`fallout.classify`): labels citing works as systematic review, meta-analysis, guideline or other, using conservative title patterns. `fallout enrich` then adds PubMed publication types (via NCBI E-utilities) for citing works with a PMID and re-labels them with those indexer-assigned types, which take precedence over titles. Narrative reviews are deliberately not counted.
+3. **Classification** (`fallout.classify`): labels citing works as systematic review, meta-analysis, guideline or other, using conservative title patterns. `fallout enrich` then adds PubMed publication types (via NCBI E-utilities) for citing works with a PMID and re-labels them with those indexer-assigned types, which take precedence over titles. A Cochrane Database of Systematic Reviews DOI for a published review version (`.pub2` onwards) is labelled a systematic review when nothing else matches, because Cochrane titles rarely say "systematic review". `fallout enrich` re-classifies every edge, so classifier changes reach earlier runs. Narrative reviews are deliberately not counted.
 4. **Outputs** (`fallout.report`): `ledger.json` ([schema](docs/ledger-schema.md)), `edges.csv`, an Atom feed of syntheses published after the retraction, and a static HTML page with no scripts or external assets.
 5. **Impact re-analysis** (`fallout.metaanalysis`): fixed-effect and DerSimonian–Laird random-effects pooling, effect sizes from 2×2 tables (log RR/OR, 0.5 continuity correction only when a cell is zero) or means (MD, Hedges' g), and a leave-studies-out diff that reports direction and significance changes using VITALITY's definitions. The implementation reproduces metafor's DL results for the BCG vaccine dataset (estimate −0.7141, SE 0.1787, τ² 0.3088) in the tests.
 
@@ -73,6 +73,8 @@ Read the last two rows with care. If VITALITY's search was complete, they are an
 pip install -e .
 fallout retractions                       # summary of the current Retraction Watch data
 fallout trace --limit 50 --mailto you@example.org   # trace 50 trials, most recently retracted first
+fallout pubtypes --out rw_pubtypes.json   # PubMed publication types for Health Sciences research articles
+fallout trace --population trials --pubtypes rw_pubtypes.json   # also trace those PubMed indexes as trials
 fallout enrich                            # add PubMed publication types, re-classify
 fallout report --out-dir site             # site/index.html, site/feed.xml, site/edges.csv
 fallout impact examples/bcg.csv --remove "TPT Madras 1980"

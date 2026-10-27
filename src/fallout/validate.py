@@ -38,6 +38,8 @@ from .retractions import Retraction
 
 # Scopus forward citations were last updated on 21 November 2024 (Google Scholar 21 Nov–2 Dec 2024).
 VITALITY_LAST_SEARCH = date(2024, 11, 21)
+# VITALITY searched Retraction Watch for retractions up to 5 November 2024.
+VITALITY_RETRACTION_SEARCH = date(2024, 11, 5)
 
 _COCHRANE_VERSION = re.compile(r"^(10\.1002/14651858\.[^.]+)\.pub\d+$")
 
@@ -74,19 +76,34 @@ def validate(
     last_search: date = VITALITY_LAST_SEARCH,
 ) -> tuple[dict, list[dict]]:
     """Return a summary and one row per verified pair Fallout did not find as a synthesis citation."""
+    population = list(population)
     pop_by_doi = {t.doi: t for t in population if t.doi}
     rw_by_doi: dict[str, list[Retraction]] = {}
     for r in records:
         if r.doi:
             rw_by_doi.setdefault(r.doi, []).append(r)
 
+    # Selection precision proxy: of population trials retracted within VITALITY's search window,
+    # the share VITALITY also kept as RCTs after full-text review. RW back-fills older retractions
+    # and VITALITY required human RCTs in English, so this understates how many are trials.
+    vitality_dois = {d for t in vitality_trials.values() for d in t["dois"]}
+    in_window: Counter = Counter()
+    in_vitality: Counter = Counter()
+    for t in population:
+        if t.doi and t.retraction_date and t.retraction_date <= VITALITY_RETRACTION_SEARCH:
+            rule = t.selected_by or "article_type"
+            in_window[rule] += 1
+            in_vitality[rule] += t.doi in vitality_dois
+
     # Map each VITALITY trial to a Fallout trial through any of its DOIs.
     fallout_key: dict[str, str] = {}
+    selected_by: Counter = Counter()
     missing_reason: Counter = Counter()
     for rct_id, t in vitality_trials.items():
         hit = next((pop_by_doi[d] for d in t["dois"] if d in pop_by_doi), None)
         if hit:
             fallout_key[rct_id] = hit.key
+            selected_by[hit.selected_by or "article_type"] += 1
         elif not t["dois"]:
             missing_reason["no DOI in VITALITY"] += 1
         else:
@@ -94,7 +111,7 @@ def validate(
             if not rw:
                 missing_reason["DOI not in Retraction Watch"] += 1
             elif not any("clinical study" in (a.lower() for a in r.article_types) for r in rw):
-                missing_reason["RW article type is not Clinical Study"] += 1
+                missing_reason["RW type not Clinical Study, not added by PubMed type"] += 1
             else:
                 missing_reason["excluded by nature or reinstatement"] += 1
 
@@ -166,6 +183,12 @@ def validate(
             "vitality_trials": len(vitality_trials),
             "in_fallout_population": len(fallout_key),
             "recall": _ratio(len(fallout_key), len(vitality_trials)),
+            "in_fallout_population_by_selection": dict(selected_by.most_common()),
+            "selection_share_in_vitality": {
+                "note": f"population trials with a DOI retracted by {VITALITY_RETRACTION_SEARCH.isoformat()} that are in VITALITY's cohort",
+                **{rule: {"trials": n, "in_vitality": in_vitality[rule], "share": _ratio(in_vitality[rule], n)}
+                   for rule, n in in_window.most_common()},
+            },
             "not_in_population_by_reason": dict(missing_reason.most_common()),
             "index_trials": len(index_trials),
             "index_trials_in_fallout_population": sum(1 for i in index_trials if i in fallout_key),
