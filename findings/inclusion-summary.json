@@ -1,14 +1,6 @@
 {
-  "syntheses_checked": 5930,
-  "with_pmcid": 2683,
-  "edges_by_verdict": {
-    "no_pmc_record": 4298,
-    "excluded": 39,
-    "included_evidence": 1471,
-    "no_open_full_text": 962,
-    "reference_only": 87,
-    "reference_not_found": 46,
-    "cited_outside_results": 879
-  },
-  "requests": 201
+  "syntheses_checked": 0,
+  "with_pmcid": 0,
+  "edges_by_verdict": {},
+  "requests": 0
 }

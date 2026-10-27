@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-27T18:27:01+00:00",
+  "generated_at": "2026-10-27T18:39:44+00:00",
   "trials": {
     "traced": 3080,
     "no_doi": 128,
@@ -89,25 +89,65 @@
   "distinct_syntheses_citing_more_than_180d_after": 2326,
   "trials_cited_by_a_synthesis": 1499,
   "trials_cited_by_a_synthesis_after_retraction": 1123,
-  "synthesis_edges_by_inclusion": {
-    "no_pmc_record": 4298,
+  "inclusion_all_synthesis_citations": {
+    "by_verdict": {
+      "no_pmc_record": 4298,
+      "no_open_full_text": 962,
+      "included_evidence:table": 882,
+      "cited_outside_results": 879,
+      "included_evidence:results_citation": 589,
+      "not checked": 116,
+      "reference_only": 87,
+      "reference_not_found": 46,
+      "excluded": 39
+    },
+    "full_text_read": 2522,
     "included_evidence": 1471,
-    "no_open_full_text": 962,
-    "cited_outside_results": 879,
-    "not checked": 116,
-    "reference_only": 87,
-    "reference_not_found": 46,
-    "excluded": 39
+    "included_evidence_from_table": 882,
+    "distinct_syntheses_full_text_read": 2109,
+    "distinct_syntheses_with_included_evidence": 1212,
+    "distinct_syntheses_with_table_evidence": 758,
+    "trials_with_table_evidence": 450
   },
-  "after_retraction_by_inclusion": {
-    "no_pmc_record": 1579,
+  "inclusion_after_retraction": {
+    "by_verdict": {
+      "no_pmc_record": 1579,
+      "no_open_full_text": 447,
+      "cited_outside_results": 411,
+      "included_evidence:table": 380,
+      "included_evidence:results_citation": 262,
+      "reference_only": 44,
+      "not checked": 36,
+      "reference_not_found": 23,
+      "excluded": 20
+    },
+    "full_text_read": 1140,
     "included_evidence": 642,
-    "no_open_full_text": 447,
-    "cited_outside_results": 411,
-    "reference_only": 44,
-    "not checked": 36,
-    "reference_not_found": 23,
-    "excluded": 20
+    "included_evidence_from_table": 380,
+    "distinct_syntheses_full_text_read": 1037,
+    "distinct_syntheses_with_included_evidence": 584,
+    "distinct_syntheses_with_table_evidence": 355,
+    "trials_with_table_evidence": 262
+  },
+  "inclusion_more_than_180d_after": {
+    "by_verdict": {
+      "no_pmc_record": 1313,
+      "no_open_full_text": 405,
+      "cited_outside_results": 343,
+      "included_evidence:table": 288,
+      "included_evidence:results_citation": 212,
+      "reference_only": 43,
+      "not checked": 34,
+      "reference_not_found": 23,
+      "excluded": 18
+    },
+    "full_text_read": 927,
+    "included_evidence": 500,
+    "included_evidence_from_table": 288,
+    "distinct_syntheses_full_text_read": 847,
+    "distinct_syntheses_with_included_evidence": 456,
+    "distinct_syntheses_with_table_evidence": 271,
+    "trials_with_table_evidence": 214
   },
   "after_retraction_by_publication_year": {
     "2001": 2,
