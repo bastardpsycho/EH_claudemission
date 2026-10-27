@@ -111,3 +111,16 @@ def test_short_surnames_match_whole_words_only():
     <year>2015</year><pub-id pub-id-type="doi">10.1000/li</pub-id></element-citation></ref></ref-list></back></article>"""
     assert I.assess(art(xml), {"doi": "10.1000/li"})["verdict"] == I.REFERENCE_ONLY
     assert I.assess(art(xml.replace("Liu (2015)", "Li et al. (2015)")), {"doi": "10.1000/li"})["verdict"] == I.INCLUDED
+
+
+def test_cli_checks_in_chunks_and_saves(tmp_path, monkeypatch):
+    import json
+    from fallout import cli, ledger as L
+    led = L.new_ledger()
+    led["trials"] = {"rw:1": {"doi": "10.1000/t1"}}
+    led["edges"] = [{"trial": "rw:1", "class": "meta_analysis", "citing": {"doi": f"10.9000/r{i}"}} for i in range(5)]
+    L.save(led, tmp_path / "l.json")
+    monkeypatch.setattr(cli, "PMCClient", lambda email=None: FakePMC())
+    assert cli.main(["inclusion", "--ledger", str(tmp_path / "l.json"), "--chunk", "2"]) == 0
+    saved = json.loads((tmp_path / "l.json").read_text())
+    assert all(e["inclusion"]["verdict"] == I.NO_PMC for e in saved["edges"])
