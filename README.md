@@ -41,7 +41,7 @@ Fallout records that a work **cites** a retracted trial, according to OpenAlex. 
 
 812 of the 2,729 were retracted in 2023, and 644 of those were Hindawi papers, consistent with Hindawi's mass paper-mill retractions that year. VITALITY's cohort of 1,330 retracted RCTs comes from its own full-text screening of Retraction Watch records, a different quantity from these counts; not all 1,330 were pooled in reviews.
 
-The "Clinical Study" label is Retraction Watch's, and it is an imperfect proxy for an RCT: it includes non-randomised studies and misses RCTs labelled "Research Article". Use `--type` or `--all-types` to change the filter.
+The "Clinical Study" label is Retraction Watch's, and it is an imperfect proxy for an RCT: it includes non-randomised studies and misses RCTs labelled "Research Article". Use `--type` or `--all-types` to change the filter, or `--population trials` (with `fallout pubtypes`) to add Health Sciences "Research Article" retractions that PubMed indexes as a trial (publication type "Randomized Controlled Trial", "Clinical Trial", "Controlled Clinical Trial", or a phase or pragmatic trial). Each ledger trial records `selected_by`.
 
 ## Validation against VITALITY
 
@@ -73,6 +73,8 @@ Read the last two rows with care. If VITALITY's search was complete, they are an
 pip install -e .
 fallout retractions                       # summary of the current Retraction Watch data
 fallout trace --limit 50 --mailto you@example.org   # trace 50 trials, most recently retracted first
+fallout pubtypes --out rw_pubtypes.json   # PubMed publication types for Health Sciences research articles
+fallout trace --population trials --pubtypes rw_pubtypes.json   # also trace those PubMed indexes as trials
 fallout enrich                            # add PubMed publication types, re-classify
 fallout report --out-dir site             # site/index.html, site/feed.xml, site/edges.csv
 fallout impact examples/bcg.csv --remove "TPT Madras 1980"

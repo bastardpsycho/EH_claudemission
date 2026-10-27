@@ -44,3 +44,48 @@ def test_summary_counts():
     assert s["selected"] == 2
     assert s["selected_with_doi"] == 1
     assert s["by_nature"]["Retraction"] == 4
+
+
+def _rec(rid, types, subjects=("(HSC) Medicine",), nature="Retraction", doi=None, pmid=None):
+    from fallout.retractions import Retraction
+    return Retraction(record_id=rid, title="", journal="", publisher="", article_types=list(types), nature=nature,
+                      reasons=[], doi=doi or f"10.1/{rid}", pmid=pmid, original_date=None, retraction_date=None,
+                      retraction_doi=None, subjects=list(subjects))
+
+
+def test_subjects_are_read():
+    assert list(read_records(str(FIX)))[0].subjects == ["(HSC) Medicine"]
+
+
+def test_trials_population_adds_pubmed_typed_health_science_articles():
+    import pytest
+    from fallout.retractions import health_science_research_articles, select_population
+    recs = [
+        _rec("cs", ["Clinical Study"]),
+        _rec("rct", ["Research Article"], pmid="1"),
+        _rec("both", ["Research Article"], pmid="2"),
+        _rec("cohort", ["Research Article"], pmid="3"),                          # PubMed: not a trial
+        _rec("nopmid", ["Research Article"]),
+        _rec("chem", ["Research Article"], subjects=["(BLS) Chemistry"], pmid="4"),  # not Health Sciences
+        _rec("eoc", ["Research Article"], nature="Expression of concern", pmid="5"),
+        _rec("back", ["Research Article"], pmid="6", doi="10.1/back"),
+        _rec("reinst", ["Research Article"], nature="Reinstatement", doi="10.1/back"),
+    ]
+    pubtypes = {"1": ["Journal Article", "Randomized Controlled Trial"],
+                "2": ["Clinical Trial", "Randomized Controlled Trial"],
+                "3": ["Journal Article", "Observational Study"],
+                "4": ["Randomized Controlled Trial"], "5": ["Randomized Controlled Trial"],
+                "6": ["Randomized Controlled Trial"]}
+    assert [r.record_id for r in health_science_research_articles(recs)] == ["rct", "both", "cohort", "nopmid"]
+
+    default = select_population(recs)
+    assert [(r.record_id, r.selected_by) for r in default] == [("cs", "article_type")]
+    trials = select_population(recs, "trials", pubtypes)
+    assert [(r.record_id, r.selected_by) for r in trials] == [
+        ("cs", "article_type"), ("rct", "pubmed:Randomized Controlled Trial"), ("both", "pubmed:Randomized Controlled Trial")]
+    assert recs[1].selected_by is None  # inputs are not mutated
+    assert trials[1].to_dict()["selected_by"] == "pubmed:Randomized Controlled Trial"
+    with pytest.raises(ValueError):
+        select_population(recs, "trials")
+    with pytest.raises(ValueError):
+        select_population(recs, "everything", pubtypes)
