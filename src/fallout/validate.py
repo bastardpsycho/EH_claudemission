@@ -64,6 +64,12 @@ def load_vitality(directory: str | Path) -> tuple[dict[str, dict], list[dict]]:
     return trials, pairs
 
 
+def _inclusion_key(inclusion: dict) -> str:
+    """The verdict, with the strength appended for included_evidence ("included_evidence:table")."""
+    v = inclusion["verdict"]
+    return f"{v}:{inclusion['strength']}" if v == INCLUDED and inclusion.get("strength") else v
+
+
 def _ratio(n: int, d: int) -> float | None:
     return round(n / d, 4) if d else None
 
@@ -156,7 +162,7 @@ def validate(
         outcome["checkable: citation found" if exact else "checkable: other Cochrane version found"] += 1
         found_cls[edge["class"]] += 1
         if "inclusion" in edge:
-            positive_inclusion[edge["inclusion"]["verdict"]] += 1
+            positive_inclusion[_inclusion_key(edge["inclusion"])] += 1
         synthesis = edge["class"] in SYNTHESIS_CLASSES
         as_synthesis[exact] += synthesis
         if not synthesis:
@@ -197,12 +203,17 @@ def validate(
         for key in vitality_keys - {index_key}:
             e = by_trial.get(key, {}).get(doi)
             if e is not None and "inclusion" in e:
-                negative_inclusion[e["inclusion"]["verdict"]] += 1
+                negative_inclusion[_inclusion_key(e["inclusion"])] += 1
 
     def inclusion_rates(c: Counter) -> dict:
-        assessed = sum(c[v] for v in ASSESSED)
+        verdicts = Counter()
+        for key, n in c.items():
+            verdicts[key.split(":", 1)[0]] += n
+        assessed = sum(verdicts[v] for v in ASSESSED)
+        strong = c[f"{INCLUDED}:table"]
         return {"by_verdict": dict(c.most_common()), "assessed": assessed,
-                "included_evidence": c[INCLUDED], "share_included_evidence": _ratio(c[INCLUDED], assessed)}
+                "included_evidence": verdicts[INCLUDED], "share_included_evidence": _ratio(verdicts[INCLUDED], assessed),
+                "included_evidence_from_table": strong, "share_from_table": _ratio(strong, assessed)}
 
     index_trials = {p["rct_id"] for p in pairs}
     summary = {

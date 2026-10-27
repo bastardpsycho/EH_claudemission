@@ -39,7 +39,7 @@ def verdict(trial):
 
 def test_characteristics_table_counts_as_inclusion():
     r = verdict({"doi": "10.1000/t1"})
-    assert r["verdict"] == I.INCLUDED and r["ref_match"] == "doi"
+    assert r["verdict"] == I.INCLUDED and r["ref_match"] == "doi" and r["strength"] == "table"
     assert "table: Table 1 Characteristics of the studies included in the review" in r["signals"]
     assert "section: Introduction" in r["signals"]
 
@@ -47,7 +47,7 @@ def test_characteristics_table_counts_as_inclusion():
 def test_results_citation_inside_a_range():
     r = verdict({"doi": "10.1000/t3"})
     assert r["verdict"] == I.INCLUDED
-    assert r["signals"] == ["Results: Results > Pregnancy rate"]
+    assert r["signals"] == ["Results: Results > Pregnancy rate"] and r["strength"] == "results_citation"
 
 
 def test_discussion_only_and_pmid_match():
@@ -124,3 +124,18 @@ def test_cli_checks_in_chunks_and_saves(tmp_path, monkeypatch):
     assert cli.main(["inclusion", "--ledger", str(tmp_path / "l.json"), "--chunk", "2"]) == 0
     saved = json.loads((tmp_path / "l.json").read_text())
     assert all(e["inclusion"]["verdict"] == I.NO_PMC for e in saved["edges"])
+
+
+def test_included_studies_sections_and_summary_tables():
+    base = """<article><body>{body}</body><back><ref-list><ref id="a"><element-citation><person-group><name>
+    <surname>Park</surname></name></person-group><year>2011</year><pub-id pub-id-type="doi">10.1000/p</pub-id>
+    </element-citation></ref></ref-list></back></article>"""
+    sec = '<sec><title>Description of included studies</title><p>See <xref ref-type="bibr" rid="a">1</xref>.</p></sec>'
+    r = I.assess(art(base.format(body=sec)), {"doi": "10.1000/p"})
+    assert (r["verdict"], r["strength"]) == (I.INCLUDED, "table")
+    # "Inclusion criteria" is about eligibility, not about which studies were included.
+    crit = '<sec><title>Methods</title><sec><title>Inclusion criteria</title><p><xref ref-type="bibr" rid="a">1</xref></p></sec></sec>'
+    assert I.assess(art(base.format(body=crit)), {"doi": "10.1000/p"})["verdict"] == I.OUTSIDE_RESULTS
+    table = ('<table-wrap><label>Table 4</label><caption><title>Summary of the studies of the association</title></caption>'
+             '<table><tbody><tr><td>Park 2011</td></tr></tbody></table></table-wrap>')
+    assert I.assess(art(base.format(body=table)), {"doi": "10.1000/p"})["verdict"] == I.INCLUDED

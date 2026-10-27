@@ -43,6 +43,7 @@ All fields of the Retraction Watch record that Fallout uses (`record_id`, `title
     - `reference_not_found`: the full text was read but the trial's reference was not matched;
     - `no_open_full_text`: PMC holds the record but not the full text;
     - `no_pmc_record`: PMC does not hold the synthesis.
+  - `strength` (with `included_evidence`): `table` when a table row, an included-studies section or an included-studies reference list supports it; `results_citation` when only citations in the Results do. On VITALITY's data, `table` evidence was found for 72% of verified inclusions and 23% of negatives; Results-only evidence for 22% and 14%.
   - `signals`: the places that support the verdict, e.g. `table: Table 1 Characteristics of the studies included in the review` or `Results: Results > Pregnancy rate`.
   - `ref_match`: how the trial's reference was matched (`doi`, `pmid` or `title`).
   - `source`, `checked_at`: where and when it was read.
