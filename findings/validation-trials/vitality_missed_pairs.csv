@@ -1,0 +1,51 @@
+rct_id,fallout_trial,review_doi,reason,class,review_title
+17,rw:40898,10.1161/jaha.120.017727,found but classed as other,other,Effects of vitamin d supplementation on cardiovascular and glycemic biomarkers
+17,rw:40898,10.21037/apm-20-2201,review cites other trials in ledger,,"Vitamin D improves levels of hormonal, oxidative stress and inflammatory parameters in polycystic ovary syndrome A metaanalysis study"
+18,rw:40545,10.5935/1518-0557.20200042,review not in ledger,,Effectiveness of the use of low molecular heparin in patients with repetition abortion history Systematic review and metaanalysis
+31,rw:38686,10.1080/14787210.2022.2000861,review not in ledger,,Clinical outcomes of sofosbuvirbased antivirals in patients with COVID19 a systematic review and metaanalysis of randomized trials
+31,rw:38686,10.1080/17512433.2022.2103539,review not in ledger,,Clinical efficacy of sofosbuvir/daclatasvir in patients with COVID19 a systematic review and metaanalysis of randomized trials
+35,rw:40345,10.1016/j.jpurol.2021.07.027,found but classed as other,other,Evaluating the literature on preoperative androgen stimulation for hypospadias repair using the fragility index – can we trust observational studies?
+35,rw:40345,10.20473/fmi.v58i1.32182,found but classed as other,other,Pre-operative hormonal administration in hypospadias patients undergoing urethroplasty
+35,rw:40345,10.4314/aas.v20i1.4,review not in ledger,,Preoperative hormonal stimulation in hypospadias: a systematic review
+48,rw:36619,10.12944/crnfsj.11.1.3,review not in ledger,,"Vitamin D on COVID19 Patients During the Pandemic, 2022. A Systematic Review and MetaAnalysis"
+49,rw:36591,10.1097/md.0000000000026662,found but classed as other,other,Effects of perioperative interventions for preventing postoperative delirium A protocol for systematic review and metaAnalysis of randomized controlled trials
+49,rw:36591,10.1097/md.0000000000027782,found but classed as other,other,Dexmedetomidine effect on delirium in elderly patients undergoing general anesthesia A protocol for systematic review and metaanalysis
+59,rw:35863,10.61662/pcs_oido9441,review not in ledger,,Meta-analysis with meta-regression and systematic review of the efficacy of on-demand tramadol for the treatment of lifelong premature ejaculation
+82,rw:30843,10.1097/mjt.0000000000001377,review not in ledger,,Review of the emerging evidence demonstrating the efficacy of ivermectin in the prophylaxis and treatment of covid-19
+82,rw:30843,10.1016/j.dsx.2021.102186,review cites other trials in ledger,,"Ivermectin and mortality in patients with covid-19 a systematic review, meta-analysis, and meta-regression of randomized controlled trials"
+82,rw:30843,10.1097/mjt.0000000000001402,review cites other trials in ledger,,"Ivermectin for Prevention and Treatment of COVID19 Infection A Systematic Review, Metaanalysis, and Trial Sequential Analysis to Inform Clinical Guidelines"
+82,rw:30843,10.4103/jfmpc.jfmpc_527_22,review not in ledger,,Effect of ivermectin prophylaxis in prevention of covid 19 meta-analysis and systematic review
+82,rw:30843,10.26911/jepublichealth.2021.06.04.02,review not in ledger,,The effectiveness of ivermectin on the risk of mortality in covid-19 patients a meta analysis
+82,rw:30843,10.1007/s43440-021-00245-z,review cites other trials in ledger,,The association between the use of ivermectin and mortality in patients with covid-19 a meta-analysis
+91,rw:28370,10.31686/ijier.vol8.iss5.2363,found but classed as other,other,Vitamin d3 supplementation an option associated with the treatment of multiple sclerosis a systematic review and meta-analysis
+97,rw:28310,10.2174/1381612823666170525153605,review not in ledger,,Effect of magnesium supplementation on plasma Creactive protein concentrations A systematic review and metaanalysis of randomized controlled trials
+120,rw:25067,10.1016/j.soard.2019.11.013,found but classed as other,other,Bariatric procedure selection in patients with type 2 diabetes choice between roux-en-y gastric bypass or sleeve gastrectomy
+176,rw:23509,10.1097/md.0000000000024607,found but classed as other,other,Colloid preloading versus crystalloid preloading to prevent hypotension after spinal anesthesia for cesarean delivery A protocol for systematic review and metaanalysis
+254,rw:17282,10.1007/s00101-017-0286-4,found but classed as other,other,The who recommendation for 80% perioperative oxygen is poorly justified
+258,rw:16592,10.1155/2018/5209108,review not in ledger,,Augmentation versus no augmentation for immediate postextraction implants
+308,rw:4480,10.12659/msm.893310,review not in ledger,,"Effect of B vitamin Folate, B6, and B12 supplementation on osteoporotic fracture and bone turnover markers A metaanalysis"
+313,rw:3742,10.4103/jofs.jofs_235_21,found but classed as other,other,Remineralizing Agents in the Prevention of Caries A Systematic Review and Metaanalysis of Randomized Controlled Trials
+462,rw:1740,10.1111/dom.15200,review not in ledger,,ACEIs/ARBs for the prevention of type 2 diabetes in patients with cardiovascular diseases A systematic review and metaanalysis
+488,rw:4820,10.1097/eja.0000000000000516,review not in ledger,,The efficacy of local infiltration analgesia in the early postoperative period after total knee arthroplasty a systematic review and meta-analysis
+500,rw:2659,10.1016/s2255-4823(13)70492-2,review not in ledger,,Efficacy of dexamethasone in the prophylaxis of nausea and vomiting during the postoperative period of laparoscopic cholecystectomy
+527,rw:4037,10.1586/erc.13.42,found but classed as other,other,The impact of ACE inhibition on allcause and cardiovascular mortality in contemporary hypertension trials A review
+527,rw:4037,10.5339/gcsp.2013.34,found but classed as other,other,Raas inhibition and mortality in hypertension
+572,rw:509,10.23736/s0375-9393.17.12033-x,review not in ledger,,Bispectral index and nonbispectral index anesthetic protocols on postoperative recovery outcomes
+595,rw:1166,10.2174/0929867328666210614120552,review not in ledger,,Efficacy and safety of angiotensinconverting enzyme inhibitors in combination with angiotensinreceptor blockers in nondiabetic chronic kidney disease A systematic review and metaanalysis
+641,rw:4410,10.25270/owm.2018.5.3037,review not in ledger,,A Metaanalysis to Compare Fourlayer to Shortstretch Compression Bandaging for Venous Leg Ulcer Healing
+701,rw:6160,10.2174/0929867323666160405111354,review not in ledger,,Effect of dipeptidyl peptidase4 inhibitors on plasma adiponectin A systematic review and metaanalysis of randomized controlled trials
+711,rw:18405,10.1192/bjp.2019.234,review not in ledger,,Omega3 and polyunsaturated fat for prevention of depression and anxiety symptoms Systematic review and metaanalysis of randomised trials
+711,rw:18405,10.1097/mol.0000000000000044,found but classed as other,other,"Dietary patterns, Mediterranean diet, and cardiovascular disease"
+777,rw:42489,10.1186/s13098-023-01144-4,review not in ledger,,Glucose control and psychosocial outcomes with use of automated insulin delivery for 12 to 96 weeks in type 1 diabetes a metaanalysis of randomised controlled trials
+777,rw:42489,10.20945/2359-4292-2023-0280,review not in ledger,,Efficacy of the hybrid closed-loop insulin delivery system in children and adolescents with type 1 diabetes: a meta-analysis with trial sequential analysis
+777,rw:42489,10.1016/j.dsx.2023.102847,review not in ledger,,Automated glycemic control with a bionic pancreas for type 1 diabetes mellitus A systematic review and metaanalysis
+821,rw:3682,10.3310/hta18140,review not in ledger,,"Optimal strategies for identifying kidney disease in diabetes: properties of screening tests, progression of renal dysfunction and impact of treatment - systematic review and modelling of progression and cost-effectiveness"
+849,rw:40276,10.1037/neu0000735,review not in ledger,,The effects of transcutaneous auricular vagal nerve stimulation on cognition in healthy individuals A metaanalysis.
+892,rw:39553,10.21203/rs.3.rs-850576/v1,review not in ledger,,Application of Intravenous Vitamin C in Adult Patients with Sepsis: A Meta-Analysis of Randomized Controlled Trials
+1042,rw:49573,10.1186/s12885-023-10571-5,review cites other trials in ledger,,A network meta-analysis comparing the efficacy and safety of thoracic endovascular aortic repair with open surgical repair and optimal medical therapy for type b aortic dissection.
+1105,rw:46293,10.3892/ol.2019.10252,found but classed as other,other,Protective effect of gonadotropin‑releasing hormone agonist against chemotherapy‑induced ovarian dysfunction: a meta‑analysis
+1129,rw:47514,10.1002/rmb2.12348,found but classed as other,other,The impact of endometrial injury on reproductive outcomes: results of an updated meta‐analysis
+1149,rw:55595,10.1016/j.jad.2024.08.110,review not in ledger,,The impact of compassion-based interventions on perioperative anxiety and depression: a systematic review and meta-analysis
+1237,rw:55213,10.1186/s13643-021-01702-9,review not in ledger,,Vaginal progesterone for prevention of preterm birth in asymptomatic high-risk women with a normal cervical length: a systematic review and meta-analysis
+1256,rw:44782,10.1016/j.clnu.2022.06.030,review not in ledger,,Effects of lactobacillus supplementation on glycemic and lipid indices in overweight or obese adults: a systematic review and meta-analysis
+1502,rw:56239,10.1097/phm.0000000000002389,review not in ledger,,The efficacy of different exercises on mild to moderate adolescent idiopathic scoliosis: a systematic review and meta-analysis

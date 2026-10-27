@@ -4,8 +4,11 @@
     "vitality_trials": 1330,
     "in_fallout_population": 842,
     "recall": 0.6331,
+    "in_fallout_population_by_selection": {
+      "article_type": 842
+    },
     "not_in_population_by_reason": {
-      "RW article type is not Clinical Study": 417,
+      "RW type not Clinical Study, not added by PubMed type": 417,
       "DOI not in Retraction Watch": 45,
       "no DOI in VITALITY": 24,
       "excluded by nature or reinstatement": 2
@@ -23,23 +26,23 @@
     },
     "checkable": 628,
     "citation_recall": 0.9522,
-    "synthesis_recall": 0.914,
+    "synthesis_recall": 0.9299,
     "citation_recall_any_cochrane_version": 0.9522,
-    "synthesis_recall_any_cochrane_version": 0.914,
+    "synthesis_recall_any_cochrane_version": 0.9299,
     "found_by_class": {
       "meta_analysis": 538,
-      "systematic_review": 35,
-      "other": 24,
+      "systematic_review": 45,
+      "other": 14,
       "guideline": 1
     }
   },
   "review_level_agreement": {
     "last_search": "2024-11-21",
-    "synthesis_citations_of_vitality_trials": 3289,
-    "in_vitality_reviews": 884,
-    "share": 0.2688,
-    "in_vitality_reviews_any_cochrane_version": 1061,
-    "share_any_cochrane_version": 0.3226,
+    "synthesis_citations_of_vitality_trials": 3370,
+    "in_vitality_reviews": 919,
+    "share": 0.2727,
+    "in_vitality_reviews_any_cochrane_version": 1101,
+    "share_any_cochrane_version": 0.3267,
     "by_class": {
       "guideline": {
         "citations": 295,
@@ -56,11 +59,11 @@
         "share_any_cochrane_version": 0.4305
       },
       "systematic_review": {
-        "citations": 736,
-        "in_vitality": 48,
-        "share": 0.0652,
-        "in_vitality_any_cochrane_version": 88,
-        "share_any_cochrane_version": 0.1196
+        "citations": 817,
+        "in_vitality": 83,
+        "share": 0.1016,
+        "in_vitality_any_cochrane_version": 128,
+        "share_any_cochrane_version": 0.1567
       }
     }
   }

@@ -1,0 +1,73 @@
+{
+  "reference": "VITALITY Study I, Xu et al. BMJ 2025;389:e082068; data https://osf.io/7eazq/ (CC BY 4.0)",
+  "population": {
+    "vitality_trials": 1330,
+    "in_fallout_population": 999,
+    "recall": 0.7511,
+    "in_fallout_population_by_selection": {
+      "article_type": 842,
+      "pubmed:Randomized Controlled Trial": 154,
+      "pubmed:Controlled Clinical Trial": 2,
+      "pubmed:Clinical Trial": 1
+    },
+    "not_in_population_by_reason": {
+      "RW type not Clinical Study, not added by PubMed type": 260,
+      "DOI not in Retraction Watch": 45,
+      "no DOI in VITALITY": 24,
+      "excluded by nature or reinstatement": 2
+    },
+    "index_trials": 323,
+    "index_trials_in_fallout_population": 279
+  },
+  "pairs": {
+    "verified_pairs": 850,
+    "by_outcome": {
+      "checkable: citation found": 688,
+      "trial not in Fallout population": 84,
+      "review has no DOI": 43,
+      "checkable: citation not found": 35
+    },
+    "checkable": 723,
+    "citation_recall": 0.9516,
+    "synthesis_recall": 0.9308,
+    "citation_recall_any_cochrane_version": 0.9516,
+    "synthesis_recall_any_cochrane_version": 0.9308,
+    "found_by_class": {
+      "meta_analysis": 621,
+      "systematic_review": 51,
+      "other": 15,
+      "guideline": 1
+    }
+  },
+  "review_level_agreement": {
+    "last_search": "2024-11-21",
+    "synthesis_citations_of_vitality_trials": 4047,
+    "in_vitality_reviews": 1037,
+    "share": 0.2562,
+    "in_vitality_reviews_any_cochrane_version": 1233,
+    "share_any_cochrane_version": 0.3047,
+    "by_class": {
+      "guideline": {
+        "citations": 410,
+        "in_vitality": 1,
+        "share": 0.0024,
+        "in_vitality_any_cochrane_version": 1,
+        "share_any_cochrane_version": 0.0024
+      },
+      "meta_analysis": {
+        "citations": 2645,
+        "in_vitality": 946,
+        "share": 0.3577,
+        "in_vitality_any_cochrane_version": 1094,
+        "share_any_cochrane_version": 0.4136
+      },
+      "systematic_review": {
+        "citations": 992,
+        "in_vitality": 90,
+        "share": 0.0907,
+        "in_vitality_any_cochrane_version": 138,
+        "share_any_cochrane_version": 0.1391
+      }
+    }
+  }
+}

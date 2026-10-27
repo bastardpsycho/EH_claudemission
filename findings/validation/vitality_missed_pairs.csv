@@ -2,10 +2,8 @@ rct_id,fallout_trial,review_doi,reason,class,review_title
 17,rw:40898,10.1161/jaha.120.017727,found but classed as other,other,Effects of vitamin d supplementation on cardiovascular and glycemic biomarkers
 17,rw:40898,10.21037/apm-20-2201,review cites other trials in ledger,,"Vitamin D improves levels of hormonal, oxidative stress and inflammatory parameters in polycystic ovary syndrome A metaanalysis study"
 18,rw:40545,10.5935/1518-0557.20200042,review not in ledger,,Effectiveness of the use of low molecular heparin in patients with repetition abortion history Systematic review and metaanalysis
-26,rw:38885,10.1002/14651858.cd007407.pub4,found but classed as other,other,Psychological therapies for the management of chronic pain excluding headache in adults
 31,rw:38686,10.1080/14787210.2022.2000861,review not in ledger,,Clinical outcomes of sofosbuvirbased antivirals in patients with COVID19 a systematic review and metaanalysis of randomized trials
 31,rw:38686,10.1080/17512433.2022.2103539,review not in ledger,,Clinical efficacy of sofosbuvir/daclatasvir in patients with COVID19 a systematic review and metaanalysis of randomized trials
-33,rw:38539,10.1002/14651858.cd004011.pub4,found but classed as other,other,Strategies for the removal of shortterm indwelling urethral catheters in adults
 35,rw:40345,10.1016/j.jpurol.2021.07.027,found but classed as other,other,Evaluating the literature on preoperative androgen stimulation for hypospadias repair using the fragility index – can we trust observational studies?
 35,rw:40345,10.20473/fmi.v58i1.32182,found but classed as other,other,Pre-operative hormonal administration in hypospadias patients undergoing urethroplasty
 35,rw:40345,10.4314/aas.v20i1.4,review not in ledger,,Preoperative hormonal stimulation in hypospadias: a systematic review
@@ -13,8 +11,6 @@ rct_id,fallout_trial,review_doi,reason,class,review_title
 49,rw:36591,10.1097/md.0000000000026662,found but classed as other,other,Effects of perioperative interventions for preventing postoperative delirium A protocol for systematic review and metaAnalysis of randomized controlled trials
 49,rw:36591,10.1097/md.0000000000027782,found but classed as other,other,Dexmedetomidine effect on delirium in elderly patients undergoing general anesthesia A protocol for systematic review and metaanalysis
 59,rw:35863,10.61662/pcs_oido9441,review not in ledger,,Meta-analysis with meta-regression and systematic review of the efficacy of on-demand tramadol for the treatment of lifelong premature ejaculation
-67,rw:34512,10.1002/14651858.cd001233.pub3,found but classed as other,other,Mechanical methods for induction of labour
-78,rw:31202,10.1002/14651858.cd012024.pub3,found but classed as other,other,Prenatal administration of progestogens for preventing spontaneous preterm birth in women with a multiple pregnancy
 82,rw:30843,10.1097/mjt.0000000000001377,review not in ledger,,Review of the emerging evidence demonstrating the efficacy of ivermectin in the prophylaxis and treatment of covid-19
 82,rw:30843,10.1016/j.dsx.2021.102186,review cites other trials in ledger,,"Ivermectin and mortality in patients with covid-19 a systematic review, meta-analysis, and meta-regression of randomized controlled trials"
 82,rw:30843,10.1097/mjt.0000000000001402,review cites other trials in ledger,,"Ivermectin for Prevention and Treatment of COVID19 Infection A Systematic Review, Metaanalysis, and Trial Sequential Analysis to Inform Clinical Guidelines"
@@ -22,13 +18,9 @@ rct_id,fallout_trial,review_doi,reason,class,review_title
 82,rw:30843,10.26911/jepublichealth.2021.06.04.02,review not in ledger,,The effectiveness of ivermectin on the risk of mortality in covid-19 patients a meta analysis
 82,rw:30843,10.1007/s43440-021-00245-z,review cites other trials in ledger,,The association between the use of ivermectin and mortality in patients with covid-19 a meta-analysis
 91,rw:28370,10.31686/ijier.vol8.iss5.2363,found but classed as other,other,Vitamin d3 supplementation an option associated with the treatment of multiple sclerosis a systematic review and meta-analysis
-93,rw:28372,10.1002/14651858.cd008873.pub4,found but classed as other,other,Vitamin D supplementation for women during pregnancy
 97,rw:28310,10.2174/1381612823666170525153605,review not in ledger,,Effect of magnesium supplementation on plasma Creactive protein concentrations A systematic review and metaanalysis of randomized controlled trials
 120,rw:25067,10.1016/j.soard.2019.11.013,found but classed as other,other,Bariatric procedure selection in patients with type 2 diabetes choice between roux-en-y gastric bypass or sleeve gastrectomy
-136,rw:24462,10.1002/14651858.cd007594.pub3,found but classed as other,other,Hydroxyethyl starch HES versus other fluid therapies Effects on kidney function
-148,rw:24011,10.1002/14651858.cd001319.pub5,found but classed as other,other,Colloid solutions for fluid resuscitation
 176,rw:23509,10.1097/md.0000000000024607,found but classed as other,other,Colloid preloading versus crystalloid preloading to prevent hypotension after spinal anesthesia for cesarean delivery A protocol for systematic review and metaanalysis
-176,rw:23509,10.1002/14651858.cd002251.pub3,found but classed as other,other,Techniques for preventing hypotension during spinal anaesthesia for caesarean section
 254,rw:17282,10.1007/s00101-017-0286-4,found but classed as other,other,The who recommendation for 80% perioperative oxygen is poorly justified
 258,rw:16592,10.1155/2018/5209108,review not in ledger,,Augmentation versus no augmentation for immediate postextraction implants
 308,rw:4480,10.12659/msm.893310,review not in ledger,,"Effect of B vitamin Folate, B6, and B12 supplementation on osteoporotic fracture and bone turnover markers A metaanalysis"
@@ -46,8 +38,6 @@ rct_id,fallout_trial,review_doi,reason,class,review_title
 821,rw:3682,10.3310/hta18140,review not in ledger,,"Optimal strategies for identifying kidney disease in diabetes: properties of screening tests, progression of renal dysfunction and impact of treatment - systematic review and modelling of progression and cost-effectiveness"
 849,rw:40276,10.1037/neu0000735,review not in ledger,,The effects of transcutaneous auricular vagal nerve stimulation on cognition in healthy individuals A metaanalysis.
 1042,rw:49573,10.1186/s12885-023-10571-5,review cites other trials in ledger,,A network meta-analysis comparing the efficacy and safety of thoracic endovascular aortic repair with open surgical repair and optimal medical therapy for type b aortic dissection.
-1071,rw:46081,10.1002/14651858.cd007807.pub4,found but classed as other,other,Antioxidants for female subfertility
-1105,rw:46293,10.1002/14651858.cd008018.pub3,found but classed as other,other,Adjuvant gonadotropin-releasing hormone analogues for the prevention of chemotherapy-induced premature ovarian failure in premenopausal women (2019)
 1105,rw:46293,10.3892/ol.2019.10252,found but classed as other,other,Protective effect of gonadotropin‑releasing hormone agonist against chemotherapy‑induced ovarian dysfunction: a meta‑analysis
 1129,rw:47514,10.1002/rmb2.12348,found but classed as other,other,The impact of endometrial injury on reproductive outcomes: results of an updated meta‐analysis
 1149,rw:55595,10.1016/j.jad.2024.08.110,review not in ledger,,The impact of compassion-based interventions on perioperative anxiety and depression: a systematic review and meta-analysis
