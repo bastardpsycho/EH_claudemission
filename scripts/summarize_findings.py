@@ -11,7 +11,7 @@ import sys
 from collections import Counter
 from pathlib import Path
 
-from fallout.retractions import read_records, select_population
+from fallout.retractions import load_selection_data, read_records, select_population
 
 ledger = json.loads(Path(sys.argv[1]).read_text())
 out = Path(sys.argv[2])
@@ -44,11 +44,14 @@ summary = {
     "distinct_syntheses_citing_more_than_180d_after": len({e["citing"]["openalex_id"] for e in after_180}),
     "trials_cited_by_a_synthesis": len({e["trial"] for e in syn}),
     "trials_cited_by_a_synthesis_after_retraction": len({e["trial"] for e in after}),
+    "synthesis_edges_by_inclusion": dict(Counter((e.get("inclusion") or {}).get("verdict", "not checked") for e in syn).most_common()),
+    "after_retraction_by_inclusion": dict(Counter((e.get("inclusion") or {}).get("verdict", "not checked") for e in after).most_common()),
     "after_retraction_by_publication_year": dict(sorted(Counter((e["citing"]["publication_date"] or "")[:4] for e in after).items())),
 }
 if len(sys.argv) > 3:
-    pubtypes = json.loads(Path(sys.argv[4]).read_text())["pubtypes"] if len(sys.argv) > 4 else None
-    selected = select_population(read_records(sys.argv[3]), "trials" if pubtypes is not None else "clinical-study", pubtypes)
+    pubtypes, signals = load_selection_data(sys.argv[4]) if len(sys.argv) > 4 else (None, None)
+    selected = select_population(read_records(sys.argv[3]), "trials" if pubtypes is not None else "clinical-study",
+                                 pubtypes, abstract_signals=signals)
     population = {t.key for t in selected}
     summary["population"] = "trials" if pubtypes is not None else "clinical-study"
     summary["population_by_selection"] = dict(Counter(t.selected_by for t in selected).most_common())
