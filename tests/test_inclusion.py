@@ -102,3 +102,12 @@ def test_verify_inclusion_marks_edges():
     # Checked edges are skipped next time unless recheck is set.
     assert I.verify_inclusion(ledger, FakePMC())["syntheses_checked"] == 0
     assert I.verify_inclusion(ledger, FakePMC(), recheck=True)["syntheses_checked"] == 2
+
+
+def test_short_surnames_match_whole_words_only():
+    xml = """<article><body><table-wrap><caption><title>Characteristics of included studies</title></caption>
+    <table><tbody><tr><td>Liu (2015)</td></tr><tr><td>Clinical trial, 2015</td></tr></tbody></table></table-wrap></body>
+    <back><ref-list><ref id="a"><element-citation><person-group><name><surname>Li</surname></name></person-group>
+    <year>2015</year><pub-id pub-id-type="doi">10.1000/li</pub-id></element-citation></ref></ref-list></back></article>"""
+    assert I.assess(art(xml), {"doi": "10.1000/li"})["verdict"] == I.REFERENCE_ONLY
+    assert I.assess(art(xml.replace("Liu (2015)", "Li et al. (2015)")), {"doi": "10.1000/li"})["verdict"] == I.INCLUDED

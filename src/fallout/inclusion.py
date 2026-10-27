@@ -160,6 +160,9 @@ def assess(article: ET.Element, trial: dict) -> dict:
 
     # Table rows that cite the trial or name its first author and year.
     surname, year = _ref_surname_year(ref)
+    # Whole words only: a short surname such as "Li" must not match "Liu" or "clinical".
+    named_re = (re.compile(rf"(?<!\w){re.escape(surname)}(?!\w).*?(?<!\d){year}(?!\d)", re.I | re.S)
+                if surname and year and year.isdigit() else None)
     xrefs = _citing_xrefs(article, ref_id, _ref_ids_in_order(article))
     xref_set = set(xrefs)
     for tw in article.iter():
@@ -171,7 +174,7 @@ def assess(article: ET.Element, trial: dict) -> dict:
                 continue
             row = _text(tr)
             linked = any(x in xref_set for x in tr.iter())
-            named = bool(surname and year and surname.lower() in row.lower() and year in row)
+            named = bool(named_re and named_re.search(row))
             if not (linked or named):
                 continue
             cited = True
