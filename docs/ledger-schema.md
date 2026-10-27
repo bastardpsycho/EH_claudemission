@@ -12,7 +12,9 @@
 
 ## `trials[key]`
 
-All fields of the Retraction Watch record that Fallout uses (`record_id`, `title`, `journal`, `publisher`, `article_types`, `nature`, `reasons`, `doi`, `pmid`, `original_date`, `retraction_date`, `retraction_doi`, `countries`), plus:
+All fields of the Retraction Watch record that Fallout uses (`record_id`, `title`, `journal`, `publisher`, `article_types`, `nature`, `reasons`, `doi`, `pmid`, `original_date`, `retraction_date`, `retraction_doi`, `countries`, `subjects`), plus:
+
+- `selected_by`: why the record is in the population. `article_type` means RW's ArticleType matched (by default "Clinical Study"). `pubmed:<type>` means a Health Sciences "Research Article" that PubMed indexes with that trial publication type (`--population trials`). Entries traced before this field existed lack it and were all selected by `article_type`.
 
 - `status`: `traced`, `no_doi`, `not_in_openalex` or `error`.
 - `openalex_id`, `cited_by_count`: from OpenAlex, when traced.

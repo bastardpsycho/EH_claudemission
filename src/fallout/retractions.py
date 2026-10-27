@@ -17,12 +17,24 @@ import io
 import re
 import urllib.request
 from collections import Counter
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from datetime import date, datetime
 from typing import Iterable, Iterator
 
 RW_CSV_URL = "https://gitlab.com/crossref/retraction-watch-data/-/raw/main/retraction_watch.csv"
 DEFAULT_ARTICLE_TYPES = ("Clinical Study",)
+
+# Populations: "clinical-study" keeps RW's "Clinical Study" label (the default). "trials" adds
+# Health Sciences "Research Article" records that PubMed indexes as a trial, because RW labels many
+# trials that way: 416 of VITALITY Study I's 1,330 retracted RCTs are among them.
+POPULATIONS = ("clinical-study", "trials")
+HEALTH_SCIENCES = "(HSC)"
+# In priority order: the first one a record has is recorded in ``selected_by``.
+TRIAL_PUBLICATION_TYPES = (
+    "Randomized Controlled Trial", "Pragmatic Clinical Trial", "Equivalence Trial", "Controlled Clinical Trial",
+    "Adaptive Clinical Trial", "Clinical Trial, Phase IV", "Clinical Trial, Phase III", "Clinical Trial, Phase II",
+    "Clinical Trial, Phase I", "Clinical Trial",
+)
 
 _DOI_PREFIX = re.compile(r"^(?:https?://(?:dx\.)?doi\.org/|doi:\s*)", re.I)
 _DOI_SHAPE = re.compile(r"^10\.\d{4,9}/\S+$")
@@ -78,6 +90,9 @@ class Retraction:
     retraction_date: date | None
     retraction_doi: str | None
     countries: list[str] = field(default_factory=list)
+    subjects: list[str] = field(default_factory=list)
+    # Why the record is in the population: "article_type", or "pubmed:<publication type>".
+    selected_by: str | None = None
 
     @property
     def key(self) -> str:
@@ -99,6 +114,8 @@ class Retraction:
             "retraction_date": self.retraction_date.isoformat() if self.retraction_date else None,
             "retraction_doi": self.retraction_doi,
             "countries": self.countries,
+            "subjects": self.subjects,
+            "selected_by": self.selected_by,
         }
 
 
@@ -119,6 +136,7 @@ def _row_to_retraction(row: dict) -> Retraction:
         retraction_date=parse_rw_date(row.get("RetractionDate")),
         retraction_doi=normalize_doi(row.get("RetractionDOI")),
         countries=_split(row.get("Country")),
+        subjects=_split(row.get("Subject")),
     )
 
 
@@ -164,6 +182,53 @@ def select_retracted_trials(
     return out
 
 
+def health_science_research_articles(records: Iterable[Retraction]) -> list[Retraction]:
+    """Full retractions labelled "Research Article" (not "Clinical Study") with a Health Sciences subject.
+
+    These are the candidates whose PubMed publication types decide whether ``trials`` keeps them.
+    """
+    records = list(records)
+    reinstated = {r.doi for r in records if r.nature == "Reinstatement" and r.doi}
+    out = []
+    for rec in records:
+        types = {t.lower() for t in rec.article_types}
+        if rec.nature != "Retraction" or "research article" not in types or "clinical study" in types:
+            continue
+        if not any(s.startswith(HEALTH_SCIENCES) for s in rec.subjects):
+            continue
+        if rec.doi and rec.doi in reinstated:
+            continue
+        out.append(rec)
+    return out
+
+
+def select_population(
+    records: Iterable[Retraction],
+    population: str = "clinical-study",
+    pubtypes: dict[str, list[str]] | None = None,
+    article_types: Iterable[str] | None = DEFAULT_ARTICLE_TYPES,
+) -> list[Retraction]:
+    """Select the retracted studies to trace, each tagged with ``selected_by``.
+
+    ``pubtypes`` maps PMID to PubMed publication types (see ``fallout pubtypes``) and is
+    required for ``population="trials"``.
+    """
+    if population not in POPULATIONS:
+        raise ValueError(f"unknown population {population!r}; choose from {POPULATIONS}")
+    records = list(records)
+    out = [replace(r, selected_by="article_type") for r in select_retracted_trials(records, article_types)]
+    if population == "trials":
+        if pubtypes is None:
+            raise ValueError("population 'trials' needs PubMed publication types (run `fallout pubtypes`)")
+        keys = {r.key for r in out}
+        for rec in health_science_research_articles(records):
+            types = set(pubtypes.get(rec.pmid or "", []))
+            hit = [t for t in TRIAL_PUBLICATION_TYPES if t in types]
+            if hit and rec.key not in keys:
+                out.append(replace(rec, selected_by="pubmed:" + hit[0]))
+    return out
+
+
 def summarize(all_records: list[Retraction], selected: list[Retraction]) -> dict:
     by_year = Counter(r.retraction_date.year for r in selected if r.retraction_date)
     reasons = Counter(reason for r in selected for reason in r.reasons)
@@ -174,6 +239,7 @@ def summarize(all_records: list[Retraction], selected: list[Retraction]) -> dict
         "selected_with_doi": sum(1 for r in selected if r.doi),
         "selected_with_pmid": sum(1 for r in selected if r.pmid),
         "selected_unique_doi": len({r.doi for r in selected if r.doi}),
+        "selected_by": dict(Counter(r.selected_by or "article_type" for r in selected).most_common()),
         "retraction_year_counts": dict(sorted(by_year.items())),
         "top_reasons": dict(reasons.most_common(10)),
     }

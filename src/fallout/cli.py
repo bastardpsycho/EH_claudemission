@@ -1,4 +1,4 @@
-"""Command-line interface: ``fallout retractions | trace | enrich | report | impact | validate``."""
+"""Command-line interface: ``fallout retractions | pubtypes | trace | enrich | report | impact | validate``."""
 
 from __future__ import annotations
 
@@ -13,7 +13,10 @@ from .metaanalysis import effect_from_2x2, impact_without
 from .openalex import OpenAlexClient
 from .pubmed import PubMedClient
 from .report import render_all
-from .retractions import DEFAULT_ARTICLE_TYPES, RW_CSV_URL, read_records, select_retracted_trials, summarize
+from .retractions import (
+    DEFAULT_ARTICLE_TYPES, POPULATIONS, RW_CSV_URL, TRIAL_PUBLICATION_TYPES, health_science_research_articles,
+    read_records, select_population, summarize,
+)
 from .validate import load_vitality, validate
 
 
@@ -21,24 +24,51 @@ def _types(args) -> list[str] | None:
     return None if args.all_types else (args.type or list(DEFAULT_ARTICLE_TYPES))
 
 
+def _population(args, records) -> list:
+    pubtypes = None
+    if args.population == "trials":
+        if not args.pubtypes:
+            raise SystemExit("--population trials needs --pubtypes (written by `fallout pubtypes`)")
+        pubtypes = json.loads(Path(args.pubtypes).read_text())["pubtypes"]
+    return select_population(records, args.population, pubtypes, _types(args))
+
+
 def _add_source(p: argparse.ArgumentParser) -> None:
     p.add_argument("--csv", default=RW_CSV_URL, help="Retraction Watch CSV path or URL (default: Crossref's GitLab mirror)")
     p.add_argument("--type", action="append", help="ArticleType to keep (repeatable; default 'Clinical Study')")
     p.add_argument("--all-types", action="store_true", help="keep retractions of every article type")
+    p.add_argument("--population", choices=POPULATIONS, default="clinical-study",
+                   help="'trials' adds Health Sciences research articles that PubMed indexes as trials")
+    p.add_argument("--pubtypes", help="JSON from `fallout pubtypes` (needed for --population trials)")
 
 
 def cmd_retractions(args) -> int:
     records = list(read_records(args.csv))
-    selected = select_retracted_trials(records, _types(args))
+    selected = _population(args, records)
     summary = summarize(records, selected)
     summary["article_types"] = _types(args) or "all"
+    summary["population"] = args.population
     print(json.dumps(summary, indent=2))
+    return 0
+
+
+def cmd_pubtypes(args) -> int:
+    records = list(read_records(args.csv))
+    candidates = health_science_research_articles(records)
+    client = PubMedClient(email=args.email)
+    types = client.publication_types(r.pmid for r in candidates if r.pmid)
+    trial_typed = sum(1 for r in candidates if r.pmid and set(types.get(r.pmid, [])) & set(TRIAL_PUBLICATION_TYPES))
+    out = {"source": "NCBI E-utilities esummary (PubMed publication types)", "fetched_at": ledger_mod._now(),
+           "candidates": len(candidates), "pubtypes": types}
+    Path(args.out).write_text(json.dumps(out, sort_keys=True))
+    print(json.dumps({"candidates": len(candidates), "with_pmid": sum(1 for r in candidates if r.pmid),
+                      "pmids_found": len(types), "trial_typed": trial_typed, "requests": client.requests_made}, indent=2))
     return 0
 
 
 def cmd_trace(args) -> int:
     records = list(read_records(args.csv))
-    trials = select_retracted_trials(records, _types(args))
+    trials = _population(args, records)
     # Most recently retracted first: those are likeliest to be cited by new syntheses.
     trials.sort(key=lambda r: (r.retraction_date is not None, r.retraction_date), reverse=True)
     led = ledger_mod.load(args.ledger)
@@ -73,7 +103,7 @@ def cmd_report(args) -> int:
 
 def cmd_validate(args) -> int:
     records = list(read_records(args.csv))
-    population = select_retracted_trials(records, _types(args))
+    population = _population(args, records)
     trials, pairs = load_vitality(args.vitality_dir)
     summary, missed = validate(ledger_mod.load(args.ledger), records, population, trials, pairs)
     out = Path(args.out_dir)
@@ -116,6 +146,12 @@ def build_parser() -> argparse.ArgumentParser:
     r = sub.add_parser("retractions", help="summarise the retracted trials in the Retraction Watch data")
     _add_source(r)
     r.set_defaults(func=cmd_retractions)
+
+    pt = sub.add_parser("pubtypes", help="fetch PubMed publication types for Health Sciences research-article retractions")
+    pt.add_argument("--csv", default=RW_CSV_URL, help="Retraction Watch CSV path or URL (default: Crossref's GitLab mirror)")
+    pt.add_argument("--out", default="rw_pubtypes.json")
+    pt.add_argument("--email", help="contact email sent to NCBI (or NCBI_EMAIL)")
+    pt.set_defaults(func=cmd_pubtypes)
 
     t = sub.add_parser("trace", help="find works citing retracted trials via OpenAlex (resumable)")
     _add_source(t)

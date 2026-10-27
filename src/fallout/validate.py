@@ -82,11 +82,13 @@ def validate(
 
     # Map each VITALITY trial to a Fallout trial through any of its DOIs.
     fallout_key: dict[str, str] = {}
+    selected_by: Counter = Counter()
     missing_reason: Counter = Counter()
     for rct_id, t in vitality_trials.items():
         hit = next((pop_by_doi[d] for d in t["dois"] if d in pop_by_doi), None)
         if hit:
             fallout_key[rct_id] = hit.key
+            selected_by[hit.selected_by or "article_type"] += 1
         elif not t["dois"]:
             missing_reason["no DOI in VITALITY"] += 1
         else:
@@ -94,7 +96,7 @@ def validate(
             if not rw:
                 missing_reason["DOI not in Retraction Watch"] += 1
             elif not any("clinical study" in (a.lower() for a in r.article_types) for r in rw):
-                missing_reason["RW article type is not Clinical Study"] += 1
+                missing_reason["RW type not Clinical Study, not added by PubMed type"] += 1
             else:
                 missing_reason["excluded by nature or reinstatement"] += 1
 
@@ -166,6 +168,7 @@ def validate(
             "vitality_trials": len(vitality_trials),
             "in_fallout_population": len(fallout_key),
             "recall": _ratio(len(fallout_key), len(vitality_trials)),
+            "in_fallout_population_by_selection": dict(selected_by.most_common()),
             "not_in_population_by_reason": dict(missing_reason.most_common()),
             "index_trials": len(index_trials),
             "index_trials_in_fallout_population": sum(1 for i in index_trials if i in fallout_key),

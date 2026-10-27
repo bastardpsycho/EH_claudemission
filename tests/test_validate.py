@@ -59,8 +59,9 @@ def test_validate_against_vitality(tmp_path):
 
     pop = summary["population"]
     assert pop["in_fallout_population"] == 3
+    assert pop["in_fallout_population_by_selection"] == {"article_type": 3}
     assert pop["not_in_population_by_reason"] == {
-        "RW article type is not Clinical Study": 1, "DOI not in Retraction Watch": 1, "no DOI in VITALITY": 1}
+        "RW type not Clinical Study, not added by PubMed type": 1, "DOI not in Retraction Watch": 1, "no DOI in VITALITY": 1}
     assert pop["index_trials"] == 4 and pop["index_trials_in_fallout_population"] == 3
 
     pr = summary["pairs"]
