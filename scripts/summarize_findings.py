@@ -1,7 +1,8 @@
 """Summarise a full trace into findings/ for review. Run after `fallout trace`.
 
-Usage: summarize_findings.py LEDGER OUT_DIR [RW_CSV]. With the Retraction Watch CSV,
-the summary also counts trials in the population that the ledger has not reached.
+Usage: summarize_findings.py LEDGER OUT_DIR [RW_CSV [PUBTYPES_JSON]]. With the Retraction
+Watch CSV, the summary also counts trials in the population that the ledger has not
+reached; with the PubMed publication types too, that population is `--population trials`.
 """
 
 import csv
@@ -10,7 +11,7 @@ import sys
 from collections import Counter
 from pathlib import Path
 
-from fallout.retractions import read_records, select_retracted_trials
+from fallout.retractions import read_records, select_population
 
 ledger = json.loads(Path(sys.argv[1]).read_text())
 out = Path(sys.argv[2])
@@ -27,6 +28,7 @@ def count(edges, key):
 summary = {
     "generated_at": ledger.get("generated_at"),
     "trials": dict(Counter(t.get("status") for t in ledger["trials"].values())),
+    "trials_by_selection": dict(Counter(t.get("selected_by") or "article_type" for t in ledger["trials"].values()).most_common()),
     "trial_errors": dict(Counter((t.get("error") or "")[:80] for t in ledger["trials"].values() if t.get("status") == "error").most_common(10)),
     # Trials that hit trace --max-citing: OpenAlex may hold more citing works than the ledger.
     "trials_citing_may_be_truncated": sum(1 for t in ledger["trials"].values() if t.get("citing_may_be_truncated")),
@@ -45,7 +47,11 @@ summary = {
     "after_retraction_by_publication_year": dict(sorted(Counter((e["citing"]["publication_date"] or "")[:4] for e in after).items())),
 }
 if len(sys.argv) > 3:
-    population = {t.key for t in select_retracted_trials(read_records(sys.argv[3]))}
+    pubtypes = json.loads(Path(sys.argv[4]).read_text())["pubtypes"] if len(sys.argv) > 4 else None
+    selected = select_population(read_records(sys.argv[3]), "trials" if pubtypes is not None else "clinical-study", pubtypes)
+    population = {t.key for t in selected}
+    summary["population"] = "trials" if pubtypes is not None else "clinical-study"
+    summary["population_by_selection"] = dict(Counter(t.selected_by for t in selected).most_common())
     summary["trials_in_population"] = len(population)
     summary["trials_untraced"] = len(population - ledger["trials"].keys())
     # Errored trials are retried on the next run, so they are not finished either.

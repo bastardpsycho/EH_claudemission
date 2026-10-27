@@ -21,6 +21,10 @@ jobs:
           python-version: "3.13"
       - run: pip install -e .
       - run: curl -fsSL -o retraction_watch.csv https://gitlab.com/crossref/retraction-watch-data/-/raw/main/retraction_watch.csv
+      - name: Fetch PubMed publication types for Health Sciences research articles
+        env:
+          NCBI_EMAIL: ${{ vars.OPENALEX_MAILTO }}
+        run: fallout pubtypes --csv retraction_watch.csv --out rw_pubtypes.json | tee pubtypes-summary.json
       - name: Restore partial ledger
         uses: actions/cache/restore@v4
         with:
@@ -35,7 +39,7 @@ jobs:
         env:
           OPENALEX_MAILTO: ${{ vars.OPENALEX_MAILTO }}
           OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
-        run: fallout trace --csv retraction_watch.csv --ledger ledger.json --limit 5000 --max-citing 2000 2> trace.log | tee trace-summary.json; tail -5 trace.log
+        run: fallout trace --csv retraction_watch.csv --population trials --pubtypes rw_pubtypes.json --ledger ledger.json --limit 5000 --max-citing 2000 2> trace.log | tee trace-summary.json; tail -5 trace.log
       - name: Save partial ledger
         if: always()
         uses: actions/cache/save@v4
@@ -48,12 +52,14 @@ jobs:
         env:
           NCBI_EMAIL: ${{ vars.OPENALEX_MAILTO }}
         run: fallout enrich --ledger ledger.json | tee enrich-summary.json
-      - run: python scripts/summarize_findings.py ledger.json findings retraction_watch.csv
+      - run: python scripts/summarize_findings.py ledger.json findings retraction_watch.csv rw_pubtypes.json
       - name: Validate against VITALITY Study I
-        run: fallout validate --csv retraction_watch.csv --ledger ledger.json --vitality-dir validation --out-dir findings/validation
+        run: |
+          fallout validate --csv retraction_watch.csv --ledger ledger.json --vitality-dir validation --out-dir findings/validation
+          fallout validate --csv retraction_watch.csv --population trials --pubtypes rw_pubtypes.json --ledger ledger.json --vitality-dir validation --out-dir findings/validation-trials
       - name: Commit findings
         run: |
-          cp trace-summary.json enrich-summary.json findings/ || true
+          cp trace-summary.json enrich-summary.json pubtypes-summary.json findings/ || true
           git config user.name "fallout-bot"
           git config user.email "fallout-bot@users.noreply.github.com"
           git add -f findings
