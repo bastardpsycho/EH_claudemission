@@ -1,3 +1,4 @@
+import csv
 import json
 from datetime import date
 import xml.etree.ElementTree as ET
@@ -74,12 +75,19 @@ def test_errored_trials_are_retried(fake):
 
 def test_render(fake, tmp_path):
     led, *_ = build(fake, tmp_path)
+    ma = next(e for e in led["edges"] if e["class"] == "meta_analysis")
+    ma["inclusion"] = {"verdict": "included_evidence", "signals": ["table: Table 1 Characteristics of included studies"],
+                       "source": "PubMed Central full text PMC1 (NCBI efetch)"}
     out = render_all(led, tmp_path / "site")
     assert out["csv_rows"] == 5
     assert out["feed_entries"] == 2
     feed = ET.parse(tmp_path / "site" / "feed.xml").getroot()
     assert len(feed.findall("{http://www.w3.org/2005/Atom}entry")) == 2
     page = (tmp_path / "site" / "index.html").read_text()
-    assert "included in any analysis has not been verified" in page
+    assert "evidence about inclusion, not proof" in page
+    assert "Evidence of inclusion<br><small>table: Table 1 Characteristics of included studies" in page
+    assert "not checked" in page
+    rows = list(csv.DictReader(open(tmp_path / "site" / "edges.csv")))
+    assert sum(r["inclusion_verdict"] == "included_evidence" for r in rows) == 1
     assert "<script" not in page
     json.dumps(led)
