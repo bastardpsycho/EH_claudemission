@@ -1,19 +1,19 @@
 {
-  "pmids_requested": 54185,
-  "pmids_found": 54169,
-  "edges_reclassified": 2566,
-  "requests": 271,
-  "trials_traced": 2902,
-  "trials_no_doi": 125,
+  "pmids_requested": 55512,
+  "pmids_found": 55496,
+  "edges_reclassified": 2615,
+  "requests": 278,
+  "trials_traced": 3080,
+  "trials_no_doi": 128,
   "trials_not_in_openalex": 3,
   "trials_error": 0,
-  "citing_edges": 83353,
-  "synthesis_edges": 7699,
+  "citing_edges": 85216,
+  "synthesis_edges": 7898,
   "synthesis_edges_by_class": {
-    "meta_analysis": 4809,
-    "systematic_review": 2127,
-    "guideline": 763
+    "meta_analysis": 4924,
+    "systematic_review": 2201,
+    "guideline": 773
   },
-  "synthesis_edges_after_retraction": 3110,
-  "trials_cited_by_a_synthesis": 1429
+  "synthesis_edges_after_retraction": 3202,
+  "trials_cited_by_a_synthesis": 1499
 }

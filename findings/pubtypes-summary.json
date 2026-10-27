@@ -3,5 +3,7 @@
   "with_pmid": 11973,
   "pmids_found": 11944,
   "trial_typed": 300,
-  "requests": 60
+  "abstracts_read": 11232,
+  "abstract_random_allocation": 181,
+  "requests": 119
 }

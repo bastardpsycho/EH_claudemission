@@ -7,6 +7,14 @@
     "in_fallout_population_by_selection": {
       "article_type": 842
     },
+    "selection_share_in_vitality": {
+      "note": "population trials with a DOI retracted by 2024-11-05 that are in VITALITY's cohort",
+      "article_type": {
+        "trials": 2452,
+        "in_vitality": 841,
+        "share": 0.343
+      }
+    },
     "not_in_population_by_reason": {
       "RW type not Clinical Study, not added by PubMed type": 417,
       "DOI not in Retraction Watch": 45,
@@ -34,6 +42,21 @@
       "systematic_review": 45,
       "other": 14,
       "guideline": 1
+    }
+  },
+  "inclusion_check": {
+    "note": "verified pairs should show included_evidence; negatives are other VITALITY trials cited by reviews whose every extracted meta-analysis pooled only the index trial, so included_evidence there means included in the review but not pooled, or a false signal",
+    "verified_pairs": {
+      "by_verdict": {},
+      "assessed": 0,
+      "included_evidence": 0,
+      "share_included_evidence": null
+    },
+    "negatives": {
+      "by_verdict": {},
+      "assessed": 0,
+      "included_evidence": 0,
+      "share_included_evidence": null
     }
   },
   "review_level_agreement": {

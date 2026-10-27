@@ -2,71 +2,150 @@
   "reference": "VITALITY Study I, Xu et al. BMJ 2025;389:e082068; data https://osf.io/7eazq/ (CC BY 4.0)",
   "population": {
     "vitality_trials": 1330,
-    "in_fallout_population": 999,
-    "recall": 0.7511,
+    "in_fallout_population": 1074,
+    "recall": 0.8075,
     "in_fallout_population_by_selection": {
       "article_type": 842,
       "pubmed:Randomized Controlled Trial": 154,
+      "abstract:randomized": 34,
+      "abstract:randomly divided": 25,
+      "abstract:randomly assigned": 8,
+      "abstract:randomised": 5,
       "pubmed:Controlled Clinical Trial": 2,
+      "abstract:randomization": 2,
+      "abstract:randomly allocated": 1,
       "pubmed:Clinical Trial": 1
     },
+    "selection_share_in_vitality": {
+      "note": "population trials with a DOI retracted by 2024-11-05 that are in VITALITY's cohort",
+      "article_type": {
+        "trials": 2452,
+        "in_vitality": 841,
+        "share": 0.343
+      },
+      "pubmed:Randomized Controlled Trial": {
+        "trials": 214,
+        "in_vitality": 153,
+        "share": 0.715
+      },
+      "abstract:randomized": {
+        "trials": 68,
+        "in_vitality": 34,
+        "share": 0.5
+      },
+      "abstract:randomly divided": {
+        "trials": 56,
+        "in_vitality": 25,
+        "share": 0.4464
+      },
+      "pubmed:Clinical Trial": {
+        "trials": 34,
+        "in_vitality": 1,
+        "share": 0.0294
+      },
+      "pubmed:Controlled Clinical Trial": {
+        "trials": 22,
+        "in_vitality": 2,
+        "share": 0.0909
+      },
+      "abstract:randomly assigned": {
+        "trials": 12,
+        "in_vitality": 8,
+        "share": 0.6667
+      },
+      "abstract:randomization": {
+        "trials": 9,
+        "in_vitality": 2,
+        "share": 0.2222
+      },
+      "abstract:randomised": {
+        "trials": 9,
+        "in_vitality": 5,
+        "share": 0.5556
+      },
+      "abstract:randomly allocated": {
+        "trials": 2,
+        "in_vitality": 1,
+        "share": 0.5
+      },
+      "pubmed:Clinical Trial, Phase II": {
+        "trials": 1,
+        "in_vitality": 0,
+        "share": 0.0
+      }
+    },
     "not_in_population_by_reason": {
-      "RW type not Clinical Study, not added by PubMed type": 260,
+      "RW type not Clinical Study, not added by PubMed type": 185,
       "DOI not in Retraction Watch": 45,
       "no DOI in VITALITY": 24,
       "excluded by nature or reinstatement": 2
     },
     "index_trials": 323,
-    "index_trials_in_fallout_population": 279
+    "index_trials_in_fallout_population": 289
   },
   "pairs": {
     "verified_pairs": 850,
     "by_outcome": {
-      "checkable: citation found": 688,
-      "trial not in Fallout population": 84,
+      "checkable: citation found": 702,
+      "trial not in Fallout population": 70,
       "review has no DOI": 43,
       "checkable: citation not found": 35
     },
-    "checkable": 723,
-    "citation_recall": 0.9516,
-    "synthesis_recall": 0.9308,
-    "citation_recall_any_cochrane_version": 0.9516,
-    "synthesis_recall_any_cochrane_version": 0.9308,
+    "checkable": 737,
+    "citation_recall": 0.9525,
+    "synthesis_recall": 0.9322,
+    "citation_recall_any_cochrane_version": 0.9525,
+    "synthesis_recall_any_cochrane_version": 0.9322,
     "found_by_class": {
-      "meta_analysis": 621,
-      "systematic_review": 51,
+      "meta_analysis": 632,
+      "systematic_review": 54,
       "other": 15,
       "guideline": 1
     }
   },
+  "inclusion_check": {
+    "note": "verified pairs should show included_evidence; negatives are other VITALITY trials cited by reviews whose every extracted meta-analysis pooled only the index trial, so included_evidence there means included in the review but not pooled, or a false signal",
+    "verified_pairs": {
+      "by_verdict": {},
+      "assessed": 0,
+      "included_evidence": 0,
+      "share_included_evidence": null
+    },
+    "negatives": {
+      "by_verdict": {},
+      "assessed": 0,
+      "included_evidence": 0,
+      "share_included_evidence": null
+    }
+  },
   "review_level_agreement": {
     "last_search": "2024-11-21",
-    "synthesis_citations_of_vitality_trials": 4047,
-    "in_vitality_reviews": 1037,
-    "share": 0.2562,
-    "in_vitality_reviews_any_cochrane_version": 1233,
-    "share_any_cochrane_version": 0.3047,
+    "synthesis_citations_of_vitality_trials": 4104,
+    "in_vitality_reviews": 1055,
+    "share": 0.2571,
+    "in_vitality_reviews_any_cochrane_version": 1252,
+    "share_any_cochrane_version": 0.3051,
     "by_class": {
       "guideline": {
-        "citations": 410,
+        "citations": 413,
         "in_vitality": 1,
         "share": 0.0024,
         "in_vitality_any_cochrane_version": 1,
         "share_any_cochrane_version": 0.0024
       },
       "meta_analysis": {
-        "citations": 2645,
-        "in_vitality": 946,
-        "share": 0.3577,
-        "in_vitality_any_cochrane_version": 1094,
-        "share_any_cochrane_version": 0.4136
+        "citations": 2679,
+        "in_vitality": 961,
+        "share": 0.3587,
+        "in_vitality_any_cochrane_version": 1110,
+        "share_any_cochrane_version": 0.4143
       },
       "systematic_review": {
-        "citations": 992,
-        "in_vitality": 90,
-        "share": 0.0907,
-        "in_vitality_any_cochrane_version": 138,
-        "share_any_cochrane_version": 0.1391
+        "citations": 1012,
+        "in_vitality": 93,
+        "share": 0.0919,
+        "in_vitality_any_cochrane_version": 141,
+        "share_any_cochrane_version": 0.1393
       }
     }
   }
