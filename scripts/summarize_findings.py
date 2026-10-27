@@ -25,6 +25,32 @@ after_180 = [e for e in after if (e["days_after_retraction"] or 0) > 180]
 def count(edges, key):
     return dict(Counter(key(e) for e in edges).most_common())
 
+
+def inclusion(e):
+    """Inclusion verdict, with strength for included_evidence, or "not checked"."""
+    inc = e.get("inclusion") or {}
+    v = inc.get("verdict", "not checked")
+    return f"{v}:{inc['strength']}" if v == "included_evidence" and inc.get("strength") else v
+
+
+ASSESSED = ("included_evidence", "excluded", "cited_outside_results", "reference_only", "reference_not_found")
+
+
+def inclusion_summary(edges):
+    assessed = [e for e in edges if (e.get("inclusion") or {}).get("verdict") in ASSESSED]
+    inc = [e for e in assessed if e["inclusion"]["verdict"] == "included_evidence"]
+    table = [e for e in inc if e["inclusion"].get("strength") == "table"]
+    return {
+        "by_verdict": count(edges, inclusion),
+        "full_text_read": len(assessed),
+        "included_evidence": len(inc),
+        "included_evidence_from_table": len(table),
+        "distinct_syntheses_full_text_read": len({e["citing"]["openalex_id"] for e in assessed}),
+        "distinct_syntheses_with_included_evidence": len({e["citing"]["openalex_id"] for e in inc}),
+        "distinct_syntheses_with_table_evidence": len({e["citing"]["openalex_id"] for e in table}),
+        "trials_with_table_evidence": len({e["trial"] for e in table}),
+    }
+
 summary = {
     "generated_at": ledger.get("generated_at"),
     "trials": dict(Counter(t.get("status") for t in ledger["trials"].values())),
@@ -44,8 +70,9 @@ summary = {
     "distinct_syntheses_citing_more_than_180d_after": len({e["citing"]["openalex_id"] for e in after_180}),
     "trials_cited_by_a_synthesis": len({e["trial"] for e in syn}),
     "trials_cited_by_a_synthesis_after_retraction": len({e["trial"] for e in after}),
-    "synthesis_edges_by_inclusion": dict(Counter((e.get("inclusion") or {}).get("verdict", "not checked") for e in syn).most_common()),
-    "after_retraction_by_inclusion": dict(Counter((e.get("inclusion") or {}).get("verdict", "not checked") for e in after).most_common()),
+    "inclusion_all_synthesis_citations": inclusion_summary(syn),
+    "inclusion_after_retraction": inclusion_summary(after),
+    "inclusion_more_than_180d_after": inclusion_summary(after_180),
     "after_retraction_by_publication_year": dict(sorted(Counter((e["citing"]["publication_date"] or "")[:4] for e in after).items())),
 }
 if len(sys.argv) > 3:
@@ -61,7 +88,8 @@ if len(sys.argv) > 3:
     summary["trials_pending_retry"] = sum(1 for t in ledger["trials"].values() if t.get("status") == "error")
 (out / "summary.json").write_text(json.dumps(summary, indent=2))
 
-fields = ["trial", "class", "class_confidence", "days_after_retraction", "citing_doi", "citing_openalex_id", "citing_publication_date", "citing_title"]
+fields = ["trial", "class", "class_confidence", "days_after_retraction", "citing_doi", "citing_openalex_id", "citing_publication_date",
+          "citing_title", "inclusion_verdict", "inclusion_strength", "inclusion_signals", "inclusion_source"]
 with open(out / "syntheses_citing_after_retraction.csv", "w", newline="", encoding="utf-8") as f:
     w = csv.DictWriter(f, fieldnames=fields)
     w.writeheader()
@@ -70,5 +98,8 @@ with open(out / "syntheses_citing_after_retraction.csv", "w", newline="", encodi
         w.writerow({"trial": e["trial"], "class": e["class"], "class_confidence": e["class_confidence"],
                     "days_after_retraction": e["days_after_retraction"], "citing_doi": c["doi"],
                     "citing_openalex_id": c["openalex_id"], "citing_publication_date": c["publication_date"],
-                    "citing_title": c["title"]})
+                    "citing_title": c["title"], "inclusion_verdict": (e.get("inclusion") or {}).get("verdict"),
+                    "inclusion_strength": (e.get("inclusion") or {}).get("strength"),
+                    "inclusion_signals": "; ".join((e.get("inclusion") or {}).get("signals") or []),
+                    "inclusion_source": (e.get("inclusion") or {}).get("source")})
 print(json.dumps(summary, indent=2))
