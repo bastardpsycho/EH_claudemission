@@ -106,16 +106,35 @@
   "inclusion_check": {
     "note": "verified pairs should show included_evidence; negatives are other VITALITY trials cited by reviews whose every extracted meta-analysis pooled only the index trial, so included_evidence there means included in the review but not pooled, or a false signal",
     "verified_pairs": {
-      "by_verdict": {},
-      "assessed": 0,
-      "included_evidence": 0,
-      "share_included_evidence": null
+      "by_verdict": {
+        "no_pmc_record": 345,
+        "included_evidence:table": 196,
+        "no_open_full_text": 75,
+        "included_evidence:results_citation": 63,
+        "reference_only": 3,
+        "cited_outside_results": 3,
+        "reference_not_found": 2
+      },
+      "assessed": 267,
+      "included_evidence": 259,
+      "share_included_evidence": 0.97,
+      "included_evidence_from_table": 196,
+      "share_from_table": 0.7341
     },
     "negatives": {
-      "by_verdict": {},
-      "assessed": 0,
-      "included_evidence": 0,
-      "share_included_evidence": null
+      "by_verdict": {
+        "no_pmc_record": 61,
+        "no_open_full_text": 15,
+        "cited_outside_results": 12,
+        "included_evidence:results_citation": 5,
+        "included_evidence:table": 4,
+        "excluded": 1
+      },
+      "assessed": 22,
+      "included_evidence": 9,
+      "share_included_evidence": 0.4091,
+      "included_evidence_from_table": 4,
+      "share_from_table": 0.1818
     }
   },
   "review_level_agreement": {

@@ -1,7 +1,7 @@
 {
   "pmids_requested": 55512,
   "pmids_found": 55496,
-  "edges_reclassified": 2615,
+  "edges_reclassified": 0,
   "requests": 278,
   "trials_traced": 3080,
   "trials_no_doi": 128,

@@ -1,17 +1,17 @@
 {
-  "traced_this_run": 181,
-  "requests": 356,
+  "traced_this_run": 0,
+  "requests": 0,
   "trials_traced": 3080,
   "trials_no_doi": 128,
   "trials_not_in_openalex": 3,
   "trials_error": 0,
   "citing_edges": 85216,
-  "synthesis_edges": 5895,
+  "synthesis_edges": 7898,
   "synthesis_edges_by_class": {
-    "meta_analysis": 3423,
-    "systematic_review": 1906,
-    "guideline": 566
+    "meta_analysis": 4924,
+    "systematic_review": 2201,
+    "guideline": 773
   },
-  "synthesis_edges_after_retraction": 2461,
-  "trials_cited_by_a_synthesis": 1374
+  "synthesis_edges_after_retraction": 3202,
+  "trials_cited_by_a_synthesis": 1499
 }
