@@ -1,4 +1,4 @@
-"""Command-line interface: ``fallout retractions | pubtypes | trace | enrich | report | impact | validate``."""
+"""Command-line interface: ``fallout retractions | pubtypes | trace | enrich | inclusion | report | impact | validate``."""
 
 from __future__ import annotations
 
@@ -9,13 +9,14 @@ import sys
 from pathlib import Path
 
 from . import ledger as ledger_mod
+from .inclusion import PMCClient, verify_inclusion
 from .metaanalysis import effect_from_2x2, impact_without
 from .openalex import OpenAlexClient
 from .pubmed import PubMedClient
 from .report import render_all
 from .retractions import (
     DEFAULT_ARTICLE_TYPES, POPULATIONS, RW_CSV_URL, TRIAL_PUBLICATION_TYPES, health_science_research_articles,
-    read_records, select_population, summarize,
+    load_selection_data, random_allocation_phrase, read_records, select_population, summarize,
 )
 from .validate import load_vitality, validate
 
@@ -25,12 +26,12 @@ def _types(args) -> list[str] | None:
 
 
 def _population(args, records) -> list:
-    pubtypes = None
+    pubtypes = signals = None
     if args.population == "trials":
         if not args.pubtypes:
             raise SystemExit("--population trials needs --pubtypes (written by `fallout pubtypes`)")
-        pubtypes = json.loads(Path(args.pubtypes).read_text())["pubtypes"]
-    return select_population(records, args.population, pubtypes, _types(args))
+        pubtypes, signals = load_selection_data(args.pubtypes)
+    return select_population(records, args.population, pubtypes, _types(args), signals)
 
 
 def _add_source(p: argparse.ArgumentParser) -> None:
@@ -57,12 +58,17 @@ def cmd_pubtypes(args) -> int:
     candidates = health_science_research_articles(records)
     client = PubMedClient(email=args.email)
     types = client.publication_types(r.pmid for r in candidates if r.pmid)
-    trial_typed = sum(1 for r in candidates if r.pmid and set(types.get(r.pmid, [])) & set(TRIAL_PUBLICATION_TYPES))
-    out = {"source": "NCBI E-utilities esummary (PubMed publication types)", "fetched_at": ledger_mod._now(),
-           "candidates": len(candidates), "pubtypes": types}
+    typed = {r.pmid for r in candidates if r.pmid and set(types.get(r.pmid, [])) & set(TRIAL_PUBLICATION_TYPES)}
+    # For candidates PubMed does not type as a trial, look for random allocation in the abstract.
+    # Only the matched phrase is kept, not the abstract.
+    abstracts = client.abstracts(r.pmid for r in candidates if r.pmid and r.pmid not in typed)
+    signals = {pmid: phrase for pmid, text in abstracts.items() if (phrase := random_allocation_phrase(text))}
+    out = {"source": "NCBI E-utilities esummary (publication types) and efetch (abstracts)",
+           "fetched_at": ledger_mod._now(), "candidates": len(candidates), "pubtypes": types, "abstract_signals": signals}
     Path(args.out).write_text(json.dumps(out, sort_keys=True))
     print(json.dumps({"candidates": len(candidates), "with_pmid": sum(1 for r in candidates if r.pmid),
-                      "pmids_found": len(types), "trial_typed": trial_typed, "requests": client.requests_made}, indent=2))
+                      "pmids_found": len(types), "trial_typed": len(typed), "abstracts_read": len(abstracts),
+                      "abstract_random_allocation": len(signals), "requests": client.requests_made}, indent=2))
     return 0
 
 
@@ -92,6 +98,15 @@ def cmd_enrich(args) -> int:
     result = ledger_mod.enrich_pubmed(led, client)
     ledger_mod.save(led, args.ledger)
     print(json.dumps({**result, "requests": client.requests_made, **ledger_mod.stats(led)}, indent=2))
+    return 0
+
+
+def cmd_inclusion(args) -> int:
+    led = ledger_mod.load(args.ledger)
+    client = PMCClient(email=args.email)
+    result = verify_inclusion(led, client, limit=args.limit, recheck=args.recheck)
+    ledger_mod.save(led, args.ledger)
+    print(json.dumps(result, indent=2))
     return 0
 
 
@@ -147,7 +162,7 @@ def build_parser() -> argparse.ArgumentParser:
     _add_source(r)
     r.set_defaults(func=cmd_retractions)
 
-    pt = sub.add_parser("pubtypes", help="fetch PubMed publication types for Health Sciences research-article retractions")
+    pt = sub.add_parser("pubtypes", help="fetch PubMed publication types and abstract signals for Health Sciences research articles")
     pt.add_argument("--csv", default=RW_CSV_URL, help="Retraction Watch CSV path or URL (default: Crossref's GitLab mirror)")
     pt.add_argument("--out", default="rw_pubtypes.json")
     pt.add_argument("--email", help="contact email sent to NCBI (or NCBI_EMAIL)")
@@ -167,6 +182,13 @@ def build_parser() -> argparse.ArgumentParser:
     en.add_argument("--ledger", default="ledger.json")
     en.add_argument("--email", help="contact email sent to NCBI (or NCBI_EMAIL)")
     en.set_defaults(func=cmd_enrich)
+
+    inc = sub.add_parser("inclusion", help="look for inclusion evidence in open full text of citing syntheses (PMC)")
+    inc.add_argument("--ledger", default="ledger.json")
+    inc.add_argument("--limit", type=int, help="distinct syntheses to check this run (default: all unchecked)")
+    inc.add_argument("--recheck", action="store_true", help="re-check syntheses already checked")
+    inc.add_argument("--email", help="contact email sent to NCBI (or NCBI_EMAIL)")
+    inc.set_defaults(func=cmd_inclusion)
 
     rep = sub.add_parser("report", help="render ledger as HTML, Atom and CSV")
     rep.add_argument("--ledger", default="ledger.json")

@@ -34,10 +34,13 @@ from pathlib import Path
 from typing import Iterable
 
 from .classify import SYNTHESIS_CLASSES
+from .inclusion import ASSESSED, INCLUDED
 from .retractions import Retraction
 
 # Scopus forward citations were last updated on 21 November 2024 (Google Scholar 21 Nov–2 Dec 2024).
 VITALITY_LAST_SEARCH = date(2024, 11, 21)
+# VITALITY searched Retraction Watch for retractions up to 5 November 2024.
+VITALITY_RETRACTION_SEARCH = date(2024, 11, 5)
 
 _COCHRANE_VERSION = re.compile(r"^(10\.1002/14651858\.[^.]+)\.pub\d+$")
 
@@ -74,11 +77,24 @@ def validate(
     last_search: date = VITALITY_LAST_SEARCH,
 ) -> tuple[dict, list[dict]]:
     """Return a summary and one row per verified pair Fallout did not find as a synthesis citation."""
+    population = list(population)
     pop_by_doi = {t.doi: t for t in population if t.doi}
     rw_by_doi: dict[str, list[Retraction]] = {}
     for r in records:
         if r.doi:
             rw_by_doi.setdefault(r.doi, []).append(r)
+
+    # Selection precision proxy: of population trials retracted within VITALITY's search window,
+    # the share VITALITY also kept as RCTs after full-text review. RW back-fills older retractions
+    # and VITALITY required human RCTs in English, so this understates how many are trials.
+    vitality_dois = {d for t in vitality_trials.values() for d in t["dois"]}
+    in_window: Counter = Counter()
+    in_vitality: Counter = Counter()
+    for t in population:
+        if t.doi and t.retraction_date and t.retraction_date <= VITALITY_RETRACTION_SEARCH:
+            rule = t.selected_by or "article_type"
+            in_window[rule] += 1
+            in_vitality[rule] += t.doi in vitality_dois
 
     # Map each VITALITY trial to a Fallout trial through any of its DOIs.
     fallout_key: dict[str, str] = {}
@@ -113,6 +129,7 @@ def validate(
 
     # Recall over verified (index trial, review) pairs.
     found_cls: Counter = Counter()
+    positive_inclusion: Counter = Counter()
     as_synthesis: Counter = Counter()  # keyed by whether the review DOI matched exactly
     outcome: Counter = Counter()
     missed = []
@@ -138,6 +155,8 @@ def validate(
             continue
         outcome["checkable: citation found" if exact else "checkable: other Cochrane version found"] += 1
         found_cls[edge["class"]] += 1
+        if "inclusion" in edge:
+            positive_inclusion[edge["inclusion"]["verdict"]] += 1
         synthesis = edge["class"] in SYNTHESIS_CLASSES
         as_synthesis[exact] += synthesis
         if not synthesis:
@@ -161,6 +180,30 @@ def validate(
             agree[e["class"]] += doi in vitality_reviews
             agree_any[e["class"]] += review_id(doi) in vitality_review_ids
 
+    # Negatives for the inclusion check: reviews in which every meta-analysis VITALITY extracted
+    # pooled exactly one retracted trial (the index trial), so other VITALITY trials they cite
+    # were not pooled in any of those meta-analyses.
+    index_of: dict[str, set[str]] = {}
+    max_retracted: dict[str, int] = {}
+    for p in pairs:
+        if p["review_doi"]:
+            index_of.setdefault(p["review_doi"], set()).add(p["rct_id"])
+            max_retracted[p["review_doi"]] = max(max_retracted.get(p["review_doi"], 0), int(p["max_retracted_in_ma"] or 0))
+    single = {d: next(iter(ids)) for d, ids in index_of.items() if len(ids) == 1 and max_retracted[d] == 1}
+    negative_inclusion: Counter = Counter()
+    vitality_keys = set(fallout_key.values())
+    for doi, rct_id in single.items():
+        index_key = fallout_key.get(rct_id)
+        for key in vitality_keys - {index_key}:
+            e = by_trial.get(key, {}).get(doi)
+            if e is not None and "inclusion" in e:
+                negative_inclusion[e["inclusion"]["verdict"]] += 1
+
+    def inclusion_rates(c: Counter) -> dict:
+        assessed = sum(c[v] for v in ASSESSED)
+        return {"by_verdict": dict(c.most_common()), "assessed": assessed,
+                "included_evidence": c[INCLUDED], "share_included_evidence": _ratio(c[INCLUDED], assessed)}
+
     index_trials = {p["rct_id"] for p in pairs}
     summary = {
         "reference": "VITALITY Study I, Xu et al. BMJ 2025;389:e082068; data https://osf.io/7eazq/ (CC BY 4.0)",
@@ -169,6 +212,11 @@ def validate(
             "in_fallout_population": len(fallout_key),
             "recall": _ratio(len(fallout_key), len(vitality_trials)),
             "in_fallout_population_by_selection": dict(selected_by.most_common()),
+            "selection_share_in_vitality": {
+                "note": f"population trials with a DOI retracted by {VITALITY_RETRACTION_SEARCH.isoformat()} that are in VITALITY's cohort",
+                **{rule: {"trials": n, "in_vitality": in_vitality[rule], "share": _ratio(in_vitality[rule], n)}
+                   for rule, n in in_window.most_common()},
+            },
             "not_in_population_by_reason": dict(missing_reason.most_common()),
             "index_trials": len(index_trials),
             "index_trials_in_fallout_population": sum(1 for i in index_trials if i in fallout_key),
@@ -182,6 +230,13 @@ def validate(
             "citation_recall_any_cochrane_version": _ratio(any_found, checkable),
             "synthesis_recall_any_cochrane_version": _ratio(as_synthesis[True] + as_synthesis[False], checkable),
             "found_by_class": dict(found_cls.most_common()),
+        },
+        "inclusion_check": {
+            "note": "verified pairs should show included_evidence; negatives are other VITALITY trials cited by "
+                    "reviews whose every extracted meta-analysis pooled only the index trial, so included_evidence "
+                    "there means included in the review but not pooled, or a false signal",
+            "verified_pairs": inclusion_rates(positive_inclusion),
+            "negatives": inclusion_rates(negative_inclusion),
         },
         "review_level_agreement": {
             "last_search": last_search.isoformat(),

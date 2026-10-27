@@ -41,7 +41,7 @@ Fallout records that a work **cites** a retracted trial, according to OpenAlex. 
 
 812 of the 2,729 were retracted in 2023, and 644 of those were Hindawi papers, consistent with Hindawi's mass paper-mill retractions that year. VITALITY's cohort of 1,330 retracted RCTs comes from its own full-text screening of Retraction Watch records, a different quantity from these counts; not all 1,330 were pooled in reviews.
 
-The "Clinical Study" label is Retraction Watch's, and it is an imperfect proxy for an RCT: it includes non-randomised studies and misses RCTs labelled "Research Article". Use `--type` or `--all-types` to change the filter, or `--population trials` (with `fallout pubtypes`) to add Health Sciences "Research Article" retractions that PubMed indexes as a trial (publication type "Randomized Controlled Trial", "Clinical Trial", "Controlled Clinical Trial", or a phase or pragmatic trial). Each ledger trial records `selected_by`.
+The "Clinical Study" label is Retraction Watch's, and it is an imperfect proxy for an RCT: it includes non-randomised studies and misses RCTs labelled "Research Article". Use `--type` or `--all-types` to change the filter, or `--population trials` (with `fallout pubtypes`) to add Health Sciences "Research Article" retractions that look like trials. A record qualifies if PubMed indexes it as a trial (publication type "Randomized Controlled Trial", "Clinical Trial", "Controlled Clinical Trial", or a phase or pragmatic trial). Failing that, it qualifies if its PubMed abstract describes random allocation of people ("randomised", "randomly assigned"); non-randomised and quasi-randomised studies, reviews, and animal or laboratory studies are rejected. Each ledger trial records `selected_by`, and `fallout validate` reports how many trials from each rule are in VITALITY's cohort.
 
 ## Validation against VITALITY
 
@@ -76,6 +76,7 @@ fallout trace --limit 50 --mailto you@example.org   # trace 50 trials, most rece
 fallout pubtypes --out rw_pubtypes.json   # PubMed publication types for Health Sciences research articles
 fallout trace --population trials --pubtypes rw_pubtypes.json   # also trace those PubMed indexes as trials
 fallout enrich                            # add PubMed publication types, re-classify
+fallout inclusion --limit 200            # look for inclusion evidence in open full text (PubMed Central)
 fallout report --out-dir site             # site/index.html, site/feed.xml, site/edges.csv
 fallout impact examples/bcg.csv --remove "TPT Madras 1980"
 fallout validate --out-dir validation-results    # score the ledger against VITALITY (see validation/README.md)

@@ -12,8 +12,9 @@ from .ledger import stats, synthesis_edges
 
 CAVEAT = (
     "Each row means a work's reference list cites a retracted trial, according to OpenAlex. "
-    "Whether the trial was included in any analysis has not been verified, and a citation can be "
-    "legitimate (for example, a review that notes the retraction). Nothing here is an accusation."
+    "A citation can be legitimate (for example, a review that notes the retraction or excludes the trial). "
+    "Where a synthesis has open full text in PubMed Central, Fallout records where the trial appears in it; "
+    "that is evidence about inclusion, not proof, and other rows are unchecked. Nothing here is an accusation."
 )
 CLASS_NAMES = {"guideline": "Guideline", "meta_analysis": "Meta-analysis", "systematic_review": "Systematic review"}
 
@@ -21,7 +22,14 @@ CSV_FIELDS = [
     "trial", "trial_doi", "trial_title", "retraction_date", "relation", "class", "class_confidence",
     "citing_openalex_id", "citing_doi", "citing_title", "citing_publication_date",
     "cited_after_retraction", "days_after_retraction", "first_seen",
+    "inclusion_verdict", "inclusion_signals", "inclusion_source",
 ]
+INCLUSION_NAMES = {
+    "included_evidence": "Evidence of inclusion", "excluded": "Listed as excluded",
+    "cited_outside_results": "Cited outside the Results only", "reference_only": "In references only",
+    "reference_not_found": "Reference not matched", "no_open_full_text": "No open full text",
+    "no_pmc_record": "Not in PubMed Central",
+}
 
 
 def write_csv(ledger: dict, path: str | Path) -> int:
@@ -39,6 +47,9 @@ def write_csv(ledger: dict, path: str | Path) -> int:
                 "citing_publication_date": e["citing"]["publication_date"],
                 "cited_after_retraction": e["cited_after_retraction"],
                 "days_after_retraction": e["days_after_retraction"], "first_seen": e["first_seen"],
+                "inclusion_verdict": (e.get("inclusion") or {}).get("verdict"),
+                "inclusion_signals": "; ".join((e.get("inclusion") or {}).get("signals") or []),
+                "inclusion_source": (e.get("inclusion") or {}).get("source"),
             })
             rows += 1
     return rows
@@ -117,12 +128,17 @@ def write_html(ledger: dict, path: str | Path) -> None:
         t = ledger["trials"].get(e["trial"], {})
         c = e["citing"]
         when = "after" if e["cited_after_retraction"] else ("before" if e["cited_after_retraction"] is False else "unknown")
+        inc = e.get("inclusion")
+        check = "not checked" if not inc else (
+            f"{html.escape(INCLUSION_NAMES.get(inc['verdict'], inc['verdict']))}"
+            + (f"<br><small>{html.escape('; '.join(inc['signals'][:3]))}</small>" if inc.get("signals") else ""))
         rows.append(
             "<tr>"
             f"<td>{_link(c['title'], _doi_url(c['doi']) or c['openalex_id'])}<br><small>{html.escape(str(c['publication_date']))}</small></td>"
             f"<td>{html.escape(CLASS_NAMES.get(e['class'], e['class']))}<br><small>{html.escape(e['class_confidence'])}: {html.escape('; '.join(e['class_reasons']))}</small></td>"
             f"<td>{_link(t.get('title', ''), _doi_url(t.get('doi')))}<br><small>retracted {html.escape(str(t.get('retraction_date')))}</small></td>"
             f"<td>{when}</td>"
+            f"<td>{check}</td>"
             f"<td class=n>{'' if e['days_after_retraction'] is None else e['days_after_retraction']}</td>"
             "</tr>"
         )
@@ -140,12 +156,12 @@ def write_html(ledger: dict, path: str | Path) -> None:
 <li><b>{s['trials_cited_by_a_synthesis']}</b>trials cited by at least one synthesis</li>
 </ul>
 <p><small>Not traced: {s['trials_no_doi']} without a DOI, {s['trials_not_in_openalex']} not found in OpenAlex, {s['trials_error']} errors.
-Generated {html.escape(ledger['generated_at'])}. Classification uses title patterns and is approximate. Publication dates in OpenAlex are sometimes only a year or month, so "days after" can be off.</small></p>
+Generated {html.escape(ledger['generated_at'])}. Classification uses PubMed publication types, title patterns and Cochrane review DOIs, and is approximate. Publication dates in OpenAlex are sometimes only a year or month, so "days after" can be off.</small></p>
 <h2>Syntheses citing a retracted trial</h2>
 <div class="wrap"><table>
-<thead><tr><th>Citing work</th><th>Class</th><th>Retracted trial</th><th>Published vs retraction</th><th>Days after</th></tr></thead>
+<thead><tr><th>Citing work</th><th>Class</th><th>Retracted trial</th><th>Published vs retraction</th><th>Full-text check</th><th>Days after</th></tr></thead>
 <tbody>
-{''.join(rows) or '<tr><td colspan=5>None found yet.</td></tr>'}
+{''.join(rows) or '<tr><td colspan=6>None found yet.</td></tr>'}
 </tbody></table></div>
 <p><small>Sources: Retraction Watch database (via Crossref) and OpenAlex. Fallout is open source: github.com/bastardpsycho/EH_claudemission</small></p>
 </body></html>

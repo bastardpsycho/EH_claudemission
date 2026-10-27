@@ -14,7 +14,7 @@
 
 All fields of the Retraction Watch record that Fallout uses (`record_id`, `title`, `journal`, `publisher`, `article_types`, `nature`, `reasons`, `doi`, `pmid`, `original_date`, `retraction_date`, `retraction_doi`, `countries`, `subjects`), plus:
 
-- `selected_by`: why the record is in the population. `article_type` means RW's ArticleType matched (by default "Clinical Study"). `pubmed:<type>` means a Health Sciences "Research Article" that PubMed indexes with that trial publication type (`--population trials`). Entries traced before this field existed lack it and were all selected by `article_type`.
+- `selected_by`: why the record is in the population. `article_type` means RW's ArticleType matched (by default "Clinical Study"). `pubmed:<type>` means a Health Sciences "Research Article" that PubMed indexes with that trial publication type (`--population trials`). `abstract:<phrase>` means such a record without a trial publication type whose PubMed abstract describes random allocation, with the matched phrase. Entries traced before this field existed lack it and were all selected by `article_type`.
 
 - `status`: `traced`, `no_doi`, `not_in_openalex` or `error`.
 - `openalex_id`, `cited_by_count`: from OpenAlex, when traced.
@@ -34,4 +34,17 @@ All fields of the Retraction Watch record that Fallout uses (`record_id`, `title
 - `days_after_retraction`: signed integer, citing publication date minus retraction date.
 - `first_seen`: when Fallout first recorded the edge (used to order the Atom feed).
 
-Future schema versions will add a separate, provenance-carrying `inclusion` field once a verification step exists. `relation` will stay `"cites"`.
+- `inclusion` (optional, synthesis edges only, added by `fallout inclusion`): what the citing synthesis's open full text shows about the trial. It is evidence, not proof, and `relation` stays `"cites"`.
+  - `verdict`:
+    - `included_evidence`: a row of a table about included studies or study characteristics, a citation in the Results, or a reference sub-list titled "included studies";
+    - `excluded`: only an excluded-studies table, list or section;
+    - `cited_outside_results`: cited only elsewhere, e.g. Introduction or Discussion;
+    - `reference_only`: in the reference list but never cited in the body or tables;
+    - `reference_not_found`: the full text was read but the trial's reference was not matched;
+    - `no_open_full_text`: PMC holds the record but not the full text;
+    - `no_pmc_record`: PMC does not hold the synthesis.
+  - `signals`: the places that support the verdict, e.g. `table: Table 1 Characteristics of the studies included in the review` or `Results: Results > Pregnancy rate`.
+  - `ref_match`: how the trial's reference was matched (`doi`, `pmid` or `title`).
+  - `source`, `checked_at`: where and when it was read.
+
+  Figures and supplementary files are not read, so a trial shown only in a forest plot is `cited_outside_results` or `reference_only`. Adding this optional field did not change the schema version.

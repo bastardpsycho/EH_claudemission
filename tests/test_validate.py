@@ -47,7 +47,9 @@ def test_validate_against_vitality(tmp_path):
     ledger = {
         "trials": {"rw:a": {"status": "traced"}, "rw:b": {"status": "traced"}},
         "edges": [
-            edge("rw:a", "10.9/r1", "meta_analysis"),
+            {**edge("rw:a", "10.9/r1", "meta_analysis"), "inclusion": {"verdict": "included_evidence"}},
+            # r1 pooled only its index trial (rct 1), so this citation by trial 2 is a negative.
+            {**edge("rw:b", "10.9/r1", "meta_analysis"), "inclusion": {"verdict": "cited_outside_results"}},
             edge("rw:a", "10.9/r2", "other"),
             edge("rw:a", "10.9/r3", "systematic_review"),
             edge("rw:b", "10.9/x", "systematic_review"),                     # not a VITALITY review
@@ -60,6 +62,8 @@ def test_validate_against_vitality(tmp_path):
     pop = summary["population"]
     assert pop["in_fallout_population"] == 3
     assert pop["in_fallout_population_by_selection"] == {"article_type": 3}
+    # a, b and e (retracted 2020) are in VITALITY; all three population records are in the window.
+    assert pop["selection_share_in_vitality"]["article_type"] == {"trials": 3, "in_vitality": 3, "share": 1.0}
     assert pop["not_in_population_by_reason"] == {
         "RW type not Clinical Study, not added by PubMed type": 1, "DOI not in Retraction Watch": 1, "no DOI in VITALITY": 1}
     assert pop["index_trials"] == 4 and pop["index_trials_in_fallout_population"] == 3
@@ -78,11 +82,17 @@ def test_validate_against_vitality(tmp_path):
     agree = summary["review_level_agreement"]
     # r1 and r3 are VITALITY reviews, x is not, .pub3 matches only ignoring the version,
     # the late one is out of window and r2 is not a synthesis.
-    assert agree["synthesis_citations_of_vitality_trials"] == 4
-    assert agree["in_vitality_reviews"] == 2
-    assert agree["in_vitality_reviews_any_cochrane_version"] == 3
-    assert agree["by_class"]["meta_analysis"] == {"citations": 2, "in_vitality": 1, "share": 0.5,
-                                                  "in_vitality_any_cochrane_version": 2, "share_any_cochrane_version": 1.0}
+    assert agree["synthesis_citations_of_vitality_trials"] == 5
+    assert agree["in_vitality_reviews"] == 3
+    assert agree["in_vitality_reviews_any_cochrane_version"] == 4
+    assert agree["by_class"]["meta_analysis"] == {"citations": 3, "in_vitality": 2, "share": 0.6667,
+                                                  "in_vitality_any_cochrane_version": 3, "share_any_cochrane_version": 1.0}
+
+    inc = summary["inclusion_check"]
+    assert inc["verified_pairs"] == {"by_verdict": {"included_evidence": 1}, "assessed": 1,
+                                     "included_evidence": 1, "share_included_evidence": 1.0}
+    assert inc["negatives"]["by_verdict"] == {"cited_outside_results": 1}
+    assert inc["negatives"]["share_included_evidence"] == 0.0
 
 
 def test_review_id_strips_only_cochrane_versions():
