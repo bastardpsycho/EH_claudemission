@@ -44,7 +44,8 @@ NO_PMC = "no_pmc_record"
 # Verdicts that come from reading a full text, as opposed to not finding one.
 ASSESSED = (INCLUDED, EXCLUDED, OUTSIDE_RESULTS, REFERENCE_ONLY, NOT_FOUND)
 
-_INCLUDED_CAPTION = re.compile(r"includ|characteristic", re.I)
+_INCLUDED_CAPTION = re.compile(r"includ|characteristic|\bsummary\s+of\s+(?:the\s+)?(?:\w+\s+){0,2}(?:studies|trials)\b", re.I)
+_INCLUDED_SECTION = re.compile(r"\bincluded\s+(?:studies|trials|articles|reports|rcts)\b", re.I)
 _EXCLUDED = re.compile(r"exclu", re.I)
 _RESULTS = re.compile(r"^\s*(?:\d+(?:\.\d+)*\.?\s*)?results?\b", re.I)
 _DASHES = {"-", "–", "—", "‒", "−"}
@@ -146,6 +147,7 @@ def assess(article: ET.Element, trial: dict) -> dict:
 
     signals: list[str] = []
     included = excluded = cited = False
+    strong = False  # a table row, included-studies section or included-studies reference list
 
     # Cochrane-style reference sub-lists: "Included studies", "Excluded studies".
     for anc in ancestors(ref):
@@ -155,7 +157,7 @@ def assess(article: ET.Element, trial: dict) -> dict:
                 excluded = True
                 signals.append(f"reference list: {title}")
             elif re.search(r"includ", title, re.I):
-                included = True
+                included = strong = True
                 signals.append(f"reference list: {title}")
 
     # Table rows that cite the trial or name its first author and year.
@@ -182,7 +184,7 @@ def assess(article: ET.Element, trial: dict) -> dict:
                 excluded = True
                 signals.append(f"excluded-studies table: {caption[:120]}")
             elif _INCLUDED_CAPTION.search(caption):
-                included = True
+                included = strong = True
                 signals.append(f"table: {caption[:120]}")
             else:
                 signals.append(f"other table: {caption[:120]}")
@@ -203,6 +205,9 @@ def assess(article: ET.Element, trial: dict) -> dict:
         if titles and any(_EXCLUDED.search(t) for t in titles):
             excluded = True
             signals.append(f"section: {path[:120]}")
+        elif any(_INCLUDED_SECTION.search(t) for t in titles):
+            included = strong = True
+            signals.append(f"included-studies section: {path[:120]}")
         elif titles and _RESULTS.match(titles[0]):
             included = True
             signals.append(f"Results: {path[:120]}")
@@ -210,7 +215,9 @@ def assess(article: ET.Element, trial: dict) -> dict:
             signals.append(f"section: {path[:120]}")
 
     signals = list(dict.fromkeys(signals))
+    result = {"signals": signals[:8], "ref_match": method}
     if included:
+        result["strength"] = "table" if strong else "results_citation"
         verdict = INCLUDED
     elif excluded:
         verdict = EXCLUDED
@@ -218,7 +225,7 @@ def assess(article: ET.Element, trial: dict) -> dict:
         verdict = OUTSIDE_RESULTS
     else:
         verdict = REFERENCE_ONLY
-    return {"verdict": verdict, "signals": signals[:8], "ref_match": method}
+    return {"verdict": verdict, **result}
 
 
 class HttpSession:
@@ -227,9 +234,13 @@ class HttpSession:
         self.timeout = timeout
         self.retries = retries
 
-    def get(self, url: str, data: dict | None = None) -> bytes:
-        body = urllib.parse.urlencode(data).encode() if data is not None else None
-        req = urllib.request.Request(url, data=body, headers={"User-Agent": self.user_agent})
+    def get(self, url: str, data: dict | None = None, post: bool = False) -> bytes:
+        """GET with ``data`` as the query string, or POST it as a form when ``post`` is set."""
+        query = urllib.parse.urlencode(data or {})
+        if post:
+            req = urllib.request.Request(url, data=query.encode(), headers={"User-Agent": self.user_agent})
+        else:
+            req = urllib.request.Request(f"{url}?{query}" if query else url, headers={"User-Agent": self.user_agent})
         delay = 2.0
         for attempt in range(self.retries + 1):
             try:
@@ -258,7 +269,7 @@ class PMCClient:
         self._sleep, self._clock, self._last = sleep, clock, float("-inf")
         self.requests_made = 0
 
-    def _call(self, url: str, data: dict) -> bytes:
+    def _call(self, url: str, data: dict, post: bool = False) -> bytes:
         wait = self.min_interval - (self._clock() - self._last)
         if wait > 0:
             self._sleep(wait)
@@ -267,10 +278,10 @@ class PMCClient:
         data = {**data, "tool": "fallout"}
         if self.email:
             data["email"] = self.email
-        return self.session.get(url, data)
+        return self.session.get(url, data, post=post)
 
-    def pmcids(self, dois: Iterable[str], batch_size: int = 200) -> dict[str, str]:
-        """Map DOI to PMCID ("PMC123") for the DOIs PMC holds."""
+    def pmcids(self, dois: Iterable[str], batch_size: int = 100) -> dict[str, str]:
+        """Map DOI to PMCID ("PMC123") for the DOIs PMC holds. The converter accepts GET only."""
         ids = sorted({d for d in dois if d})
         out = {}
         for i in range(0, len(ids), batch_size):
@@ -290,7 +301,7 @@ class PMCClient:
             data = {"db": "pmc", "retmode": "xml", "id": ",".join(p.removeprefix("PMC") for p in batch)}
             if self.api_key:
                 data["api_key"] = self.api_key
-            root = ET.fromstring(self._call(EFETCH_URL, data))
+            root = ET.fromstring(self._call(EFETCH_URL, data, post=True))
             for art in (a for a in root.iter() if _local(a.tag) == "article"):
                 for aid in art.iter():
                     if _local(aid.tag) == "article-id" and aid.get("pub-id-type") in ("pmc", "pmcid"):
