@@ -65,7 +65,8 @@ def _parse_date(text: str | None) -> date | None:
 
 def make_edge(trial: Retraction, work: dict, first_seen: str) -> dict:
     title = work.get("display_name") or work.get("title") or ""
-    cls = classify(title, work.get("type"))
+    doi = normalize_doi(work.get("doi"))
+    cls = classify(title, work.get("type"), doi=doi)
     pub = _parse_date(work.get("publication_date"))
     after = days = None
     if pub and trial.retraction_date:
@@ -76,7 +77,7 @@ def make_edge(trial: Retraction, work: dict, first_seen: str) -> dict:
         "relation": "cites",
         "citing": {
             "openalex_id": work.get("id"),
-            "doi": normalize_doi(work.get("doi")),
+            "doi": doi,
             "title": title,
             "publication_date": pub.isoformat() if pub else None,
             "type": work.get("type"),
@@ -155,16 +156,20 @@ def trace(
 
 
 def enrich_pubmed(ledger: dict, client) -> dict:
-    """Add PubMed publication types to citing works that have a PMID, and re-classify those edges."""
+    """Add PubMed publication types to citing works that have a PMID, then re-classify every edge.
+
+    Re-classifying all edges, not only those PubMed returned, lets classifier changes reach
+    edges recorded by earlier runs.
+    """
     pmids = {e["citing"].get("pmid") for e in ledger["edges"] if e["citing"].get("pmid")}
     types = client.publication_types(pmids)
     changed = 0
     for e in ledger["edges"]:
         pmid = e["citing"].get("pmid")
-        if pmid not in types:
-            continue
-        e["citing"]["pubmed_types"] = types[pmid]
-        cls = classify(e["citing"].get("title"), e["citing"].get("type"), types[pmid])
+        if pmid in types:
+            e["citing"]["pubmed_types"] = types[pmid]
+        c = e["citing"]
+        cls = classify(c.get("title"), c.get("type"), c.get("pubmed_types"), c.get("doi"))
         if cls.label != e["class"]:
             changed += 1
         e["class"], e["class_confidence"], e["class_reasons"] = cls.label, cls.confidence, cls.reasons

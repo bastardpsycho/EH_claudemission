@@ -26,6 +26,11 @@ _GUIDE = re.compile(
 # Titles about guidelines rather than guidelines themselves.
 _ABOUT_GUIDE = re.compile(r"\b(?:adherence|compliance|concordance)\s+(?:to|with)\b|\bappraisal\s+of\b", re.I)
 
+# Cochrane Database of Systematic Reviews: "<prefix>CDnnnnnn" is usually the protocol, and each
+# published review version gets ".pub2", ".pub3"... All 10 Cochrane reviews that VITALITY verified
+# but titles missed have such a suffix.
+_COCHRANE_REVIEW_VERSION = re.compile(r"^10\.1002/14651858\.cd\d+\.pub([2-9]|\d{2,})$", re.I)
+
 PUBMED_GUIDELINE_TYPES = {"practice guideline", "guideline", "consensus development conference"}
 PUBMED_META_TYPES = {"meta-analysis", "network meta-analysis"}
 PUBMED_SR_TYPES = {"systematic review"}
@@ -41,7 +46,12 @@ class Classification:
         return {"label": self.label, "confidence": self.confidence, "reasons": self.reasons}
 
 
-def classify(title: str | None, openalex_type: str | None = None, pubmed_types: list[str] | None = None) -> Classification:
+def classify(
+    title: str | None,
+    openalex_type: str | None = None,
+    pubmed_types: list[str] | None = None,
+    doi: str | None = None,
+) -> Classification:
     pub = {t.strip().lower() for t in (pubmed_types or [])}
     if pub & PUBMED_GUIDELINE_TYPES:
         return Classification(GUIDELINE, "high", [f"PubMed publication type: {sorted(pub & PUBMED_GUIDELINE_TYPES)[0]}"])
@@ -57,6 +67,8 @@ def classify(title: str | None, openalex_type: str | None = None, pubmed_types: 
         return Classification(META_ANALYSIS, "medium", [f"title matches: {_META.search(text).group(0)!r}"])
     if _SR.search(text):
         return Classification(SYSTEMATIC_REVIEW, "medium", [f"title matches: {_SR.search(text).group(0)!r}"])
+    if doi and _COCHRANE_REVIEW_VERSION.match(doi):
+        return Classification(SYSTEMATIC_REVIEW, "medium", ["Cochrane Database of Systematic Reviews DOI for a published review version (.pubN)"])
     reasons = ["no synthesis pattern in title"]
     if openalex_type == "review":
         reasons.append("OpenAlex type 'review' (often narrative; not counted as a synthesis)")
