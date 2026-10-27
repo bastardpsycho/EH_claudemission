@@ -1,6 +1,6 @@
 # Handover: Save Humanity / Fallout
 
-Pick-up file for the next Claude session. Written 2026-10-26 at about 17:45 UTC; sections 6, 7, 9 and 10 updated at about 18:30 UTC after the trace finished, and again at about 21:40 UTC after the VITALITY validation. Read this first, then `README.md`.
+Pick-up file for the next Claude session. Written 2026-10-26 at about 17:45 UTC; sections 6, 7, 9 and 10 updated at about 18:30 UTC after the trace finished, again at about 21:40 UTC after the VITALITY validation, and on 2026-10-27 at about 18:45 UTC after the wider population and the inclusion check (PRs #6 and #7). Read this first, then `README.md`.
 
 Owner: **Foot** (GitHub `bastardpsycho`). They described their role as "the interface, not the instructor": work autonomously, choose for yourself, and ask only when a human is genuinely needed. They value rigorous accuracy, so cite sources, flag uncertainty, and never round a caveat away.
 
@@ -96,13 +96,26 @@ Existing fixes each cover one slice:
 - `src/fallout/validate.py` reports population recall, citation and synthesis recall over verified pairs, and review-level agreement.
 - It also corrects three README statements about VITALITY (see section 3).
 
+**Open:** PR #6, wider population and Cochrane labels, https://github.com/bastardpsycho/EH_claudemission/pull/6 (branch `claude/rct-population`, **stacked on #5**).
+- `fallout pubtypes` fetches PubMed publication types for Health Sciences "Research Article" retractions, plus abstracts for the untyped ones (only the matched phrase is kept). `--population trials` adds records PubMed types as trials, or whose abstract describes random allocation of people.
+- Records carry `selected_by` and `subjects`. `fallout validate` reports a selection-precision proxy per rule.
+- Cochrane `.pubN` DOIs are labelled `systematic_review`, and `enrich` re-classifies every edge.
+
+**Open:** PR #7, `fallout inclusion`, https://github.com/bastardpsycho/EH_claudemission/pull/7 (branch `claude/inclusion`, **stacked on #6**).
+- Reads PMC full text (NCBI ID converter by GET, then efetch) and records an `inclusion` verdict with `strength` (`table` or `results_citation`), signals and source on synthesis edges.
+- `validate` scores the check on verified pairs and on negatives; the report and CSV show it.
+
+**Merge order: #4, #5, #6, #7.** Foot approved merging #4 and #5 on 2026-10-27, but the session's auto-mode permission check blocked the merge call, so a person (or a session with that permission) has to merge them.
+
 **Side branch `claude/findings-run`** (not for merging). It is `main` (as of PR #2) plus:
 - `.github/workflows/findings.yml` runs on push to this branch when the workflow or `scripts/summarize_findings.py` changes. It restores the partial ledger from the Actions cache (`findings-ledger-*`) and traces with `--limit 5000` under a 75-minute step timeout with `continue-on-error`. It then saves the cache, runs `fallout enrich`, runs the summary script, and commits `findings/` back to the branch.
 - `scripts/summarize_findings.py` writes `findings/summary.json` and `findings/syntheses_citing_after_retraction.csv`.
 - `scripts/summarize_findings.py` takes the RW CSV as an optional third argument and then also reports `trials_in_population`, `trials_untraced` and `trials_pending_retry` (commit `9445829`). It also counts `trials_citing_may_be_truncated` (commit `c03fcf1`).
 - Commit `3bd3609` passes `OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}` to the trace step.
-- Branch `claude/vitality-validation` is merged in, and `findings.yml` runs `fallout validate` into `findings/validation/`. The workflow also re-runs when `src/fallout/validate.py` or `validation/**` changes.
-- `findings/`: results of run 40374400563 (18:15 UTC, commit `4a21c17`), the first run with the key. **The trace is complete**: 747 trials in 5.5 minutes (the 607 untraced plus the 140 retries), zero errors. Run 40376496151 (18:23 UTC, commit `71e0571`) only re-summarised with the truncation count and changed no other number. Run 40405439120 (commit `660ce1c`) holds the latest validation output.
+- Branches `claude/vitality-validation`, `claude/rct-population` and `claude/inclusion` are merged in.
+- `findings.yml` runs, in order: `fallout pubtypes`, a trace with `--population trials`, `enrich`, `inclusion` (40-minute timeout, `continue-on-error`), cache save, summary, then `validate` twice. Output goes to `findings/validation/` (the clinical-study population) and `findings/validation-trials/`.
+- The workflow re-runs on changes to `src/fallout/**`, `validation/**`, the workflow itself or the summary script.
+- `findings/`: results of run 40374400563 (18:15 UTC, commit `4a21c17`), the first run with the key. **The trace is complete**: 747 trials in 5.5 minutes (the 607 untraced plus the 140 retries), zero errors. Run 40376496151 (18:23 UTC, commit `71e0571`) only re-summarised with the truncation count and changed no other number. Run 40560357475 (commit `e50ea54`, 2026-10-27) holds the latest output, including inclusion verdicts.
 
 ## 7. Results so far, with caveats
 
@@ -150,6 +163,33 @@ How to read it:
 - Spot check: of 25 random non-matching "meta-analysis" citations (after retraction, before the cut-off), 24 were syntheses by title and 1 was a commentary.
 - Takeaway: Fallout finds the citations (about 95%), but most synthesis citations of a retracted trial are not verified pooling. That supports keeping "cites" and makes step 4 (inclusion verification) the priority. The population filter is the biggest recall loss.
 
+### Wider population (PR #6; runs 40550938193 and 40554396901)
+
+- Of 14,709 Health Sciences research-article retractions, PubMed types 300 as trials and the abstract rule adds 181. The population is now 3,211; 3,080 were traced, 128 have no DOI and 3 were not found.
+- VITALITY trials in the population: 842 → **1,074 of 1,330 (80.8%)**; index trials 243 → 289 of 323. 185 VITALITY trials still have neither signal.
+- Selection-precision proxy: of each rule's trials retracted by 2024-11-05, the share in VITALITY's cohort:
+  - "Clinical Study" label: 34% (841 / 2,452);
+  - PubMed "Randomized Controlled Trial": 72% (153 / 214);
+  - abstract rules: 48% (75 / 156);
+  - PubMed "Clinical Trial" or "Controlled Clinical Trial": 3–9%, mostly non-randomised trials. These are still clinical studies, as with RW's own label.
+- The Cochrane rule cut verified reviews labelled "other" from 24 to 14. Synthesis recall is 93.2% on 737 checkable pairs.
+
+### Inclusion check (PR #7; run 40560357475)
+
+| | All synthesis citations | Published after retraction | >180 days after |
+|---|---|---|---|
+| Full text read (PMC) | 2,522 | 1,140 | 927 |
+| Inclusion evidence | 1,471 (58.3%) | 642 (56.3%) | 500 |
+| …from a table, included-studies section or list | 882 | 380 | 288 |
+| Cited only outside the Results | 879 | 411 | 343 |
+| Distinct syntheses with table evidence | 758 | **355** | **271** |
+
+- About two thirds of synthesis citations could not be checked: 4,298 are not in PMC, and 962 are in PMC without open full text.
+- On VITALITY's verified pairs, 259 of 267 (97.0%) show evidence, 73.4% from a table. On 22 negatives, 9 do, 4 from a table. The negatives test "pooled", not "included in the review"; their table hits look like real inclusions that VITALITY's meta-analyses did not count.
+- **Manual spot check:** in 20 random after-retraction citations with table evidence, the trial was listed as an included study in all 20. By the rule of three, that puts the 95% lower bound on precision at about 85%.
+- Not read: figures (forest plots) and supplementary files.
+- Headline for the report, with the caveats: at least 355 systematic reviews or meta-analyses published after a trial's retraction list that trial among their included studies, counting only the third of citing syntheses whose full text is open in PMC.
+
 ## 8. The OpenAlex API key (needs Foot)
 
 OpenAlex's authentication docs (https://developers.openalex.org/api-reference/authentication, read 2026-10-26):
@@ -175,6 +215,9 @@ Steps for Foot:
 - **Triggering the findings run.** A push to `claude/findings-run` starts it only if it touches `.github/workflows/findings.yml`, `scripts/summarize_findings.py`, `src/fallout/validate.py` or `validation/**`, and the commit message has no `[skip ci]`. `workflow_dispatch` won't work, because the workflow is not on the default branch.
 - **The run commits back to its own branch.** Pull before pushing to `claude/findings-run`.
 - **Cache keys.** `actions/cache/save` writes `findings-ledger-<run_id>`, and the next run restores the newest one by prefix. If the cache is evicted (after 7 days unused), the trace restarts from zero, which is fine with a key.
+- **NCBI from the container.** `eutils.ncbi.nlm.nih.gov` and the PMC ID converter work from the container, though handover section 9 once said PubMed returns 403. Europe PMC returned 503 on 2026-10-27. The ID converter accepts **GET only** (POST gets HTTP 400). Use this for live tests; the ledger itself lives only in the Actions cache.
+- **`continue-on-error` hides failures.** A failed step still reports "success". Check that the step's output file is non-empty (the first inclusion run died in 2 seconds unnoticed).
+- **Merging.** The auto-mode permission check denied `PUT /pulls/<n>/merge`, so merges need a person or an explicit permission rule.
 - **Remote-tracking refs.** The shallow clone tracks only `main`, so `git status` (and the stop hook) reports a pushed side branch as unpushed. Fix with `git config --add remote.origin.fetch '+refs/heads/<branch>:refs/remotes/origin/<branch>'` and a fetch.
 
 ## 10. Next steps, in order
@@ -182,10 +225,13 @@ Steps for Foot:
 1. ~~Get the key in place~~ (done, section 8).
 2. ~~Finish the trace~~ (done, run 40374400563; section 7 updated; decision report updated).
 3. ~~Validate against VITALITY~~ (done, PR #5; results in section 7). Follow-ups, in order of measured impact:
-   - **Widen the population.** Add RW "Research Article" records in Health Sciences and keep the RCTs, e.g. by PubMed publication type "Randomized Controlled Trial". That label alone costs 417 of VITALITY's 1,330 trials. Re-run `fallout validate` to measure the gain.
-   - **Classify Cochrane reviews.** The DOI prefix `10.1002/14651858.` marks the Cochrane Database of Systematic Reviews, but protocols share it, so check before labelling.
-   - **Check precision by hand.** Sample synthesis labels systematically, not by title alone.
-4. **Verify inclusion.** For open-access syntheses in PubMed Central, parse the included-studies list and record a separate `inclusion` field with its provenance. This answers the main critique.
+   - ~~Widen the population~~ (PR #6: 63% → 81% of VITALITY's trials).
+   - ~~Classify Cochrane reviews~~ (PR #6).
+   - **Check precision by hand.** Sample synthesis labels systematically, not by title alone. Still open.
+4. ~~Verify inclusion~~ (PR #7; results in section 7). Follow-ups:
+   - Widen coverage beyond PMC, e.g. Europe PMC full text, and publisher XML where licences allow.
+   - Read forest-plot study labels where figures carry text.
+   - Build a larger hand-checked set of "cited outside the Results" cases, to estimate how many hide inclusion in figures.
 5. **Link guidelines.** Import reference lists from NICE, WHO and MAGICapp, since many guidelines lack DOIs.
 6. **Recompute where the data is open.** Use leave-one-out on Cochrane open data packages and VITALITY reconstructions, with a provenance badge.
 7. **Publish the ledger** on GitHub Pages (needs Foot to enable Pages) and offer the feed to Cochrane, GIN and the VITALITY team.
