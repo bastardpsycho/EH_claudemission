@@ -14,10 +14,12 @@ from __future__ import annotations
 
 import csv
 import io
+import json
 import re
 import urllib.request
 from collections import Counter
 from dataclasses import dataclass, field, replace
+from pathlib import Path
 from datetime import date, datetime
 from typing import Iterable, Iterator
 
@@ -182,6 +184,35 @@ def select_retracted_trials(
     return out
 
 
+_RANDOM_ALLOCATION = re.compile(
+    r"(?<![\w-])(?:randomi[sz]ed|randomi[sz]ation|randomly\s+(?:assigned|allocated|divided|distributed|grouped))\b", re.I)
+_NOT_ALLOCATION = re.compile(r"\bnon[\s-]?randomi[sz]ed\b|\bquasi[\s-]?randomi[sz]ed\b", re.I)
+_SYNTHESIS_ABSTRACT = re.compile(r"\bmeta[\s-]?analys[ie]s\b|\bsystematic(?:al)?\s+review\b", re.I)
+_ANIMAL_OR_LAB = re.compile(r"\b(?:rats?|mice|mouse|murine|rabbits?|dogs|pigs|piglets|sheep|zebrafish|in vitro|cell lines?)\b", re.I)
+_PEOPLE = re.compile(r"\b(?:patients?|participants?|subjects|volunteers|women|men|children|adults|infants|neonates|adolescents)\b", re.I)
+
+
+def random_allocation_phrase(abstract: str | None) -> str | None:
+    """The phrase showing random allocation of people in an abstract, or None.
+
+    Conservative on purpose: the abstract must mention people, and abstracts that are
+    non- or quasi-randomised, reviews or meta-analyses, or that mention animals or
+    laboratory work are rejected (paper-mill animal studies often say "rats were randomly
+    divided"). "Randomly selected" (sampling, not allocation) does not match.
+    """
+    text = abstract or ""
+    m = _RANDOM_ALLOCATION.search(text)
+    if not m or _NOT_ALLOCATION.search(text) or _SYNTHESIS_ABSTRACT.search(text) or _ANIMAL_OR_LAB.search(text):
+        return None
+    return m.group(0).lower() if _PEOPLE.search(text) else None
+
+
+def load_selection_data(path: str | Path) -> tuple[dict[str, list[str]], dict[str, str]]:
+    """Read the JSON written by ``fallout pubtypes``: publication types and abstract signals by PMID."""
+    data = json.loads(Path(path).read_text())
+    return data["pubtypes"], data.get("abstract_signals", {})
+
+
 def health_science_research_articles(records: Iterable[Retraction]) -> list[Retraction]:
     """Full retractions labelled "Research Article" (not "Clinical Study") with a Health Sciences subject.
 
@@ -207,11 +238,13 @@ def select_population(
     population: str = "clinical-study",
     pubtypes: dict[str, list[str]] | None = None,
     article_types: Iterable[str] | None = DEFAULT_ARTICLE_TYPES,
+    abstract_signals: dict[str, str] | None = None,
 ) -> list[Retraction]:
     """Select the retracted studies to trace, each tagged with ``selected_by``.
 
     ``pubtypes`` maps PMID to PubMed publication types (see ``fallout pubtypes``) and is
-    required for ``population="trials"``.
+    required for ``population="trials"``. ``abstract_signals`` maps PMID to a phrase from
+    ``random_allocation_phrase``; such records are added when PubMed gives no trial type.
     """
     if population not in POPULATIONS:
         raise ValueError(f"unknown population {population!r}; choose from {POPULATIONS}")
@@ -224,8 +257,12 @@ def select_population(
         for rec in health_science_research_articles(records):
             types = set(pubtypes.get(rec.pmid or "", []))
             hit = [t for t in TRIAL_PUBLICATION_TYPES if t in types]
-            if hit and rec.key not in keys:
+            if rec.key in keys:
+                continue
+            if hit:
                 out.append(replace(rec, selected_by="pubmed:" + hit[0]))
+            elif abstract_signals and rec.pmid in abstract_signals:
+                out.append(replace(rec, selected_by="abstract:" + abstract_signals[rec.pmid]))
     return out
 
 

@@ -89,3 +89,25 @@ def test_trials_population_adds_pubmed_typed_health_science_articles():
         select_population(recs, "trials")
     with pytest.raises(ValueError):
         select_population(recs, "everything", pubtypes)
+
+
+def test_random_allocation_phrase():
+    from fallout.retractions import random_allocation_phrase as f
+    assert f("A total of 120 patients were randomly assigned to two groups.") == "randomly assigned"
+    assert f("This randomized controlled trial enrolled 80 women.") == "randomized"
+    assert f("Patients were randomly selected from the registry.") is None       # sampling, not allocation
+    assert f("A non-randomized comparison in 40 patients.") is None
+    assert f("Rats were randomly divided into four groups.") is None
+    assert f("Rats were randomly divided; findings may help patients.") is None   # animal study
+    assert f("A meta-analysis of randomized trials in patients.") is None
+    assert f("Samples were randomized to two assays.") is None                   # no people
+    assert f(None) is None
+
+
+def test_trials_population_uses_abstract_signals_after_pubmed_types():
+    from fallout.retractions import select_population
+    recs = [_rec("typed", ["Research Article"], pmid="1"), _rec("abs", ["Research Article"], pmid="2"),
+            _rec("none", ["Research Article"], pmid="3")]
+    got = select_population(recs, "trials", {"1": ["Randomized Controlled Trial"]}, abstract_signals={"1": "randomized", "2": "randomly assigned"})
+    assert [(r.record_id, r.selected_by) for r in got] == [
+        ("typed", "pubmed:Randomized Controlled Trial"), ("abs", "abstract:randomly assigned")]

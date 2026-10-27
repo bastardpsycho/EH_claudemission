@@ -1,4 +1,4 @@
-"""Fetch PubMed publication types (e.g. "Meta-Analysis", "Practice Guideline") via NCBI E-utilities.
+"""Fetch PubMed publication types (e.g. "Meta-Analysis", "Practice Guideline") and abstracts via NCBI E-utilities.
 
 Indexer-assigned publication types are a stronger signal than title patterns,
 so ``fallout enrich`` uses them to re-classify citing works that have a PMID.
@@ -13,9 +13,11 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
+import xml.etree.ElementTree as ET
 from typing import Callable, Iterable, Protocol
 
 ESUMMARY_URL = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi"
+EFETCH_URL = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"
 
 
 class PostSession(Protocol):
@@ -30,13 +32,16 @@ class UrllibPostSession:
         self.retries = retries
 
     def post_form(self, url: str, data: dict) -> dict:
+        return json.loads(self.post_bytes(url, data).decode("utf-8"))
+
+    def post_bytes(self, url: str, data: dict) -> bytes:
         body = urllib.parse.urlencode(data).encode()
         req = urllib.request.Request(url, data=body, headers={"User-Agent": self.user_agent})
         delay = 2.0
         for attempt in range(self.retries + 1):
             try:
                 with urllib.request.urlopen(req, timeout=self.timeout) as resp:
-                    return json.loads(resp.read().decode("utf-8"))
+                    return resp.read()
             except (urllib.error.HTTPError, urllib.error.URLError) as err:
                 code = getattr(err, "code", None)
                 if attempt < self.retries and (code is None or code in (429, 500, 502, 503, 504)):
@@ -44,7 +49,7 @@ class UrllibPostSession:
                     delay *= 2
                     continue
                 raise
-        return {}
+        return b""
 
 
 class PubMedClient:
@@ -67,6 +72,32 @@ class PubMedClient:
         self._last = float("-inf")
         self.requests_made = 0
 
+    def _throttle(self) -> None:
+        wait = self.min_interval - (self._clock() - self._last)
+        if wait > 0:
+            self._sleep(wait)
+        self._last = self._clock()
+        self.requests_made += 1
+
+    def abstracts(self, pmids: Iterable[str], batch_size: int = 200) -> dict[str, str]:
+        """Map each PMID to its abstract text (all sections joined). PMIDs without an abstract are left out."""
+        ids = sorted({p for p in pmids if p and p.isdigit()}, key=int)
+        out: dict[str, str] = {}
+        for i in range(0, len(ids), batch_size):
+            data = {"db": "pubmed", "retmode": "xml", "id": ",".join(ids[i:i + batch_size]), "tool": "fallout"}
+            if self.email:
+                data["email"] = self.email
+            if self.api_key:
+                data["api_key"] = self.api_key
+            self._throttle()
+            root = ET.fromstring(self.session.post_bytes(EFETCH_URL, data))
+            for art in root.iter("PubmedArticle"):
+                pmid = art.findtext("MedlineCitation/PMID")
+                text = " ".join(" ".join("".join(a.itertext()).split()) for a in art.iter("AbstractText"))
+                if pmid and text:
+                    out[pmid] = text
+        return out
+
     def publication_types(self, pmids: Iterable[str], batch_size: int = 200) -> dict[str, list[str]]:
         """Map each PMID to its publication types. PMIDs PubMed does not return are left out."""
         ids = sorted({p for p in pmids if p and p.isdigit()}, key=int)
@@ -78,12 +109,8 @@ class PubMedClient:
                 data["email"] = self.email
             if self.api_key:
                 data["api_key"] = self.api_key
-            wait = self.min_interval - (self._clock() - self._last)
-            if wait > 0:
-                self._sleep(wait)
-            self._last = self._clock()
+            self._throttle()
             resp = self.session.post_form(ESUMMARY_URL, data)
-            self.requests_made += 1
             result = resp.get("result") or {}
             for uid in result.get("uids") or []:
                 doc = result.get(uid) or {}

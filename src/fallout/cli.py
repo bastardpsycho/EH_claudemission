@@ -15,7 +15,7 @@ from .pubmed import PubMedClient
 from .report import render_all
 from .retractions import (
     DEFAULT_ARTICLE_TYPES, POPULATIONS, RW_CSV_URL, TRIAL_PUBLICATION_TYPES, health_science_research_articles,
-    read_records, select_population, summarize,
+    load_selection_data, random_allocation_phrase, read_records, select_population, summarize,
 )
 from .validate import load_vitality, validate
 
@@ -25,12 +25,12 @@ def _types(args) -> list[str] | None:
 
 
 def _population(args, records) -> list:
-    pubtypes = None
+    pubtypes = signals = None
     if args.population == "trials":
         if not args.pubtypes:
             raise SystemExit("--population trials needs --pubtypes (written by `fallout pubtypes`)")
-        pubtypes = json.loads(Path(args.pubtypes).read_text())["pubtypes"]
-    return select_population(records, args.population, pubtypes, _types(args))
+        pubtypes, signals = load_selection_data(args.pubtypes)
+    return select_population(records, args.population, pubtypes, _types(args), signals)
 
 
 def _add_source(p: argparse.ArgumentParser) -> None:
@@ -57,12 +57,17 @@ def cmd_pubtypes(args) -> int:
     candidates = health_science_research_articles(records)
     client = PubMedClient(email=args.email)
     types = client.publication_types(r.pmid for r in candidates if r.pmid)
-    trial_typed = sum(1 for r in candidates if r.pmid and set(types.get(r.pmid, [])) & set(TRIAL_PUBLICATION_TYPES))
-    out = {"source": "NCBI E-utilities esummary (PubMed publication types)", "fetched_at": ledger_mod._now(),
-           "candidates": len(candidates), "pubtypes": types}
+    typed = {r.pmid for r in candidates if r.pmid and set(types.get(r.pmid, [])) & set(TRIAL_PUBLICATION_TYPES)}
+    # For candidates PubMed does not type as a trial, look for random allocation in the abstract.
+    # Only the matched phrase is kept, not the abstract.
+    abstracts = client.abstracts(r.pmid for r in candidates if r.pmid and r.pmid not in typed)
+    signals = {pmid: phrase for pmid, text in abstracts.items() if (phrase := random_allocation_phrase(text))}
+    out = {"source": "NCBI E-utilities esummary (publication types) and efetch (abstracts)",
+           "fetched_at": ledger_mod._now(), "candidates": len(candidates), "pubtypes": types, "abstract_signals": signals}
     Path(args.out).write_text(json.dumps(out, sort_keys=True))
     print(json.dumps({"candidates": len(candidates), "with_pmid": sum(1 for r in candidates if r.pmid),
-                      "pmids_found": len(types), "trial_typed": trial_typed, "requests": client.requests_made}, indent=2))
+                      "pmids_found": len(types), "trial_typed": len(typed), "abstracts_read": len(abstracts),
+                      "abstract_random_allocation": len(signals), "requests": client.requests_made}, indent=2))
     return 0
 
 
@@ -147,7 +152,7 @@ def build_parser() -> argparse.ArgumentParser:
     _add_source(r)
     r.set_defaults(func=cmd_retractions)
 
-    pt = sub.add_parser("pubtypes", help="fetch PubMed publication types for Health Sciences research-article retractions")
+    pt = sub.add_parser("pubtypes", help="fetch PubMed publication types and abstract signals for Health Sciences research articles")
     pt.add_argument("--csv", default=RW_CSV_URL, help="Retraction Watch CSV path or URL (default: Crossref's GitLab mirror)")
     pt.add_argument("--out", default="rw_pubtypes.json")
     pt.add_argument("--email", help="contact email sent to NCBI (or NCBI_EMAIL)")

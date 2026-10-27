@@ -52,3 +52,25 @@ def _trials():
     yield Retraction(record_id="1", title="Trial of drug A versus placebo", journal="J", publisher="P",
                      article_types=["Clinical Study"], nature="Retraction", reasons=[], doi="10.1000/trial.1",
                      pmid=None, original_date=date(2015, 6, 1), retraction_date=date(2018, 1, 1), retraction_doi=None)
+
+
+class FakeBytes:
+    def __init__(self, xml):
+        self.xml, self.calls = xml, []
+
+    def post_bytes(self, url, data):
+        self.calls.append(data)
+        return self.xml.encode()
+
+
+def test_abstracts_join_sections_and_skip_missing():
+    xml = """<PubmedArticleSet>
+    <PubmedArticle><MedlineCitation><PMID>5</PMID><Article><Abstract>
+      <AbstractText Label="METHODS">Patients were <i>randomly</i> assigned.</AbstractText>
+      <AbstractText Label="RESULTS">It worked.</AbstractText></Abstract></Article></MedlineCitation></PubmedArticle>
+    <PubmedArticle><MedlineCitation><PMID>6</PMID><Article/></MedlineCitation></PubmedArticle>
+    </PubmedArticleSet>"""
+    s = FakeBytes(xml)
+    c = PubMedClient(session=s, min_interval=0)
+    assert c.abstracts(["6", "5", "x"]) == {"5": "Patients were randomly assigned. It worked."}
+    assert s.calls[0]["id"] == "5,6" and s.calls[0]["retmode"] == "xml"
